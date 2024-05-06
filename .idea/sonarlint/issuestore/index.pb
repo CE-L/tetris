@@ -1,7 +1,4 @@
 
-:
-
-tetris.iml,4\5\45acc4efc09b9b76901a858aa625ec49a32ae427
 I
 src/sorce/Ingredient.java,0\b\0b4057ef8a9857b6c5f9d2898b92a669227f818d
 C

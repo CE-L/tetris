@@ -20,35 +20,40 @@ public class Screen extends JFrame {
     private Image screenImage;
     private Graphics screenGraphic;
 
-    private Image introBackground = new ImageIcon(Main.class.getResource("../sorce/image/introBackground.jpg")).getImage();
-    private Image logo = new ImageIcon(Main.class.getResource("../sorce/image/logo.png")).getImage();
+    private final Image introBackground = new ImageIcon(Main.class.getResource("../sorce/image/introBackground.jpg")).getImage();
+    private final Image logo = new ImageIcon(Main.class.getResource("../sorce/image/logo.png")).getImage();
     private Image logoImage = logo;
-    private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../sorce/image/menuBar.png")));
+    private final JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../sorce/image/menuBar.png")));
 
     //버튼 자료 가져오기
-    private ImageIcon exitButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/exitButtonBasic.png"));
-    private ImageIcon exitButtonEntered = new ImageIcon(Main.class.getResource("../sorce/image/exitButtonEntered.png"));
+    private final ImageIcon exitButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/exitButtonBasic.png"));
+    private final ImageIcon exitButtonEntered = new ImageIcon(Main.class.getResource("../sorce/image/exitButtonEntered.png"));
 
-    private ImageIcon singleButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/singleButton.png"));
-    private ImageIcon singleButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/singleButtonPressed.png"));
+    private final ImageIcon singleButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/singleButton.png"));
+    private final ImageIcon singleButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/singleButtonPressed.png"));
 
-    private ImageIcon multiButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/multiButton.png"));
-    private ImageIcon multiButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/multiButtonPressed.png"));
+    private final ImageIcon multiButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/multiButton.png"));
+    private final ImageIcon multiButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/multiButtonPressed.png"));
 
-    private ImageIcon settingButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/settingButton.png"));
-    private ImageIcon settingButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/settingButtonPressed.png"));
+    private final ImageIcon settingButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/settingButton.png"));
+    private final ImageIcon settingButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/settingButtonPressed.png"));
 
-    private ImageIcon creditButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/creditButton.png"));
-    private ImageIcon creditButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/creditButtonPressed.png"));
+    private final ImageIcon creditButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/creditButton.png"));
+    private final ImageIcon creditButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/creditButtonPressed.png"));
 
-    private ImageIcon fourtyLineButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/fourtyLineButton.png"));
-    private ImageIcon fourtyLineButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/fourtyLineButtonPressed.png"));
+    private final ImageIcon fourtyLineButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/fourtyLineButton.png"));
+    private final ImageIcon fourtyLineButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/fourtyLineButtonPressed.png"));
 
-    private ImageIcon oneMinuteButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/oneMinuteButton.png"));
-    private ImageIcon oneMinuteButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/oneMinuteButtonPressed.png"));
+    private final ImageIcon oneMinuteButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/oneMinuteButton.png"));
+    private final ImageIcon oneMinuteButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/oneMinuteButtonPressed.png"));
 
-    private ImageIcon practiceButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/practiceButton.png"));
-    private ImageIcon practiceButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/practiceButtonPressed.png"));
+    private final ImageIcon practiceButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/practiceButton.png"));
+    private final ImageIcon practiceButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/practiceButtonPressed.png"));
+
+    private final ImageIcon backButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/backButton.png"));
+    private final ImageIcon backButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/backButtonPressed.png"));
+
+    //TODO 뒤로가기 버튼 싱글 플레이 각각, 싱글 플레이 메인화면, 누르면 메인 화면
 
     //버튼에 객체 할당
     private JButton exitButton = new JButton(exitButtonBasic);
@@ -62,7 +67,12 @@ public class Screen extends JFrame {
     private JButton oneMinuteButton = new JButton(oneMinuteButtonBasic);
     private JButton practiceButton = new JButton(practiceButtonBasic);
 
-    private int mouseX, mouseY;
+    private JButton backButton = new JButton(backButtonBasic);
+
+    private int mouseX;
+    private int mouseY;
+
+    private Music introMusic = new Music("introMusic.mp3",true);
 
     private Screens whatScreen = Screens.INTRO;
 
@@ -80,7 +90,6 @@ public class Screen extends JFrame {
         setLayout(null);
 
         //기본 배경음악 재생
-        Music introMusic = new Music("introMusic.mp3",true);
         introMusic.start();
 
         //exit 버튼 생성
@@ -251,8 +260,8 @@ public class Screen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 Music buttonPressedMusic = new Music("buttonClick.mp3",false);
                 buttonPressedMusic.start();
-                hideButtons();
                 whatScreen = Screens.FOURTYLINE;
+                changeScreen(whatScreen);
             }
         });
         add(fourtyLineButton);
@@ -280,8 +289,8 @@ public class Screen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 Music buttonPressedMusic = new Music("buttonClick.mp3",false);
                 buttonPressedMusic.start();
-                hideButtons();
-                whatScreen = Screens.FOURTYLINE;
+                whatScreen = Screens.ONEMINUTE;
+                changeScreen(whatScreen);
             }
         });
         add(oneMinuteButton);
@@ -309,11 +318,40 @@ public class Screen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 Music buttonPressedMusic = new Music("buttonClick.mp3",false);
                 buttonPressedMusic.start();
-                hideButtons();
-                whatScreen = Screens.FOURTYLINE;
+                whatScreen = Screens.PRATICE;
+                changeScreen(whatScreen);
             }
         });
         add(practiceButton);
+
+        //뒤로가기 버튼 생성
+        backButton.setVisible(false);
+        backButton.setBounds(0,30,143,144);
+        backButton.setBorderPainted(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setFocusPainted(false);
+        backButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                backButton.setIcon(backButtonPressed);
+                backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
+                buttonEnteredMusic.start();
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                backButton.setIcon(backButtonBasic);
+                backButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
+                buttonPressedMusic.start();
+                whatScreen = Screens.INTRO;
+                changeScreen(whatScreen);
+            }
+        });
+        add(backButton);
 
         //메뉴바 생성
         menuBar.setBounds(0,0,1280,30);
@@ -338,13 +376,17 @@ public class Screen extends JFrame {
     public void paint(Graphics g) {
         screenImage = createImage(SCREEN_WIDTH,SCREEN_HEIGHT);
         screenGraphic = screenImage.getGraphics();
-        screenDraw(screenGraphic);
+        screenDraw((Graphics2D)screenGraphic);
         g.drawImage(screenImage, 0, 0,null);
     }
 
-    public void screenDraw(Graphics g) {
+    public void screenDraw(Graphics2D g) {
         g.drawImage(introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
+        /*g.setColor(Color.white);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g.setFont(new Font("Ariel",Font.BOLD,30));
+        g.drawString("안녕",20,702);*/
         paintComponents(g);
         this.repaint();
     }
@@ -354,9 +396,13 @@ public class Screen extends JFrame {
         multiButton.setVisible(false);
         settingButton.setVisible(false);
         creditButton.setVisible(false);
+
         fourtyLineButton.setVisible(false);
         oneMinuteButton.setVisible(false);
         practiceButton.setVisible(false);
+
+        backButton.setVisible(false);
+
         logoImage = null;
     }
 
@@ -375,10 +421,33 @@ public class Screen extends JFrame {
                 fourtyLineButton.setVisible(true);
                 oneMinuteButton.setVisible(true);
                 practiceButton.setVisible(true);
+                backButton.setVisible(true);
             }
-            case MULTI -> hideButtons();
-            case SETTING -> hideButtons();
-            case CREDIT -> hideButtons();
+            case MULTI -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
+            case SETTING -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
+            case CREDIT -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
+
+            case FOURTYLINE -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
+            case ONEMINUTE -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
+            case PRATICE -> {
+                hideButtons();
+                backButton.setVisible(true);
+            }
         }
 
     }
