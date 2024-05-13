@@ -1,9 +1,11 @@
 package screen;
 
 
+import character.ExampleCharacter;
 import enums.Screens;
 import main.Main;
 import main.Music;
+import tetris.Player;
 
 import javax.swing.*;
 
@@ -52,8 +54,6 @@ public class Screen extends JFrame {
 
     private final ImageIcon backButtonBasic = new ImageIcon(Main.class.getResource("../sorce/image/backButton.png"));
     private final ImageIcon backButtonPressed = new ImageIcon(Main.class.getResource("../sorce/image/backButtonPressed.png"));
-
-    //TODO 뒤로가기 버튼 싱글 플레이 각각, 싱글 플레이 메인화면, 누르면 메인 화면
 
     //버튼에 객체 할당
     private JButton exitButton = new JButton(exitButtonBasic);
@@ -439,6 +439,7 @@ public class Screen extends JFrame {
             case FOURTYLINE -> {
                 hideButtons();
                 backButton.setVisible(true);
+                gameStart();
             }
             case ONEMINUTE -> {
                 hideButtons();
@@ -450,5 +451,9 @@ public class Screen extends JFrame {
             }
         }
 
+    }
+
+    public void gameStart() {
+        Player me = new Player("user",new ExampleCharacter());
     }
 }

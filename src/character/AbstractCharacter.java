@@ -3,11 +3,13 @@ package character;
 import enums.Difficulty;
 
 public abstract class AbstractCharacter {
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
 
-    private String skillName;
-    private String skillDescription;
-    private int coolTime;
-    private Difficulty skillDifficulty;
+    protected String skillName;
+    protected String skillDescription;
+    protected int coolTime;
+    protected Difficulty skillDifficulty;
+
+    public abstract void skill();
 }
