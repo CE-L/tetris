@@ -1,3 +1,3 @@
 
-S	java:S106"9Replace this use of System.out or System.err by a logger.(©юкЬъяяяя
-S	java:S1063"9Replace this use of System.out or System.err by a logger.(©юкЬъяяяя
+r	java:S106"+Replace this use of System.out by a logger.(©юкЬъяяяя8Йџ›Хш1J$3cb2dfb4-9bb9-4dfc-9222-b36fcfc8a1d0
+r	java:S1063"+Replace this use of System.out by a logger.(©юкЬъяяяя8Фџ›Хш1J$ad641bbc-0ac3-4d74-8c4b-9645727d1cd9

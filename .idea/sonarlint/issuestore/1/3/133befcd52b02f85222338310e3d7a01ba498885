@@ -1,0 +1,34 @@
+
+‘
+java:S1192s"PDefine a constant instead of duplicating this literal "buttonClick.mp3" 9 times.(ªùãİúÿÿÿÿJ$29a2f7b2-a319-459a-b935-1d916a8cb74a
+‰
+java:S1192i"MDefine a constant instead of duplicating this literal "buttonOn.mp3" 9 times.(›×ˆùJ$ae6ddd3c-6746-4e7e-8161-8a7c83dfc6f4
+m
+java:S2387","menuBar" is the name of a field in "Frame".(±ÒßşÿÿÿÿJ$c4b1782b-3373-4b3d-b865-312d0568bf88
+˜
+java:S1450"\Remove the "screenGraphic" field and declare it as a local variable in the relevant methods.(å‚Œ¾J$7b982ab0-8cc1-48ad-9fff-604757d6f754
+–
+java:S1450"ZRemove the "screenImage" field and declare it as a local variable in the relevant methods.(Ü •ğJ$fd2a023b-ca6c-4b96-baf5-b1d41efb012e
+i
+java:S1948"-Make "screenImage" transient or serializable.(Ü •ğJ$8b557289-d855-45bb-b629-c23839d43b44
+k
+java:S1948"/Make "screenGraphic" transient or serializable.(å‚Œ¾J$224c4e47-2258-422d-a90e-61b073431006
+r
+java:S1948"1Make "introBackground" transient or serializable.(ÎÆøïøÿÿÿÿJ$3952e954-a79f-4160-a91a-aa0858b16037
+g
+java:S1948"&Make "logo" transient or serializable.(´èÔûÿÿÿÿJ$2ca9a1aa-1460-4b53-b523-d1e3d8d8fff7
+g
+java:S1948"+Make "logoImage" transient or serializable.(Ô¬ÿJ$476ff453-b22d-4db9-bff5-a206fa8a05cc
+I
+java:S1948K",Make "introMusic" transient or serializable.(¿»„ë8›ÏÇ‚ù1
+Š
+java:S3252W"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿJ$12557b68-cbac-48af-a862-003133ef5cad
+Ÿ
+java:S2142w"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿJ$aa7f0a27-b24a-4322-beab-177a6a3a0f7c
+w
+java:S1161ø":Add the "@Override" annotation above this method signature(¶øÂÁJ$99ebd3e2-d92b-4100-ad30-36e567259bdb
+}	java:S125‚"<This block of commented-out lines of code should be removed.(Àİ¿«úÿÿÿÿJ$d4da363b-eca6-4cd0-a7fe-b2ce90f71adf
+x
+java:S1854É"6Remove this useless assignment to local variable "me".(ì“Ä©úÿÿÿÿJ$b813e6d0-6043-4af1-ae6e-6f6881a8c107
+i
+java:S1481É"'Remove this unused "me" local variable.(ì“Ä©úÿÿÿÿJ$4779054e-d571-4850-8759-7e055cc92a8d
