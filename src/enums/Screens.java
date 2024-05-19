@@ -1,13 +1,19 @@
 package enums;
 
 public enum Screens {
-    INTRO,
-    SINGLE,
-    MULTI,
-    SETTING,
-    CREDIT,
+    INTRO(0),
+    SINGLE(0),
+    MULTI(0),
+    SETTING(0),
+    CREDIT(0),
 
-    FOURTYLINE,
-    ONEMINUTE,
-    PRATICE;
+    FOURTYLINE(1),
+    ONEMINUTE(1),
+    PRATICE(1);
+
+    public int inGame;
+
+    Screens(int i) {
+        this.inGame = i;
+    }
 }

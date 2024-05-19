@@ -13,7 +13,7 @@ public class Player {
     private String name;
     private AbstractCharacter character;
 
-    private AbstactMino[][] field; //40,20
+    private Board field; //40,20
     private LimitedQueue<Minos> hold; //크기 1
     private Queue<Minos> next;
     private Minos now;
@@ -29,7 +29,7 @@ public class Player {
         /*if (this.character==) {
 
         }else*/
-        this.field = new AbstactMino[40][20];
+        this.field = new Board();
         this.hold = new LimitedQueue<>(1);
 
         this.next = new LinkedList<>();
@@ -37,5 +37,41 @@ public class Player {
         this.next.addAll(List.of(Minos.T.randomBag()));
 
         this.now = this.next.remove();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public AbstractCharacter getCharacter() {
+        return character;
+    }
+
+    public Board getField() {
+        return field;
+    }
+
+    public LimitedQueue<Minos> getHold() {
+        return hold;
+    }
+
+    public Queue<Minos> getNext() {
+        return next;
+    }
+
+    public Minos getNow() {
+        return now;
+    }
+
+    public Damage getRecievedDamage() {
+        return recievedDamage;
+    }
+
+    public Damage getSendDamage() {
+        return sendDamage;
+    }
+
+    public Damage getDangerDamge() {
+        return dangerDamge;
     }
 }

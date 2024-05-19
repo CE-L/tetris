@@ -3,8 +3,10 @@ package screen;
 
 import character.ExampleCharacter;
 import enums.Screens;
+import listener.KeyListener;
 import main.Main;
 import main.Music;
+import tetris.Game;
 import tetris.Player;
 
 import javax.swing.*;
@@ -74,7 +76,13 @@ public class Screen extends JFrame {
 
     private Music introMusic = new Music("introMusic.mp3",true);
 
-    private Screens whatScreen = Screens.INTRO;
+    private static Screens whatScreen = Screens.INTRO;
+
+    private Graphics2D graphics2D;
+
+    public static Game game = new Game();
+
+    public static Player NOWPLAYER;
 
 
     public Screen() {
@@ -88,6 +96,9 @@ public class Screen extends JFrame {
         setVisible(true);
         setBackground(new Color(0,0,0,0));
         setLayout(null);
+        NOWPLAYER = new Player("user",new ExampleCharacter());
+
+        addKeyListener(new KeyListener());
 
         //기본 배경음악 재생
         introMusic.start();
@@ -376,7 +387,8 @@ public class Screen extends JFrame {
     public void paint(Graphics g) {
         screenImage = createImage(SCREEN_WIDTH,SCREEN_HEIGHT);
         screenGraphic = screenImage.getGraphics();
-        screenDraw((Graphics2D)screenGraphic);
+        this.graphics2D = (Graphics2D)screenGraphic;
+        screenDraw(graphics2D);
         g.drawImage(screenImage, 0, 0,null);
     }
 
@@ -454,6 +466,11 @@ public class Screen extends JFrame {
     }
 
     public void gameStart() {
-        Player me = new Player("user",new ExampleCharacter());
+        game.screenDraw(graphics2D);
+        setFocusable(true);
+    }
+
+    public static Screens getWhatScreen() {
+        return whatScreen;
     }
 }
