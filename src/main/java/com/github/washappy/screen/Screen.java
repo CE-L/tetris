@@ -25,53 +25,24 @@ public class Screen extends JFrame {
     //기본 배경 자료 가져오기
     private Image screenImage;
     private Graphics screenGraphic;
+    private final IntroScreenRecources recources= new IntroScreenRecources();
 
-    private final Image introBackground = new ImageIcon(getClass().getResource("/images/introBackground.jpg")).getImage();
-    private final Image logo = new ImageIcon(getClass().getResource("/images/logo.png")).getImage();
-    private Image logoImage = logo;
-    private final JLabel menuBar = new JLabel(new ImageIcon(getClass().getResource("/images/menuBar.png")));
-
-    //버튼 자료 가져오기
-    private final ImageIcon exitButtonBasic = new ImageIcon(getClass().getResource("/images/exitButtonBasic.png"));
-    private final ImageIcon exitButtonEntered = new ImageIcon(getClass().getResource("/images/exitButtonEntered.png"));
-
-    private final ImageIcon singleButtonBasic = new ImageIcon(getClass().getResource("/images/singleButton.png"));
-    private final ImageIcon singleButtonPressed = new ImageIcon(getClass().getResource("/images/singleButtonPressed.png"));
-
-    private final ImageIcon multiButtonBasic = new ImageIcon(getClass().getResource("/images/multiButton.png"));
-    private final ImageIcon multiButtonPressed = new ImageIcon(getClass().getResource("/images/multiButtonPressed.png"));
-
-    private final ImageIcon settingButtonBasic = new ImageIcon(getClass().getResource("/images/settingButton.png"));
-    private final ImageIcon settingButtonPressed = new ImageIcon(getClass().getResource("/images/settingButtonPressed.png"));
-
-    private final ImageIcon creditButtonBasic = new ImageIcon(getClass().getResource("/images/creditButton.png"));
-    private final ImageIcon creditButtonPressed = new ImageIcon(getClass().getResource("/images/creditButtonPressed.png"));
-
-    private final ImageIcon fourtyLineButtonBasic = new ImageIcon(getClass().getResource("/images/fourtyLineButton.png"));
-    private final ImageIcon fourtyLineButtonPressed = new ImageIcon(getClass().getResource("/images/fourtyLineButtonPressed.png"));
-
-    private final ImageIcon oneMinuteButtonBasic = new ImageIcon(getClass().getResource("/images/oneMinuteButton.png"));
-    private final ImageIcon oneMinuteButtonPressed = new ImageIcon(getClass().getResource("/images/oneMinuteButtonPressed.png"));
-
-    private final ImageIcon practiceButtonBasic = new ImageIcon(getClass().getResource("/images/practiceButton.png"));
-    private final ImageIcon practiceButtonPressed = new ImageIcon(getClass().getResource("/images/practiceButtonPressed.png"));
-
-    private final ImageIcon backButtonBasic = new ImageIcon(getClass().getResource("/images/backButton.png"));
-    private final ImageIcon backButtonPressed = new ImageIcon(getClass().getResource("/images/backButtonPressed.png"));
+    private Image logoImage = recources.logo;
+    private final JLabel menuBar = new JLabel(recources.menuBarIcon);
 
     //버튼에 객체 할당
-    private JButton exitButton = new JButton(exitButtonBasic);
+    private JButton exitButton = new JButton(recources.exitButtonBasic);
 
-    private JButton singleButton = new JButton(singleButtonBasic);
-    private JButton multiButton = new JButton(multiButtonBasic);
-    private JButton settingButton = new JButton(settingButtonBasic);
-    private JButton creditButton = new JButton(creditButtonBasic);
+    private JButton singleButton = new JButton(recources.singleButtonBasic);
+    private JButton multiButton = new JButton(recources.multiButtonBasic);
+    private JButton settingButton = new JButton(recources.settingButtonBasic);
+    private JButton creditButton = new JButton(recources.creditButtonBasic);
 
-    private JButton fourtyLineButton = new JButton(fourtyLineButtonBasic);
-    private JButton oneMinuteButton = new JButton(oneMinuteButtonBasic);
-    private JButton practiceButton = new JButton(practiceButtonBasic);
+    private JButton fourtyLineButton = new JButton(recources.fourtyLineButtonBasic);
+    private JButton oneMinuteButton = new JButton(recources.oneMinuteButtonBasic);
+    private JButton practiceButton = new JButton(recources.practiceButtonBasic);
 
-    private JButton backButton = new JButton(backButtonBasic);
+    private JButton backButton = new JButton(recources.backButtonBasic);
 
     private int mouseX;
     private int mouseY;
@@ -79,12 +50,12 @@ public class Screen extends JFrame {
     private Music introMusic = new Music("introMusic.mp3",true);
 
     private static Screens whatScreen = Screens.INTRO;
-
     private Graphics2D graphics2D;
-
     public static Game game = new Game();
-
     public static Player NOWPLAYER;
+
+    //네비게이터
+    private Navigator nav = new Navigator();
 
 
     public Screen() {
@@ -107,26 +78,22 @@ public class Screen extends JFrame {
 
         //exit 버튼 생성
         exitButton.setBounds(1245,0,30,30);
-        exitButton.setBorderPainted(false);
-        exitButton.setContentAreaFilled(false);
-        exitButton.setFocusPainted(false);
+        setPaintSetting(exitButton);
         exitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                exitButton.setIcon(exitButtonEntered);
+                exitButton.setIcon(recources.exitButtonEntered);
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                exitButton.setIcon(exitButtonBasic);
+                exitButton.setIcon(recources.exitButtonBasic);
                 exitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 try {
                     Thread.sleep(235);
                 } catch (InterruptedException ex) {
@@ -139,27 +106,23 @@ public class Screen extends JFrame {
 
         //single 버튼 생성
         singleButton.setBounds(1050,300,200,200);
-        singleButton.setBorderPainted(false);
-        singleButton.setContentAreaFilled(false);
-        singleButton.setFocusPainted(false);
+        setPaintSetting(singleButton);
         singleButton.setOpaque(false);
         singleButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                singleButton.setIcon(singleButtonPressed);
+                singleButton.setIcon(recources.singleButtonPressed);
                 singleButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                singleButton.setIcon(singleButtonBasic);
+                singleButton.setIcon(recources.singleButtonBasic);
                 singleButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.SINGLE;
                 changeScreen(whatScreen);
             }
@@ -168,26 +131,23 @@ public class Screen extends JFrame {
 
         //multi 버튼 생성
         multiButton.setBounds(825,400,200,200);
-        multiButton.setBorderPainted(false);
-        multiButton.setContentAreaFilled(false);
-        multiButton.setFocusPainted(false);
+        setPaintSetting(multiButton);
+
         multiButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                multiButton.setIcon(multiButtonPressed);
+                multiButton.setIcon(recources.multiButtonPressed);
                 multiButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                multiButton.setIcon(multiButtonBasic);
+                multiButton.setIcon(recources.multiButtonBasic);
                 multiButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.MULTI;
                 changeScreen(whatScreen);
             }
@@ -196,26 +156,22 @@ public class Screen extends JFrame {
 
         //setting 버튼 생성
         settingButton.setBounds(600,500,200,200);
-        settingButton.setBorderPainted(false);
-        settingButton.setContentAreaFilled(false);
-        settingButton.setFocusPainted(false);
+        setPaintSetting(settingButton);
         settingButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                settingButton.setIcon(settingButtonPressed);
+                settingButton.setIcon(recources.settingButtonPressed);
                 settingButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                settingButton.setIcon(settingButtonBasic);
+                settingButton.setIcon(recources.settingButtonBasic);
                 settingButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.SETTING;
                 changeScreen(whatScreen);
             }
@@ -224,26 +180,22 @@ public class Screen extends JFrame {
 
         //credit 버튼 생성
         creditButton.setBounds(1125,575,143,144);
-        creditButton.setBorderPainted(false);
-        creditButton.setContentAreaFilled(false);
-        creditButton.setFocusPainted(false);
+        setPaintSetting(creditButton);
         creditButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                creditButton.setIcon(creditButtonPressed);
+                creditButton.setIcon(recources.creditButtonPressed);
                 creditButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                creditButton.setIcon(creditButtonBasic);
+                creditButton.setIcon(recources.creditButtonBasic);
                 creditButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.CREDIT;
                 changeScreen(whatScreen);
             }
@@ -253,26 +205,22 @@ public class Screen extends JFrame {
         //40라인 버튼 생성
         fourtyLineButton.setVisible(false);
         fourtyLineButton.setBounds(500,250,200,200);
-        fourtyLineButton.setBorderPainted(false);
-        fourtyLineButton.setContentAreaFilled(false);
-        fourtyLineButton.setFocusPainted(false);
+        setPaintSetting(fourtyLineButton);
         fourtyLineButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                fourtyLineButton.setIcon(fourtyLineButtonPressed);
+                fourtyLineButton.setIcon(recources.fourtyLineButtonPressed);
                 fourtyLineButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                fourtyLineButton.setIcon(fourtyLineButtonBasic);
+                fourtyLineButton.setIcon(recources.fourtyLineButtonBasic);
                 fourtyLineButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.FOURTY_LINE;
                 changeScreen(whatScreen);
             }
@@ -282,26 +230,22 @@ public class Screen extends JFrame {
         //1분 버튼 생성
         oneMinuteButton.setVisible(false);
         oneMinuteButton.setBounds(300,450,200,200);
-        oneMinuteButton.setBorderPainted(false);
-        oneMinuteButton.setContentAreaFilled(false);
-        oneMinuteButton.setFocusPainted(false);
+        setPaintSetting(oneMinuteButton);
         oneMinuteButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                oneMinuteButton.setIcon(oneMinuteButtonPressed);
+                oneMinuteButton.setIcon(recources.oneMinuteButtonPressed);
                 oneMinuteButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                oneMinuteButton.setIcon(oneMinuteButtonBasic);
+                oneMinuteButton.setIcon(recources.oneMinuteButtonBasic);
                 oneMinuteButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.ONE_MINUTE;
                 changeScreen(whatScreen);
             }
@@ -311,26 +255,22 @@ public class Screen extends JFrame {
         //연습 버튼 생성
         practiceButton.setVisible(false);
         practiceButton.setBounds(700,450,200,200);
-        practiceButton.setBorderPainted(false);
-        practiceButton.setContentAreaFilled(false);
-        practiceButton.setFocusPainted(false);
+        setPaintSetting(practiceButton);
         practiceButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                practiceButton.setIcon(practiceButtonPressed);
+                practiceButton.setIcon(recources.practiceButtonPressed);
                 practiceButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                practiceButton.setIcon(practiceButtonBasic);
+                practiceButton.setIcon(recources.practiceButtonBasic);
                 practiceButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.PRACTICE;
                 changeScreen(whatScreen);
             }
@@ -340,26 +280,22 @@ public class Screen extends JFrame {
         //뒤로가기 버튼 생성
         backButton.setVisible(false);
         backButton.setBounds(0,30,143,144);
-        backButton.setBorderPainted(false);
-        backButton.setContentAreaFilled(false);
-        backButton.setFocusPainted(false);
+        setPaintSetting(backButton);
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                backButton.setIcon(backButtonPressed);
+                backButton.setIcon(recources.backButtonPressed);
                 backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-                buttonEnteredMusic.start();
+                playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                backButton.setIcon(backButtonBasic);
+                backButton.setIcon(recources.backButtonBasic);
                 backButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
             public void mousePressed(MouseEvent e) {
-                Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-                buttonPressedMusic.start();
+                playButtonClick();
                 whatScreen = Screens.INTRO;
                 changeScreen(whatScreen);
             }
@@ -386,6 +322,22 @@ public class Screen extends JFrame {
         add(menuBar);
     }
 
+    private void setPaintSetting(JButton button){
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
+    }
+
+    private void playButtonOn(){
+        Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
+        buttonEnteredMusic.start();
+    }
+
+    private void playButtonClick(){
+        Music buttonPressedMusic = new Music("buttonClick.mp3",false);
+        buttonPressedMusic.start();
+    }
+
     public void paint(Graphics g) {
         screenImage = createImage(SCREEN_WIDTH,SCREEN_HEIGHT);
         screenGraphic = screenImage.getGraphics();
@@ -395,7 +347,7 @@ public class Screen extends JFrame {
     }
 
     public void screenDraw(Graphics2D g) {
-        g.drawImage(introBackground, 0, 0, null);
+        g.drawImage(recources.introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
         /*g.setColor(Color.white);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
@@ -428,7 +380,7 @@ public class Screen extends JFrame {
                 multiButton.setVisible(true);
                 settingButton.setVisible(true);
                 creditButton.setVisible(true);
-                logoImage = logo;
+                logoImage = recources.logo;
             }
             case SINGLE -> {
                 hideButtons();
