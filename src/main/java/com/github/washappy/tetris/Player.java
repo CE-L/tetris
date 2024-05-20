@@ -4,6 +4,7 @@ package com.github.washappy.tetris;
 import com.github.washappy.character.AbstractCharacter;
 import com.github.washappy.damage.Damage;
 import com.github.washappy.dataStructure.LimitedQueue;
+import com.github.washappy.tetris.mino.Minos;
 
 import java.util.LinkedList;
 import java.util.List;

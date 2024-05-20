@@ -1,6 +1,8 @@
 package com.github.washappy.tetris;
 
 
+import com.github.washappy.tetris.mino.AbstactMino;
+
 public class Board {
     private AbstactMino[][] field; //40,20
 

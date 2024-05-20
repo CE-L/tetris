@@ -1,42 +1,0 @@
-
-a
-java:S1192"KDefine a constant instead of duplicating this literal "rotate.mp3" 5 times.(Ç†ß‡
-<	java:S131""Add a default case to this switch.(“¶“âûÿÿÿÿ
-7
-java:S6205"Remove this redundant block.(´ƒåÊþÿÿÿÿ
-2
-java:S6205 "Remove this redundant block.(Œì“è
-7
-java:S6205#"Remove this redundant block.(å°¯ÿûÿÿÿÿ
-2
-java:S6205&"Remove this redundant block.(òÐ»¿
-C	java:S108)")Either remove or fill this block of code.(„öìïûÿÿÿÿ
->	java:S108,")Either remove or fill this block of code.(¹‘¥×
-7
-java:S6205/"Remove this redundant block.(ÖÐÛŠøÿÿÿÿ
-=	java:S1082")Either remove or fill this block of code.(¯©¼6
-^
-java:S1871G"HThis case's code block is the same as the block for the case on line 62.(òÐ»¿
-^
-java:S1871A"HThis case's code block is the same as the block for the case on line 62.(Œì“è
-c
-java:S1871D"HThis case's code block is the same as the block for the case on line 62.(å°¯ÿûÿÿÿÿ
-c
-java:S1871J"HThis case's code block is the same as the block for the case on line 62.(„öìïûÿÿÿÿ
-c
-java:S1871P"HThis case's code block is the same as the block for the case on line 62.(ÖÐÛŠøÿÿÿÿ
-^
-java:S1871M"HThis case's code block is the same as the block for the case on line 62.(¹‘¥×
-]
-java:S1871S"HThis case's code block is the same as the block for the case on line 62.(¯©¼6
-<	java:S131=""Add a default case to this switch.(“¶“âûÿÿÿÿ
-C	java:S108>")Either remove or fill this block of code.(´ƒåÊþÿÿÿÿ
->	java:S108A")Either remove or fill this block of code.(Œì“è
-C	java:S108D")Either remove or fill this block of code.(å°¯ÿûÿÿÿÿ
->	java:S108G")Either remove or fill this block of code.(òÐ»¿
-C	java:S108J")Either remove or fill this block of code.(„öìïûÿÿÿÿ
->	java:S108M")Either remove or fill this block of code.(¹‘¥×
-C	java:S108P")Either remove or fill this block of code.(ÖÐÛŠøÿÿÿÿ
-=	java:S108S")Either remove or fill this block of code.(¯©¼6
-D
-java:S1068")Remove this unused "board" private field.(åÌ–®þÿÿÿÿ
