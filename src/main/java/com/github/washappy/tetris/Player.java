@@ -58,10 +58,6 @@ public class Player {
         return next;
     }
 
-    public Minos getNow() {
-        return now;
-    }
-
     public Damage getRecievedDamage() {
         return recievedDamage;
     }
