@@ -1,42 +1,0 @@
-
-h
-java:S1192"KDefine a constant instead of duplicating this literal "rotate.mp3" 5 times.(Ç†ß‡8±ıƒù1
-C	java:S131""Add a default case to this switch.(“¶“âûÿÿÿÿ8¸ıƒù1
->
-java:S6205"Remove this redundant block.(´ƒåÊşÿÿÿÿ8¸ıƒù1
-9
-java:S6205"Remove this redundant block.(Œì“è8¸ıƒù1
->
-java:S6205!"Remove this redundant block.(å°¯ÿûÿÿÿÿ8¹ıƒù1
-9
-java:S6205$"Remove this redundant block.(òĞ»¿8¹ıƒù1
-J	java:S108'")Either remove or fill this block of code.(„öìïûÿÿÿÿ8¹ıƒù1
-E	java:S108*")Either remove or fill this block of code.(¹‘¥×8¹ıƒù1
->
-java:S6205-"Remove this redundant block.(ÖĞÛŠøÿÿÿÿ8ºıƒù1
-D	java:S1080")Either remove or fill this block of code.(¯©¼68ºıƒù1
-d
-java:S1871Q"HThis case's code block is the same as the block for the case on line 60.(¯©¼68»ıƒù1
-j
-java:S1871B"HThis case's code block is the same as the block for the case on line 60.(å°¯ÿûÿÿÿÿ8»ıƒù1
-e
-java:S1871?"HThis case's code block is the same as the block for the case on line 60.(Œì“è8»ıƒù1
-e
-java:S1871E"HThis case's code block is the same as the block for the case on line 60.(òĞ»¿8»ıƒù1
-j
-java:S1871N"HThis case's code block is the same as the block for the case on line 60.(ÖĞÛŠøÿÿÿÿ8»ıƒù1
-j
-java:S1871H"HThis case's code block is the same as the block for the case on line 60.(„öìïûÿÿÿÿ8»ıƒù1
-e
-java:S1871K"HThis case's code block is the same as the block for the case on line 60.(¹‘¥×8»ıƒù1
-C	java:S131;""Add a default case to this switch.(“¶“âûÿÿÿÿ8»ıƒù1
-J	java:S108<")Either remove or fill this block of code.(´ƒåÊşÿÿÿÿ8¼ıƒù1
-E	java:S108?")Either remove or fill this block of code.(Œì“è8¼ıƒù1
-J	java:S108B")Either remove or fill this block of code.(å°¯ÿûÿÿÿÿ8¼ıƒù1
-E	java:S108E")Either remove or fill this block of code.(òĞ»¿8¼ıƒù1
-J	java:S108H")Either remove or fill this block of code.(„öìïûÿÿÿÿ8¼ıƒù1
-E	java:S108K")Either remove or fill this block of code.(¹‘¥×8¼ıƒù1
-J	java:S108N")Either remove or fill this block of code.(ÖĞÛŠøÿÿÿÿ8¼ıƒù1
-D	java:S108Q")Either remove or fill this block of code.(¯©¼68¼ıƒù1
-K
-java:S1068")Remove this unused "board" private field.(åÌ–®şÿÿÿÿ8Àıƒù1

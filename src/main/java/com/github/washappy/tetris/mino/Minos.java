@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public enum Minos {
+
     T(0,0x8a2be2, new int[][][]{
 
             {{0,1,0,0},
@@ -181,6 +182,10 @@ public enum Minos {
 
     public int getNumber() {
         return number;
+    }
+
+    public int[][][] getRotation() {
+        return rotation;
     }
 
     public Minos[] randomBag() {

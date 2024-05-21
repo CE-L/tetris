@@ -18,7 +18,6 @@ public class Player {
     private Board field; //40,20
     private LimitedQueue<Minos> hold; //크기 1
     private Queue<Minos> next;
-    private Minos now;
 
 
     private Damage recievedDamage;
@@ -37,8 +36,6 @@ public class Player {
         this.next = new LinkedList<>();
         this.next.addAll(List.of(Minos.T.randomBag()));
         this.next.addAll(List.of(Minos.T.randomBag()));
-
-        this.now = this.next.remove();
     }
 
     public String getName() {

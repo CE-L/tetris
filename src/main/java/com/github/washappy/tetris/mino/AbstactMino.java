@@ -5,4 +5,24 @@ public abstract class AbstactMino {
     protected int rotated;
     protected int x;
     protected int y;
+
+    public static int START_X = 3;
+    public static int START_Y = 23;
+
+
+    public Minos getMino() {
+        return mino;
+    }
+
+    public int getRotated() {
+        return rotated;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
