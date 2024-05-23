@@ -54,6 +54,18 @@ public class NowMino extends AbstactMino{
         this.roation = roation;
     }
 
+    public NowMino getMoved(Move move) {
+        int[] m = move.getXY();
+        NowMino n = new NowMino(mino,x+m[0],y+m[1],roation);
+        return n;
+    }
+
+    public void move(Move move) {
+        int[] m = move.getXY();
+        this.x += m[0];
+        this.y += m[1];
+    }
+
     public NowMino getRotated(Rotates r) {
         NowMino n = new NowMino(mino,x,y);
         n.roation = n.rotate(r);

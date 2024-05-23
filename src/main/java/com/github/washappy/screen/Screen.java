@@ -338,6 +338,7 @@ public class Screen extends JFrame {
         buttonPressedMusic.start();
     }
 
+    @Override
     public void paint(Graphics g) {
         screenImage = createImage(SCREEN_WIDTH,SCREEN_HEIGHT);
         screenGraphic = screenImage.getGraphics();
@@ -422,6 +423,7 @@ public class Screen extends JFrame {
     public void gameStart() {
         game.screenDraw(graphics2D);
         setFocusable(true);
+        NOWPLAYER = new Player("user",new ExampleCharacter());
     }
 
     public static Screens getWhatScreen() {

@@ -34,7 +34,7 @@ public class Board {
         }
     }
 
-    private void nowDelete() {
+    public void nowDelete() {
         for (int[] i : nowMino.getCoodinates()) {
             int x = i[0];
             int y = i[1];
@@ -42,11 +42,11 @@ public class Board {
         }
     }
 
-    private void minoSummon(Minos minos, int roation) {
+    public void minoSummon(Minos minos, int roation) {
         minoSummon(minos,roation,new int[]{AbstactMino.START_X,AbstactMino.START_Y});
     }
 
-    private void minoSummon(Minos minos, int roation, int[] coodinate) {
+    public void minoSummon(Minos minos, int roation, int[] coodinate) {
         NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
         for (int[] i : now.getCoodinates()) {
             int x = i[0];
@@ -56,22 +56,41 @@ public class Board {
     }
 
     public boolean isMovePossible(Move move) {
-        //TODO
+
+        for (int[] i: nowMino.getMoved(move).getCoodinates()) {
+            int x = i[0];
+            int y = i[1];
+            if (field[x][y]!=null) {
+                return false;
+            }
+        }
         return true;
     }
 
     public void move(Move move) {
         if (isMovePossible(move)) {
-            //TODO
+            nowMino.move(move);
+            nowDelete();
+            minoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
         }
     }
 
     public void drop() {
-        //TODO
+        int i = 1;
+        while (isMovePossible(new Move(Direction.DOWN,i))) {
+            i+=1;
+        }
+        nowMino.move(new Move(Direction.DOWN,i));
+        nowDelete();
+        minoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
     }
 
-    public void hold() {
-        //TODO
+    public NowMino getNowMino() {
+        return nowMino;
+    }
+
+    public void setNowMino(NowMino nowMino) {
+        this.nowMino = nowMino;
     }
 
     public void goNextMino() {

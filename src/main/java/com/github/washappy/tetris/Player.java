@@ -5,6 +5,7 @@ import com.github.washappy.character.AbstractCharacter;
 import com.github.washappy.damage.Damage;
 import com.github.washappy.dataStructure.LimitedQueue;
 import com.github.washappy.tetris.mino.Minos;
+import com.github.washappy.tetris.mino.NowMino;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,6 +19,8 @@ public class Player {
     private Board field; //40,20
     private LimitedQueue<Minos> hold; //크기 1
     private Queue<Minos> next;
+
+    private boolean isHolded = false;
 
 
     private Damage recievedDamage;
@@ -68,5 +71,34 @@ public class Player {
 
     public Damage getDangerDamge() {
         return dangerDamge;
+    }
+
+    public boolean hold() {
+        if (hold.isEmpty()) {
+            hold.add(field.getNowMino().getMino());
+            field.nowDelete();
+
+            Minos nextMino = next.remove();
+            field.setNowMino(new NowMino(nextMino));
+            if (next.size()<=7) {
+                next.addAll(List.of(Minos.T.randomBag()));
+            }
+            field.minoSummon(nextMino,0);
+            isHolded = true;
+            return true;
+        } else {
+            if (!isHolded) {
+                Minos wasHold = hold.remove();
+                hold.add(field.getNowMino().getMino());
+                field.setNowMino(new NowMino(wasHold));
+
+                field.nowDelete();
+                field.minoSummon(field.getNowMino().getMino(),0);
+
+                isHolded = true;
+                return true;
+            }
+            return false;
+        }
     }
 }
