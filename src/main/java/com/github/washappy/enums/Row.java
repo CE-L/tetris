@@ -68,6 +68,6 @@ public enum Row {
 
     public Row getRandomRow() {
         Random random = new Random();
-        return getRow(random.nextInt(20));
+        return getRow(random.nextInt(10));
     }
 }

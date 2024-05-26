@@ -37,4 +37,16 @@ public class IntroScreenRecources {
 
     public final ImageIcon backButtonBasic = new ImageIcon(getClass().getResource("/images/backButton.png"));
     public final ImageIcon backButtonPressed = new ImageIcon(getClass().getResource("/images/backButtonPressed.png"));
+
+    public final Image tMino = new ImageIcon(getClass().getResource("/images/tMino.png")).getImage();
+    public final Image iMino = new ImageIcon(getClass().getResource("/images/iMino.png")).getImage();
+    public final Image oMino = new ImageIcon(getClass().getResource("/images/oMino.png")).getImage();
+    public final Image sMino = new ImageIcon(getClass().getResource("/images/sMino.png")).getImage();
+    public final Image zMino = new ImageIcon(getClass().getResource("/images/zMino.png")).getImage();
+    public final Image jMino = new ImageIcon(getClass().getResource("/images/jMino.png")).getImage();
+    public final Image lMino = new ImageIcon(getClass().getResource("/images/lMino.png")).getImage();
+
+    public final Image noMino = new ImageIcon(getClass().getResource("/images/noMino.png")).getImage();
+
+
 }

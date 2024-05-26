@@ -7,7 +7,10 @@ import com.github.washappy.Music;
 import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.listener.KeyListener;
+import com.github.washappy.tetris.Board;
 import com.github.washappy.tetris.Player;
+import com.github.washappy.tetris.mino.AbstactMino;
+import com.github.washappy.tetris.mino.NowMino;
 import tetris.Game;
 
 import javax.swing.*;
@@ -16,6 +19,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Arrays;
 
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
@@ -44,6 +48,9 @@ public class Screen extends JFrame {
 
     private JButton backButton = new JButton(recources.backButtonBasic);
 
+    //칸마다 객체 할당
+    private Image[][] fieldImages = new Image[10][40];
+
     private int mouseX;
     private int mouseY;
 
@@ -69,7 +76,7 @@ public class Screen extends JFrame {
         setVisible(true);
         setBackground(new Color(0,0,0,0));
         setLayout(null);
-        NOWPLAYER = new Player("user",new ExampleCharacter());
+        //NOWPLAYER = new Player("user",new ExampleCharacter());
 
         addKeyListener(new KeyListener());
 
@@ -350,6 +357,21 @@ public class Screen extends JFrame {
     public void screenDraw(Graphics2D g) {
         g.drawImage(recources.introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
+
+        if (NOWPLAYER!=null) {
+            updateField();
+        }
+
+        int x = 0;
+        for (Image[] i : fieldImages) {
+            int y = 0;
+            for (Image j : i) {
+                g.drawImage(fieldImages[x][y],400+20*x,700-20*y,null);
+                y+=1;
+            }
+            x+=1;
+        }
+
         /*g.setColor(Color.white);
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g.setFont(new Font("Ariel",Font.BOLD,30));
@@ -371,6 +393,9 @@ public class Screen extends JFrame {
         backButton.setVisible(false);
 
         logoImage = null;
+        for (Image[] i : fieldImages) {
+            Arrays.fill(i,new IntroScreenRecources().noMino);
+        }
     }
 
     public void changeScreen(Screens s){
@@ -423,7 +448,50 @@ public class Screen extends JFrame {
     public void gameStart() {
         game.screenDraw(graphics2D);
         setFocusable(true);
-        NOWPLAYER = new Player("user",new ExampleCharacter());
+        for (Image[] i : fieldImages) {
+            Arrays.fill(i,new IntroScreenRecources().noMino);
+        }
+        NOWPLAYER = new Player("user", new ExampleCharacter());
+    }
+
+    public void updateField() {
+
+        IntroScreenRecources recources = new IntroScreenRecources();
+
+        AbstactMino[][] board = NOWPLAYER.getField().getField();
+
+        int[][] temp = new int[10][40];
+
+        int x = 0;
+        System.out.println(NOWPLAYER.getField().getNowMino().getMino().getNumber());
+        System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+        for (AbstactMino[] i : board) {
+            int y = 0;
+            for (AbstactMino j : i) {
+                if (j == null) {
+                    fieldImages[x][y] = recources.noMino;
+                    temp[x][y] = 0;
+                } else {
+                    temp[x][y] = j.getMino().getNumber();
+                    fieldImages[x][y] = switch (j.getMino()) {
+                        case T -> recources.tMino;
+                        case I -> recources.iMino;
+                        case O -> recources.oMino;
+                        case J -> recources.jMino;
+                        case L -> recources.lMino;
+                        case S -> recources.sMino;
+                        case Z -> recources.zMino;
+                        default -> recources.noMino;
+                    };
+                }
+                y+=1;
+            }
+            x+=1;
+        }
+        for (int i = 0; i<temp.length; i++) {
+            System.out.println(Arrays.toString(temp[i]));
+        }
+        System.out.println("------------------------");
     }
 
     public static Screens getWhatScreen() {

@@ -16,7 +16,7 @@ public class Player {
     private String name;
     private AbstractCharacter character;
 
-    private Board field; //40,20
+    private Board field; //40,10
     private LimitedQueue<Minos> hold; //크기 1
     private Queue<Minos> next;
 
@@ -39,6 +39,8 @@ public class Player {
         this.next = new LinkedList<>();
         this.next.addAll(List.of(Minos.T.randomBag()));
         this.next.addAll(List.of(Minos.T.randomBag()));
+
+        getNextMino();
     }
 
     public String getName() {
@@ -93,12 +95,20 @@ public class Player {
                 field.setNowMino(new NowMino(wasHold));
 
                 field.nowDelete();
-                field.minoSummon(field.getNowMino().getMino(),0);
+                field.minoSummon(field.getNowMino());
 
                 isHolded = true;
                 return true;
             }
             return false;
         }
+    }
+
+    public void getNextMino() {
+        field.setNowMino(new NowMino(next.remove()));
+        if (next.size()<=7) {
+            next.addAll(List.of(Minos.T.randomBag()));
+        }
+        field.minoSummon(field.getNowMino());
     }
 }

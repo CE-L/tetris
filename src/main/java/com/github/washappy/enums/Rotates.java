@@ -1,4 +1,4 @@
-package com.github.washappy.tetris.mino;
+package com.github.washappy.enums;
 
 public enum Rotates {
     CLOCKWISE,

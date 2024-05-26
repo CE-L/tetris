@@ -1,5 +1,7 @@
 package com.github.washappy.tetris.mino;
 
+import com.github.washappy.enums.Rotates;
+
 public class NowMino extends AbstactMino{
 
     private int roation = 0;
@@ -76,14 +78,16 @@ public class NowMino extends AbstactMino{
 
         int[][] ret = new int[4][2];
         int k = 0;
-        int p = 0;
 
+        int p = 0;
         for (int[] i: mino.getRotation()[roation]) {
+            int q = 0;
             for (int j : i) {
                 if (j==1) {
-                    ret[k] = new int[]{x+j, y+p};
+                    ret[k] = new int[]{x+q, y+p};
                     k+=1;
                 }
+                q+=1;
             }
             p+=1;
         }

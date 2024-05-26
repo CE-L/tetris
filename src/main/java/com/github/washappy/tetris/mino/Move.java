@@ -1,5 +1,7 @@
 package com.github.washappy.tetris.mino;
 
+import com.github.washappy.enums.Direction;
+
 public class Move {
     private int amount;
     private Direction direction;

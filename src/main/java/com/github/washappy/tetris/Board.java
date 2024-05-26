@@ -1,14 +1,18 @@
 package com.github.washappy.tetris;
 
 
+import com.github.washappy.enums.Direction;
+import com.github.washappy.enums.Rotates;
 import com.github.washappy.tetris.mino.*;
 
+import java.util.Arrays;
+
 public class Board {
-    private AbstactMino[][] field; //20,40
+    private AbstactMino[][] field; //10,40
     private NowMino nowMino;
 
     public Board() {
-        this.field = new AbstactMino[20][40];
+        this.field = new AbstactMino[10][40];
     }
 
     public AbstactMino[][] getField() {
@@ -42,13 +46,19 @@ public class Board {
         }
     }
 
+    public void minoSummon(NowMino nowMino) {
+        minoSummon(nowMino.getMino(),0);
+    }
+
     public void minoSummon(Minos minos, int roation) {
         minoSummon(minos,roation,new int[]{AbstactMino.START_X,AbstactMino.START_Y});
     }
 
     public void minoSummon(Minos minos, int roation, int[] coodinate) {
         NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
+        System.out.println("----");
         for (int[] i : now.getCoodinates()) {
+            System.out.println(Arrays.toString(i));
             int x = i[0];
             int y = i[1];
             field[x][y] = new NowMino(minos,x,y);

@@ -85,6 +85,8 @@ public class KeyListener extends KeyAdapter {
     }
     public KeyListener(){
         this.player = NOWPLAYER;
-        this.board = player.getField();
+        if (NOWPLAYER!=null) {
+            this.board = player.getField();
+        }
     }
 }
