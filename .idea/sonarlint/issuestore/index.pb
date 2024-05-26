@@ -20,8 +20,6 @@ b
 2src/main/java/com/github/washappy/tetris/Game.java,5\a\5a9e8cea4d2a5b064712e0d0ed6f0d38422c0972
 l
 <src/main/java/com/github/washappy/tetris/mino/Direction.java,f\7\f749ca8b3d1e092bbb5a5a9e32d0dad857cac584
-m
-=src/main/java/com/github/washappy/tetris/mino/PlacedMino.java,7\8\780600ad24b7c7b9e85e68024775fd25508db5e8
 [
 +src/main/java/com/github/washappy/Main.java,f\b\fbf5c9e788385ff2e3cc745174e3de7b0e87e0e9
 q

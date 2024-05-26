@@ -2,6 +2,8 @@ package com.github.washappy.tetris.mino;
 
 import com.github.washappy.enums.Rotates;
 
+import java.util.Arrays;
+
 public class NowMino extends AbstactMino{
 
     private int roation = 0;
@@ -13,17 +15,17 @@ public class NowMino extends AbstactMino{
     public int rotate(Rotates roationType) {
         switch (roationType) {
             case CLOCKWISE -> {
-                if (roation<3) {
-                    roation+=1;
-                } else {
-                    roation = 0;
-                }
-            }
-            case COUNTERCLOCKWISE -> {
                 if (roation>0) {
                     roation-=1;
                 } else {
                     roation = 3;
+                }
+            }
+            case COUNTERCLOCKWISE -> {
+                if (roation<3) {
+                    roation+=1;
+                } else {
+                    roation = 0;
                 }
             }
             case HUNDREDWEIGHT -> {
@@ -58,8 +60,8 @@ public class NowMino extends AbstactMino{
 
     public NowMino getMoved(Move move) {
         int[] m = move.getXY();
-        NowMino n = new NowMino(mino,x+m[0],y+m[1],roation);
-        return n;
+        //System.out.println(Arrays.toString(m));
+        return new NowMino(mino,x+m[0],y+m[1],roation);
     }
 
     public void move(Move move) {

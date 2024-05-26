@@ -5,8 +5,6 @@ import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Rotates;
 import com.github.washappy.tetris.mino.*;
 
-import java.util.Arrays;
-
 public class Board {
     private AbstactMino[][] field; //10,40
     private NowMino nowMino;
@@ -23,7 +21,10 @@ public class Board {
         for (int[] i: nowMino.getRotated(rotates).getCoodinates()) {
             int x = i[0];
             int y = i[1];
-            if (field[x][y]!=null) {
+            if ((x<0 || y<=0) || (x>9 || y>=39)) {
+                return false;
+            }
+            if (field[x][y]!=null && !(field[x][y] instanceof NowMino)) {
                 return false;
             }
         }
@@ -32,9 +33,9 @@ public class Board {
 
     public void rotate(Rotates rotates) {
         if (isRotatePossible(rotates)) {
-            nowMino.rotate(rotates);
             nowDelete();
-            minoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+            nowMino.rotate(rotates);
+            nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
         }
     }
 
@@ -46,31 +47,44 @@ public class Board {
         }
     }
 
-    public void minoSummon(NowMino nowMino) {
-        minoSummon(nowMino.getMino(),0);
+    public void nowMinoSummon(NowMino nowMino) {
+        nowMinoSummon(nowMino.getMino(),0);
     }
 
-    public void minoSummon(Minos minos, int roation) {
-        minoSummon(minos,roation,new int[]{AbstactMino.START_X,AbstactMino.START_Y});
+    public void nowMinoSummon(Minos minos, int roation) {
+        nowMinoSummon(minos,roation,new int[]{AbstactMino.START_X,AbstactMino.START_Y});
     }
 
-    public void minoSummon(Minos minos, int roation, int[] coodinate) {
+    public void nowMinoSummon(Minos minos, int roation, int[] coodinate) {
         NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
-        System.out.println("----");
         for (int[] i : now.getCoodinates()) {
-            System.out.println(Arrays.toString(i));
+            //System.out.println(Arrays.toString(i));
             int x = i[0];
             int y = i[1];
             field[x][y] = new NowMino(minos,x,y);
         }
     }
 
+    public void placedMinoSummon(Minos minos, int roation, int[] coodinate) {
+        NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
+        for (int[] i : now.getCoodinates()) {
+            //System.out.println(Arrays.toString(i));
+            int x = i[0];
+            int y = i[1];
+            field[x][y] = new PlacedMino(minos,x,y);
+        }
+    }
+
     public boolean isMovePossible(Move move) {
 
         for (int[] i: nowMino.getMoved(move).getCoodinates()) {
+            //System.out.println(Arrays.toString(i));
             int x = i[0];
             int y = i[1];
-            if (field[x][y]!=null) {
+            if ((x<0 || y<0) || (x>9 || y>=39)) {
+                return false;
+            }
+            if (field[x][y]!=null && !(field[x][y] instanceof NowMino)) {
                 return false;
             }
         }
@@ -79,20 +93,25 @@ public class Board {
 
     public void move(Move move) {
         if (isMovePossible(move)) {
-            nowMino.move(move);
+            System.out.println("yes");
             nowDelete();
-            minoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+            nowMino.move(move);
+            nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+        } else {
+            System.out.println("no");
         }
     }
 
     public void drop() {
-        int i = 1;
+        System.out.println("drop");
+        int i = 0;
         while (isMovePossible(new Move(Direction.DOWN,i))) {
-            i+=1;
+            i-=1;
         }
-        nowMino.move(new Move(Direction.DOWN,i));
+        i+=1;
         nowDelete();
-        minoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+        nowMino.move(new Move(Direction.DOWN,i));
+        placedMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
     }
 
     public NowMino getNowMino() {

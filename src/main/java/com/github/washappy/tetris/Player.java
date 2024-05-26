@@ -85,7 +85,7 @@ public class Player {
             if (next.size()<=7) {
                 next.addAll(List.of(Minos.T.randomBag()));
             }
-            field.minoSummon(nextMino,0);
+            field.nowMinoSummon(nextMino,0);
             isHolded = true;
             return true;
         } else {
@@ -95,7 +95,7 @@ public class Player {
                 field.setNowMino(new NowMino(wasHold));
 
                 field.nowDelete();
-                field.minoSummon(field.getNowMino());
+                field.nowMinoSummon(field.getNowMino());
 
                 isHolded = true;
                 return true;
@@ -109,6 +109,11 @@ public class Player {
         if (next.size()<=7) {
             next.addAll(List.of(Minos.T.randomBag()));
         }
-        field.minoSummon(field.getNowMino());
+        field.nowMinoSummon(field.getNowMino());
+    }
+
+    public void drop() {
+        field.drop();
+        getNextMino();
     }
 }
