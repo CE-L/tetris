@@ -34,6 +34,12 @@ public class Screen extends JFrame {
     private Image logoImage = recources.logo;
     private final JLabel menuBar = new JLabel(recources.menuBarIcon);
 
+    private Image boardImage = null;
+    private Image holdImage = null;
+    private Image holdMinoImage = null;
+    private Image nextImage = null;
+    private Image[] nextMinoImages = new Image[5];
+
     //버튼에 객체 할당
     private JButton exitButton = new JButton(recources.exitButtonBasic);
 
@@ -357,6 +363,10 @@ public class Screen extends JFrame {
     public void screenDraw(Graphics2D g) {
         g.drawImage(recources.introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
+        g.drawImage(boardImage,400,320,null);
+        g.drawImage(holdImage,400-120,320,null);
+        g.drawImage(holdMinoImage,400-120,320+40,null);
+        //TODO next
 
         if (NOWPLAYER!=null) {
             updateField();
@@ -393,6 +403,13 @@ public class Screen extends JFrame {
         backButton.setVisible(false);
 
         logoImage = null;
+        boardImage = null;
+        holdImage = null;
+        nextImage = null;
+
+        NOWPLAYER = null;
+
+        holdMinoImage = null;
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroScreenRecources().noMino);
         }
@@ -448,6 +465,9 @@ public class Screen extends JFrame {
     public void gameStart() {
         game.screenDraw(graphics2D);
         setFocusable(true);
+        boardImage = recources.boardImage;
+        holdImage = recources.holdImage;
+        //nextImage = TODO
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroScreenRecources().noMino);
         }
@@ -463,8 +483,8 @@ public class Screen extends JFrame {
         int[][] temp = new int[10][40];
 
         int x = 0;
-        System.out.println(NOWPLAYER.getField().getNowMino().getMino().getNumber());
-        System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+        //System.out.println(NOWPLAYER.getField().getNowMino().getMino().getNumber());
+        //System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ");
         for (AbstactMino[] i : board) {
             int y = 0;
             for (AbstactMino j : i) {
@@ -488,10 +508,28 @@ public class Screen extends JFrame {
             }
             x+=1;
         }
-        for (int i = 0; i<temp.length; i++) {
+
+        if (NOWPLAYER.getHold()==null || NOWPLAYER.getHold().peek()==null) {
+            holdMinoImage = recources.no;
+        } else {
+            holdMinoImage = switch (NOWPLAYER.getHold().peek()) {
+                case I -> recources.i;
+                case T -> recources.t;
+                case O -> recources.o;
+                case L -> recources.l;
+                case J -> recources.j;
+                case S -> recources.s;
+                case Z -> recources.z;
+                default -> recources.no;
+            };
+        }
+
+        //TODO nextMinoImage
+
+        /*for (int i = 0; i<temp.length; i++) {
             System.out.println(Arrays.toString(temp[i]));
         }
-        System.out.println("------------------------");
+        System.out.println("------------------------");*/
     }
 
     public static Screens getWhatScreen() {

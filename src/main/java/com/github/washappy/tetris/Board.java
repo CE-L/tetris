@@ -21,7 +21,7 @@ public class Board {
         for (int[] i: nowMino.getRotated(rotates).getCoodinates()) {
             int x = i[0];
             int y = i[1];
-            if ((x<0 || y<=0) || (x>9 || y>=39)) {
+            if ((x<=0 || y<0) || (x>=9 || y>=39)) {
                 return false;
             }
             if (field[x][y]!=null && !(field[x][y] instanceof NowMino)) {
@@ -33,12 +33,17 @@ public class Board {
 
     public void rotate(Rotates rotates) {
         if (isRotatePossible(rotates)) {
-            nowDelete();
-            nowMino.rotate(rotates);
-            nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+            try {
+                nowDelete();
+                nowMino.rotate(rotates);
+                nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+            } catch (ArrayIndexOutOfBoundsException exception) {
+                System.out.println(exception.getMessage());
+            }
         }
     }
 
+    //TODO 뭔가 회전이나 이것 저것이 상하, 좌우 반전인듯
     public void nowDelete() {
         for (int[] i : nowMino.getCoodinates()) {
             int x = i[0];

@@ -90,6 +90,8 @@ public class Player {
             return true;
         } else {
             if (!isHolded) {
+                field.nowDelete();
+
                 Minos wasHold = hold.remove();
                 hold.add(field.getNowMino().getMino());
                 field.setNowMino(new NowMino(wasHold));
@@ -115,5 +117,6 @@ public class Player {
     public void drop() {
         field.drop();
         getNextMino();
+        isHolded = false;
     }
 }

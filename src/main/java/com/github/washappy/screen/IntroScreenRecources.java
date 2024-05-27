@@ -48,5 +48,17 @@ public class IntroScreenRecources {
 
     public final Image noMino = new ImageIcon(getClass().getResource("/images/noMino.png")).getImage();
 
+    public final Image boardImage = new ImageIcon(getClass().getResource("/images/board.png")).getImage();
+    public final Image holdImage = new ImageIcon(getClass().getResource("/images/hold.png")).getImage();
+
+    public final Image t = new ImageIcon(getClass().getResource("/images/t.png")).getImage();
+    public final Image i = new ImageIcon(getClass().getResource("/images/i.png")).getImage();
+    public final Image o = new ImageIcon(getClass().getResource("/images/o.png")).getImage();
+    public final Image s = new ImageIcon(getClass().getResource("/images/s.png")).getImage();
+    public final Image z = new ImageIcon(getClass().getResource("/images/z.png")).getImage();
+    public final Image j = new ImageIcon(getClass().getResource("/images/j.png")).getImage();
+    public final Image l = new ImageIcon(getClass().getResource("/images/l.png")).getImage();
+
+    public final Image no = new ImageIcon(getClass().getResource("/images/no.png")).getImage();
 
 }
