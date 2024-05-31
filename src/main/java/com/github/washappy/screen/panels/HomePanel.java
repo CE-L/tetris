@@ -14,60 +14,33 @@ import java.awt.event.MouseMotionAdapter;
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
-public class HomePanel extends JPanel {
+public class HomePanel {
 
-
-
-
-    //기본 배경 자료 가져오기
-    private Image screenImage;
-    private Graphics screenGraphic;
     private final IntroScreenRecources recources= new IntroScreenRecources();
-
-    private Image logoImage = recources.logo;
-    private final JLabel menuBar = new JLabel(recources.menuBarIcon);
-
-    private Image boardImage = null;
-    private Image holdImage = null;
-    private Image holdMinoImage = null;
-    private Image nextImage = null;
-    private Image[] nextMinoImages = new Image[5];
-
-    //버튼에 객체 할당
-    private JButton exitButton = new JButton(recources.exitButtonBasic);
 
     private JButton singleButton = new JButton(recources.singleButtonBasic);
     private JButton multiButton = new JButton(recources.multiButtonBasic);
     private JButton settingButton = new JButton(recources.settingButtonBasic);
     private JButton creditButton = new JButton(recources.creditButtonBasic);
-
-    private JButton fourtyLineButton = new JButton(recources.fourtyLineButtonBasic);
-    private JButton oneMinuteButton = new JButton(recources.oneMinuteButtonBasic);
-    private JButton practiceButton = new JButton(recources.practiceButtonBasic);
-
     private JButton backButton = new JButton(recources.backButtonBasic);
-
-    //칸마다 객체 할당
-    private Image[][] fieldImages = new Image[10][40];
-
-    private int mouseX;
-    private int mouseY;
 
     private Music introMusic = new Music("introMusic.mp3",true);
 
-    private static Screens whatScreen = Screens.INTRO;
-    private Graphics2D graphics2D;
-    public static tetris.Game game = new tetris.Game();
-    public static Player NOWPLAYER;
+
+    private JPanel panel = new JPanel();
+
+    public JPanel getPanel(){
+        return panel;
+    }
 
 
-    public HomePanel(){
 
-        setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
+    public void init(){
+
+        panel.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
 //        setVisible(true);
-        setBackground(new Color(0,0,0,0));
-//        setLayout(null);
-
+        panel.setBackground(new Color(0,0,0,0));
+        panel.setLayout(null);
 
         //기본 배경음악 재생
         introMusic.start();
@@ -92,11 +65,11 @@ public class HomePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                whatScreen = Screens.SINGLE;
+                //whatScreen = Screens.SINGLE;
                 //changeScreen(whatScreen);
             }
         });
-        add(singleButton);
+        panel.add(singleButton);
 
         //multi 버튼 생성
         multiButton.setBounds(825,400,200,200);
@@ -117,11 +90,11 @@ public class HomePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                whatScreen = Screens.MULTI;
+                //whatScreen = Screens.MULTI;
                 //changeScreen(whatScreen);
             }
         });
-        add(multiButton);
+        panel.add(multiButton);
 
         //setting 버튼 생성
         settingButton.setBounds(600,500,200,200);
@@ -141,11 +114,11 @@ public class HomePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                whatScreen = Screens.SETTING;
+                //whatScreen = Screens.SETTING;
                 //changeScreen(whatScreen);
             }
         });
-        add(settingButton);
+        panel.add(settingButton);
 
         //credit 버튼 생성
         creditButton.setBounds(1125,575,143,144);
@@ -165,11 +138,11 @@ public class HomePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                whatScreen = Screens.CREDIT;
+                //whatScreen = Screens.CREDIT;
                 //changeScreen(whatScreen);
             }
         });
-        add(creditButton);
+        panel.add(creditButton);
 
         //뒤로가기 버튼 생성
         backButton.setVisible(false);
@@ -190,13 +163,12 @@ public class HomePanel extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                whatScreen = Screens.INTRO;
+                //whatScreen = Screens.INTRO;
                 //changeScreen(whatScreen);
             }
         });
-        add(backButton);
-
-
+        panel.add(backButton);
+        panel.repaint();
     }
 
 
@@ -217,31 +189,6 @@ public class HomePanel extends JPanel {
         buttonPressedMusic.start();
     }
 
-    @Override
-    public void paint(Graphics g) {
-        screenImage = createImage(SCREEN_WIDTH, SCREEN_HEIGHT);
-        screenGraphic = screenImage.getGraphics();
-        this.graphics2D = (Graphics2D) screenGraphic;
-        screenDraw(graphics2D);
-        g.drawImage(screenImage, 0, 0, null);
-    }
 
-    public void screenDraw(Graphics2D g) {
-        g.drawImage(recources.introBackground, 0, 0, null);
-        g.drawImage(logoImage, 20, 10, null);
-
-        int x = 0;
-        for (Image[] i : fieldImages) {
-            int y = 0;
-            for (Image j : i) {
-                g.drawImage(fieldImages[x][y], 400 + 20 * x, 700 - 20 * y, null);
-                y += 1;
-            }
-            x += 1;
-        }
-
-        paintComponents(g);
-        this.repaint();
-    }
 
 }

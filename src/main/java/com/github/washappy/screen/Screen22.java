@@ -37,13 +37,10 @@ public class Screen22  extends JFrame {
     private JButton exitButton = new JButton(recources.exitButtonBasic);
     private Image[][] fieldImages = new Image[10][40];
 
-    private JPanel homePanel = new HomePanel();
 
     private int mouseX;
     private int mouseY;
 
-
-    private Music introMusic = new Music("introMusic.mp3", true);
 
     private static Screens whatScreen = Screens.INTRO;
     private Graphics2D graphics2D;
@@ -52,6 +49,7 @@ public class Screen22  extends JFrame {
 
 
     public Screen22() {
+        HomePanel homePanel = new HomePanel();
 
         // 메인 프레임 생성
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,12 +114,13 @@ public class Screen22  extends JFrame {
         });
         add(menuBar);
 
-        homePanel.setBounds(0, 0, 1200, 720);
-        homePanel.setSize(1200, 720);
-        add(homePanel);
+        homePanel.getPanel().setBounds(0, 0, 1200, 720);
+        homePanel.getPanel().setSize(1200, 720);
+        add(homePanel.getPanel());
         revalidate();
-        repaint();
+        homePanel.init();
 
+        repaint();
     }
 
 
@@ -167,8 +166,4 @@ public class Screen22  extends JFrame {
         paintComponents(g);
         this.repaint();
     }
-
-
 }
-
-
