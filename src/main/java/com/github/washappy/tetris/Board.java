@@ -5,6 +5,8 @@ import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Rotates;
 import com.github.washappy.tetris.mino.*;
 
+import java.util.ArrayList;
+
 public class Board {
     private AbstactMino[][] field; //10,40
     private NowMino nowMino;
@@ -43,7 +45,6 @@ public class Board {
         }
     }
 
-    //TODO 뭔가 회전이나 이것 저것이 상하, 좌우 반전인듯
     public void nowDelete() {
         for (int[] i : nowMino.getCoodinates()) {
             int x = i[0];
@@ -98,17 +99,17 @@ public class Board {
 
     public void move(Move move) {
         if (isMovePossible(move)) {
-            System.out.println("yes");
+            //System.out.println("yes");
             nowDelete();
             nowMino.move(move);
             nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
         } else {
-            System.out.println("no");
+            //System.out.println("no");
         }
     }
 
     public void drop() {
-        System.out.println("drop");
+        //System.out.println("drop");
         int i = 0;
         while (isMovePossible(new Move(Direction.DOWN,i))) {
             i-=1;
@@ -117,6 +118,39 @@ public class Board {
         nowDelete();
         nowMino.move(new Move(Direction.DOWN,i));
         placedMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+
+
+        boolean isFull = true;
+        ArrayList<Integer> fullLine = new ArrayList<>();
+        for (int[] mino : nowMino.getCoodinates()) {
+            for (int j =0; j<10; j++) {
+                if (field[j][mino[1]] == null) {
+                    System.out.println("y");
+                    isFull = false;
+                    break;
+                } else {
+                    System.out.println("n");
+                    isFull = true;
+                }
+            }
+            System.out.println(">>");
+            if (isFull && !fullLine.contains(mino[1])) {
+                System.out.println("yes");
+                fullLine.add(mino[1]);
+            } else {
+                System.out.println("no");
+            }
+            isFull = true;
+        }
+        System.out.println("------");
+
+        if (!fullLine.isEmpty()) {
+            for (int j : fullLine) {
+                for (int x=0; x<10; x++) {
+                    field[x][j]=null;
+                }
+            }
+        }
     }
 
     public NowMino getNowMino() {

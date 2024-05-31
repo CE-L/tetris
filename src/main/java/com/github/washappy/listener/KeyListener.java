@@ -27,33 +27,27 @@ public class KeyListener extends KeyAdapter {
         }
         switch (event.getKeyCode()) {
             case KeyEvent.VK_LEFT -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.getField().move(new Move(Direction.LEFT));
             }
             case KeyEvent.VK_RIGHT -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.getField().move(new Move(Direction.RIGHT));
             }
             case KeyEvent.VK_UP -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.getField().rotate(Rotates.CLOCKWISE);
             }
             case KeyEvent.VK_DOWN -> {
-                new Music("rotate.mp3",false).start();
+                NOWPLAYER.getField().move(new Move(Direction.DOWN,-1));
             }
             case KeyEvent.VK_SHIFT -> {
                 NOWPLAYER.hold();
             }
             case KeyEvent.VK_SPACE -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.drop();
             }
             case KeyEvent.VK_Z -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.getField().rotate(Rotates.COUNTERCLOCKWISE);
             }
             case KeyEvent.VK_A -> {
-                new Music("rotate.mp3",false).start();
                 NOWPLAYER.getField().rotate(Rotates.HUNDREDWEIGHT);
             }
         }
@@ -66,28 +60,27 @@ public class KeyListener extends KeyAdapter {
         }
         switch (event.getKeyCode()) {
             case KeyEvent.VK_LEFT -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_RIGHT -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_UP -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_DOWN -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_SHIFT -> {
-
             }
             case KeyEvent.VK_SPACE -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_Z -> {
-
+                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_A -> {
-
+                new Music("rotate.mp3",false).start();
             }
         }
     }
