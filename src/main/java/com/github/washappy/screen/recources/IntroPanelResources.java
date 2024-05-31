@@ -1,9 +1,9 @@
-package com.github.washappy.screen;
+package com.github.washappy.screen.recources;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class IntroScreenRecources {
+public class IntroPanelResources {
 
 
     public final Image introBackground = new ImageIcon(getClass().getResource("/images/introBackground.jpg")).getImage();

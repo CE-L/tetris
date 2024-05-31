@@ -44,3 +44,13 @@ f
 6src/main/java/com/github/washappy/screen/Screen22.java,8\c\8c91c5fac5c112453da2a7bc598629fa1d917eb0
 n
 >src/main/java/com/github/washappy/screen/panels/HomePanel.java,c\0\c09fc386422628a83a72e32172ac3484835f63ca
+o
+?src/main/java/com/github/washappy/screen/panels/IntroPanel.java,a\5\a5786bec5f500b0a1248c405fe6d98493554d797
+p
+@src/main/java/com/github/washappy/screen/panels/SinglePanel.java,d\d\dd816a62c342507b3f6f87c7916dac832a36f36d
+r
+Bsrc/main/java/com/github/washappy/screen/panels/AbstractPanel.java,b\f\bf9ced92b601d029aa267ad23660d141d6d92fb1
+|
+Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelRecources.java,7\6\76a4ee62fa4629502fb26880d8cdc55cb3b5853a
+|
+Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelResources.java,6\3\63f3e47aa792b40c4b43720fc4e561dd09b3b954

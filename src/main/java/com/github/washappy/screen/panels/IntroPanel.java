@@ -1,7 +1,9 @@
 package com.github.washappy.screen.panels;
 
 import com.github.washappy.Music;
-import com.github.washappy.screen.IntroScreenRecources;
+import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.Navigator;
+import com.github.washappy.screen.recources.IntroPanelResources;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,31 +13,23 @@ import java.awt.event.MouseEvent;
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
-public class IntroPanel {
+public class IntroPanel implements AbstractPanel{
 
-    private final IntroScreenRecources recources= new IntroScreenRecources();
+    private final IntroPanelResources recources= new IntroPanelResources();
 
-    private JButton singleButton = new JButton(recources.singleButtonBasic);
-    private JButton multiButton = new JButton(recources.multiButtonBasic);
-    private JButton settingButton = new JButton(recources.settingButtonBasic);
-    private JButton creditButton = new JButton(recources.creditButtonBasic);
-    private JButton backButton = new JButton(recources.backButtonBasic);
+    private final JButton singleButton = new JButton(recources.singleButtonBasic);
+    private final JButton multiButton = new JButton(recources.multiButtonBasic);
+    private final JButton settingButton = new JButton(recources.settingButtonBasic);
+    private final JButton creditButton = new JButton(recources.creditButtonBasic);
+    private final JButton backButton = new JButton(recources.backButtonBasic);
 
-    private Music introMusic = new Music("introMusic.mp3",true);
-
-
-    private JPanel panel = new JPanel();
-
-    public JPanel getPanel(){
-        return panel;
-    }
+    private final Music introMusic = new Music("introMusic.mp3",true);
 
 
-
+    @Override
     public void init(){
 
         panel.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
-//        setVisible(true);
         panel.setBackground(new Color(0,0,0,0));
         panel.setLayout(null);
 
@@ -43,7 +37,6 @@ public class IntroPanel {
         introMusic.start();
 
         //single 버튼 생성
-
         singleButton.setBounds(1050,300,200,200);
         setPaintSetting(singleButton);
         singleButton.setOpaque(false);
@@ -62,6 +55,7 @@ public class IntroPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
+                Navigator.INSTANCE.stackScreen(Screens.SINGLE);
                 //whatScreen = Screens.SINGLE;
                 //changeScreen(whatScreen);
             }
@@ -166,25 +160,5 @@ public class IntroPanel {
         });
         panel.add(backButton);
     }
-
-
-
-    private void setPaintSetting(JButton button){
-        button.setBorderPainted(false);
-        button.setContentAreaFilled(false);
-        button.setFocusPainted(false);
-    }
-
-    private void playButtonOn(){
-        Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
-        buttonEnteredMusic.start();
-    }
-
-    private void playButtonClick(){
-        Music buttonPressedMusic = new Music("buttonClick.mp3",false);
-        buttonPressedMusic.start();
-    }
-
-
 
 }

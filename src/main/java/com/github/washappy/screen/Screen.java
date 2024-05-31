@@ -7,10 +7,9 @@ import com.github.washappy.Music;
 import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.listener.KeyListener;
-import com.github.washappy.tetris.Board;
+import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.AbstactMino;
-import com.github.washappy.tetris.mino.NowMino;
 import tetris.Game;
 
 import javax.swing.*;
@@ -29,10 +28,10 @@ public class Screen extends JFrame {
     //기본 배경 자료 가져오기
     private Image screenImage;
     private Graphics screenGraphic;
-    private final IntroScreenRecources recources= new IntroScreenRecources();
+    private final IntroPanelResources resources = new IntroPanelResources();
 
-    private Image logoImage = recources.logo;
-    private final JLabel menuBar = new JLabel(recources.menuBarIcon);
+    private Image logoImage = resources.logo;
+    private final JLabel menuBar = new JLabel(resources.menuBarIcon);
 
     private Image boardImage = null;
     private Image holdImage = null;
@@ -41,18 +40,18 @@ public class Screen extends JFrame {
     private Image[] nextMinoImages = new Image[5];
 
     //버튼에 객체 할당
-    private JButton exitButton = new JButton(recources.exitButtonBasic);
+    private JButton exitButton = new JButton(resources.exitButtonBasic);
 
-    private JButton singleButton = new JButton(recources.singleButtonBasic);
-    private JButton multiButton = new JButton(recources.multiButtonBasic);
-    private JButton settingButton = new JButton(recources.settingButtonBasic);
-    private JButton creditButton = new JButton(recources.creditButtonBasic);
+    private JButton singleButton = new JButton(resources.singleButtonBasic);
+    private JButton multiButton = new JButton(resources.multiButtonBasic);
+    private JButton settingButton = new JButton(resources.settingButtonBasic);
+    private JButton creditButton = new JButton(resources.creditButtonBasic);
 
-    private JButton fourtyLineButton = new JButton(recources.fourtyLineButtonBasic);
-    private JButton oneMinuteButton = new JButton(recources.oneMinuteButtonBasic);
-    private JButton practiceButton = new JButton(recources.practiceButtonBasic);
+    private JButton fourtyLineButton = new JButton(resources.fourtyLineButtonBasic);
+    private JButton oneMinuteButton = new JButton(resources.oneMinuteButtonBasic);
+    private JButton practiceButton = new JButton(resources.practiceButtonBasic);
 
-    private JButton backButton = new JButton(recources.backButtonBasic);
+    private JButton backButton = new JButton(resources.backButtonBasic);
 
     //칸마다 객체 할당
     private Image[][] fieldImages = new Image[10][40];
@@ -92,13 +91,13 @@ public class Screen extends JFrame {
         exitButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                exitButton.setIcon(recources.exitButtonEntered);
+                exitButton.setIcon(resources.exitButtonEntered);
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                exitButton.setIcon(recources.exitButtonBasic);
+                exitButton.setIcon(resources.exitButtonBasic);
                 exitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -121,13 +120,13 @@ public class Screen extends JFrame {
         singleButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                singleButton.setIcon(recources.singleButtonPressed);
+                singleButton.setIcon(resources.singleButtonPressed);
                 singleButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                singleButton.setIcon(recources.singleButtonBasic);
+                singleButton.setIcon(resources.singleButtonBasic);
                 singleButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -146,13 +145,13 @@ public class Screen extends JFrame {
         multiButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                multiButton.setIcon(recources.multiButtonPressed);
+                multiButton.setIcon(resources.multiButtonPressed);
                 multiButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                multiButton.setIcon(recources.multiButtonBasic);
+                multiButton.setIcon(resources.multiButtonBasic);
                 multiButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -170,13 +169,13 @@ public class Screen extends JFrame {
         settingButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                settingButton.setIcon(recources.settingButtonPressed);
+                settingButton.setIcon(resources.settingButtonPressed);
                 settingButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                settingButton.setIcon(recources.settingButtonBasic);
+                settingButton.setIcon(resources.settingButtonBasic);
                 settingButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -194,13 +193,13 @@ public class Screen extends JFrame {
         creditButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                creditButton.setIcon(recources.creditButtonPressed);
+                creditButton.setIcon(resources.creditButtonPressed);
                 creditButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                creditButton.setIcon(recources.creditButtonBasic);
+                creditButton.setIcon(resources.creditButtonBasic);
                 creditButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -219,13 +218,13 @@ public class Screen extends JFrame {
         fourtyLineButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                fourtyLineButton.setIcon(recources.fourtyLineButtonPressed);
+                fourtyLineButton.setIcon(resources.fourtyLineButtonPressed);
                 fourtyLineButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                fourtyLineButton.setIcon(recources.fourtyLineButtonBasic);
+                fourtyLineButton.setIcon(resources.fourtyLineButtonBasic);
                 fourtyLineButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -244,13 +243,13 @@ public class Screen extends JFrame {
         oneMinuteButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                oneMinuteButton.setIcon(recources.oneMinuteButtonPressed);
+                oneMinuteButton.setIcon(resources.oneMinuteButtonPressed);
                 oneMinuteButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                oneMinuteButton.setIcon(recources.oneMinuteButtonBasic);
+                oneMinuteButton.setIcon(resources.oneMinuteButtonBasic);
                 oneMinuteButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -269,13 +268,13 @@ public class Screen extends JFrame {
         practiceButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                practiceButton.setIcon(recources.practiceButtonPressed);
+                practiceButton.setIcon(resources.practiceButtonPressed);
                 practiceButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                practiceButton.setIcon(recources.practiceButtonBasic);
+                practiceButton.setIcon(resources.practiceButtonBasic);
                 practiceButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -294,13 +293,13 @@ public class Screen extends JFrame {
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                backButton.setIcon(recources.backButtonPressed);
+                backButton.setIcon(resources.backButtonPressed);
                 backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                backButton.setIcon(recources.backButtonBasic);
+                backButton.setIcon(resources.backButtonBasic);
                 backButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
             @Override
@@ -358,7 +357,7 @@ public class Screen extends JFrame {
     }
 
     public void screenDraw(Graphics2D g) {
-        g.drawImage(recources.introBackground, 0, 0, null);
+        g.drawImage(resources.introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
         g.drawImage(boardImage,400,320,null);
         g.drawImage(holdImage,AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y,null);
@@ -408,7 +407,7 @@ public class Screen extends JFrame {
 
         holdMinoImage = null;
         for (Image[] i : fieldImages) {
-            Arrays.fill(i,new IntroScreenRecources().noMino);
+            Arrays.fill(i,new IntroPanelResources().noMino);
         }
     }
 
@@ -420,7 +419,7 @@ public class Screen extends JFrame {
                 multiButton.setVisible(true);
                 settingButton.setVisible(true);
                 creditButton.setVisible(true);
-                logoImage = recources.logo;
+                logoImage = resources.logo;
             }
             case SINGLE -> {
                 hideButtons();
@@ -463,18 +462,18 @@ public class Screen extends JFrame {
     public void gameStart() {
         game.screenDraw(graphics2D);
         setFocusable(true);
-        boardImage = recources.boardImage;
-        holdImage = recources.holdImage;
+        boardImage = resources.boardImage;
+        holdImage = resources.holdImage;
         //nextImage = TODO
         for (Image[] i : fieldImages) {
-            Arrays.fill(i,new IntroScreenRecources().noMino);
+            Arrays.fill(i,new IntroPanelResources().noMino);
         }
         NOWPLAYER = new Player("user", new ExampleCharacter());
     }
 
     public void updateField() {
 
-        IntroScreenRecources recources = new IntroScreenRecources();
+        IntroPanelResources recources = new IntroPanelResources();
 
         AbstactMino[][] board = NOWPLAYER.getField().getField();
 

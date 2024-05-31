@@ -1,3 +1,17 @@
 
-m
-java:S1149	"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ÊºÁ®8êÁ“…ù1
+­
+java:S4165!"eRemove this useless assignment; "showing" already holds the assigned value along all execution paths.(Õƒëûÿÿÿÿ8ø¿÷ïü1J$266bebb2-238e-4b87-ae78-aac234d8d972
+Ü
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8ú¿÷ïü1J$7507c5a6-4fee-4267-b9a2-e54ab72c4e20
+˜
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8û¿÷ïü1J$9af6a0a0-e77d-43a6-942a-d8284f995a72
+_
+java:S6205 "Remove this redundant block.(ó¹è‘8À÷ïü1J$9c6bbdab-5cf0-424d-a674-bfd5a2368b55
+k	java:S108#")Either remove or fill this block of code.(ÊÊââ8À÷ïü1J$b384afdc-fd40-470f-8c40-c6ac7e4ac85c
+k	java:S108&")Either remove or fill this block of code.(ÀœË¾8À÷ïü1J$20ce3707-e042-41e2-8ce5-081c53903bef
+_
+java:S6205)"Remove this redundant block.(óß½Ä8À÷ïü1J$08369868-28f8-4dc7-a418-93955af64a47
+p	java:S108,")Either remove or fill this block of code.( Ğ ÷ıÿÿÿÿ8‚À÷ïü1J$834ccee5-038e-409e-8910-fedbce7ffd78
+k	java:S108/")Either remove or fill this block of code.(¼İÎ8‚À÷ïü1J$a3956699-1f31-458c-a31d-c5db2cbd9320
+k	java:S1082")Either remove or fill this block of code.(»ŠÒÄ8‚À÷ïü1J$8e44aa8e-d1a9-4fa1-b7b5-c04bdd803e08
+k	java:S1085")Either remove or fill this block of code.(çî¤“8‚À÷ïü1J$c138bf2d-0cef-47de-b069-39bbe83451cc

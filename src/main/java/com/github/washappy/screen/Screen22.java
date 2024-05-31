@@ -2,7 +2,7 @@ package com.github.washappy.screen;
 
 import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
-import com.github.washappy.screen.panels.IntroPanel;
+import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.tetris.Player;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class Screen22  extends JFrame {
     //기본 배경 자료 가져오기
     private Image screenImage;
     private Graphics screenGraphic;
-    private final IntroScreenRecources recources = new IntroScreenRecources();
+    private final IntroPanelResources recources = new IntroPanelResources();
 
     private Image logoImage = recources.logo;
     private final JLabel menuBar = new JLabel(recources.menuBarIcon);
@@ -60,7 +60,6 @@ public class Screen22  extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setBackground(new Color(0, 0, 0, 0));
-        //setLayout(new BorderLayout());
         setLayout(null);
 
 
