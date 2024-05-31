@@ -9,6 +9,9 @@ public abstract class AbstactMino {
     public static int START_X = 3;
     public static int START_Y = 23;
 
+    public static int SOLO_X = 400;
+    public static int SOLO_Y = 350;
+
 
     public Minos getMino() {
         return mino;

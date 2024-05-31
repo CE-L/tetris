@@ -364,8 +364,8 @@ public class Screen extends JFrame {
         g.drawImage(recources.introBackground, 0, 0, null);
         g.drawImage(logoImage,20,10,null);
         g.drawImage(boardImage,400,320,null);
-        g.drawImage(holdImage,400-120,320,null);
-        g.drawImage(holdMinoImage,400-120,320+40,null);
+        g.drawImage(holdImage,AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y,null);
+        g.drawImage(holdMinoImage,AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y+40,null);
         //TODO next
 
         if (NOWPLAYER!=null) {
@@ -376,7 +376,7 @@ public class Screen extends JFrame {
         for (Image[] i : fieldImages) {
             int y = 0;
             for (Image j : i) {
-                g.drawImage(fieldImages[x][y],400+20*x,700-20*y,null);
+                g.drawImage(fieldImages[x][y],AbstactMino.SOLO_X+20*x,AbstactMino.SOLO_Y+350-20*y,null);
                 y+=1;
             }
             x+=1;
@@ -457,6 +457,7 @@ public class Screen extends JFrame {
             case PRACTICE -> {
                 hideButtons();
                 backButton.setVisible(true);
+                gameStart();
             }
         }
 
