@@ -150,6 +150,13 @@ public class Board {
                     field[x][j]=null;
                 }
             }
+            for (int j : fullLine) {
+                for (int x=0;x<10;x++) {
+                    for (int y=j; y<39; y++) {
+                        field[x][y] = field[x][y+1];
+                    }
+                }
+            }
         }
     }
 
