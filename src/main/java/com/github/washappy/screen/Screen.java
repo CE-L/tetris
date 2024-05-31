@@ -67,9 +67,6 @@ public class Screen extends JFrame {
     public static Game game = new Game();
     public static Player NOWPLAYER;
 
-    //네비게이터
-    private Navigator nav = new Navigator();
-
 
     public Screen() {
         //기본 창 설정

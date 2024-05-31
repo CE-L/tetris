@@ -2,9 +2,8 @@ package com.github.washappy.screen;
 
 import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
-import com.github.washappy.screen.panels.HomePanel;
+import com.github.washappy.screen.panels.IntroPanel;
 import com.github.washappy.tetris.Player;
-import com.github.washappy.tetris.mino.AbstactMino;
 
 import javax.swing.*;
 
@@ -49,7 +48,7 @@ public class Screen22  extends JFrame {
 
 
     public Screen22() {
-        HomePanel homePanel = new HomePanel();
+
 
         // 메인 프레임 생성
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,12 +113,7 @@ public class Screen22  extends JFrame {
         });
         add(menuBar);
 
-        homePanel.getPanel().setBounds(0, 0, 1200, 720);
-        homePanel.getPanel().setSize(1200, 720);
-        add(homePanel.getPanel());
         revalidate();
-        homePanel.init();
-
         repaint();
     }
 

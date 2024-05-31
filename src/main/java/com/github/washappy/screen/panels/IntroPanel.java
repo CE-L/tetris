@@ -1,20 +1,17 @@
 package com.github.washappy.screen.panels;
 
 import com.github.washappy.Music;
-import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.IntroScreenRecources;
-import com.github.washappy.tetris.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
-public class HomePanel {
+public class IntroPanel {
 
     private final IntroScreenRecources recources= new IntroScreenRecources();
 
@@ -168,7 +165,6 @@ public class HomePanel {
             }
         });
         panel.add(backButton);
-        panel.repaint();
     }
 
 
