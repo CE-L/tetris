@@ -1,58 +1,62 @@
 
+
+java:S1104*"VMake cardLayout a static final constant or non-public and provide accessors if needed.(‹Œ–Şıÿÿÿÿ8¦ˆ‡“ı1J$ab814524-0966-48aa-87ea-b4143399f1a2
+“
+java:S11043"PMake game a static final constant or non-public and provide accessors if needed.(û±±ë8¦ˆ‡“ı1J$39748e31-a99a-40ab-b842-ecb41dedf77d
 ˜
-java:S1104."PMake game a static final constant or non-public and provide accessors if needed.(¨¹¶àüÿÿÿÿ8Çåêíü1J$e5569f81-22a1-42ad-9d69-c58b195cf6a9
-˜
-java:S1104/"UMake NOWPLAYER a static final constant or non-public and provide accessors if needed.(¬®Ç¼8Éåêíü1J$73ab04dd-3e3e-4fd2-9b56-abdd4ec24f5e
-r
-java:S1444."*Make this "public static game" field final(¨¹¶àüÿÿÿÿ8Ñåêíü1J$22dc0564-174e-4ebc-bd6c-b8a9c419387f
-r
-java:S1444/"/Make this "public static NOWPLAYER" field final(¬®Ç¼8Óåêíü1J$139377be-da14-4e1c-8086-7128cfe8b3c3
-t
-java:S2387","menuBar" is the name of a field in "Frame".(‰şÆÑùÿÿÿÿ8 æêíü1J$edc9d3a3-7c18-4ed2-b145-0f64ee7b8061
-œ
-java:S1450-"YRemove the "graphics2D" field and declare it as a local variable in the relevant methods.(°öŠˆ8±æêíü1J$ecbea672-376a-4875-9d93-25147a28ad40
-Ÿ
-java:S1450"\Remove the "screenGraphic" field and declare it as a local variable in the relevant methods.(å‚Œ¾8±æêíü1J$0229a36c-cf42-4fdf-8a0d-f13aff59c9d9
-
-java:S1450"ZRemove the "screenImage" field and declare it as a local variable in the relevant methods.(Ü •ğ8±æêíü1J$cd1f7b54-d918-4bc5-b173-39bd7f14a052
-p
-java:S1948"-Make "screenImage" transient or serializable.(Ü •ğ8´æêíü1J$25afd8a3-a1d2-4b52-9e31-7099e9dcb439
-r
-java:S1948"/Make "screenGraphic" transient or serializable.(å‚Œ¾8µæêíü1J$2b75edd5-cc2d-4806-ab98-52577c93b5ae
-n
-java:S1948"+Make "recources" transient or serializable.(óµ›‹8µæêíü1J$400f7ce3-7b40-4abe-852e-5fa830c62cf0
-s
-java:S1948"+Make "logoImage" transient or serializable.(¦¾Çÿÿÿÿÿ8µæêíü1J$59ab3881-2517-4d3a-8466-5ce76d911b01
-o
-java:S1948",Make "boardImage" transient or serializable.(‚Ô»ç8µæêíü1J$f78f9c2a-a366-4b22-a3f4-fc3a33a0b957
+java:S11044"UMake NOWPLAYER a static final constant or non-public and provide accessors if needed.(¬®Ç¼8¦ˆ‡“ı1J$67e45be0-83c9-4ad2-b49c-febb94368ce9
+x
+java:S1444*"0Make this "public static cardLayout" field final(‹Œ–Şıÿÿÿÿ8Éª›“ı1J$ab67147c-bfa4-4794-a2d6-48199c00a959
 m
-java:S1948"+Make "holdImage" transient or serializable.(Š–Ø;8µæêíü1J$9e669df6-2dde-48fd-ad4b-65c3f580b2ae
+java:S14443"*Make this "public static game" field final(û±±ë8§ˆ‡“ı1J$3e735412-3283-4631-9acb-59adaefe6998
+r
+java:S14444"/Make this "public static NOWPLAYER" field final(¬®Ç¼8§ˆ‡“ı1J$2ae79d43-8299-481b-9ae3-31ad5bc02ada
+t
+java:S2387","menuBar" is the name of a field in "Frame".(‰şÆÑùÿÿÿÿ8Éˆ‡“ı1J$5b02378f-f8a2-4912-919a-023fa94ff69d
+œ
+java:S14502"YRemove the "graphics2D" field and declare it as a local variable in the relevant methods.(°öŠˆ8Íˆ‡“ı1J$fb8c0b16-4471-4ff7-827d-371b73da957b
+Ÿ
+java:S1450"\Remove the "screenGraphic" field and declare it as a local variable in the relevant methods.(å‚Œ¾8Íˆ‡“ı1J$4d95d287-406e-4bdd-8502-439fe18ff9d9
+
+java:S1450"ZRemove the "screenImage" field and declare it as a local variable in the relevant methods.(Ü •ğ8Îˆ‡“ı1J$a662bcdf-60ee-4df7-9add-ff2ddb7cc4b3
+p
+java:S1948"-Make "screenImage" transient or serializable.(Ü •ğ8Óˆ‡“ı1J$0a267245-5e15-44eb-9696-a7718645aaa4
+r
+java:S1948"/Make "screenGraphic" transient or serializable.(å‚Œ¾8Óˆ‡“ı1J$58314c8d-4188-48b5-8e9e-6adf1884ba53
+s
+java:S1948"+Make "recources" transient or serializable.(Õ¦±Åıÿÿÿÿ8Óˆ‡“ı1J$3c1f1640-7b3c-4546-969a-b86f94c8da7c
+s
+java:S1948"+Make "logoImage" transient or serializable.(¦¾Çÿÿÿÿÿ8Óˆ‡“ı1J$ccb34f40-ca8c-49c8-a539-691ee6fc84f0
+o
+java:S1948!",Make "boardImage" transient or serializable.(‚Ô»ç8Óˆ‡“ı1J$fb0700b1-0c89-45d8-a067-ddb53def879a
+m
+java:S1948""+Make "holdImage" transient or serializable.(Š–Ø;8Óˆ‡“ı1J$67c41853-ddd8-45a8-bed9-b1e0d58f8aab
 w
-java:S1948"/Make "holdMinoImage" transient or serializable.(«‰¶ãıÿÿÿÿ8µæêíü1J$9cb75902-c529-4b55-a146-df0255985dec
+java:S1948#"/Make "holdMinoImage" transient or serializable.(«‰¶ãıÿÿÿÿ8Óˆ‡“ı1J$0b0a4b11-bc17-4af5-a1b0-a84303be7175
 s
-java:S1948 "+Make "nextImage" transient or serializable.(È¸ã¹ûÿÿÿÿ8µæêíü1J$bc5d9495-cc7a-4182-8739-c550fddf7620
+java:S1948$"+Make "nextImage" transient or serializable.(È¸ã¹ûÿÿÿÿ8Óˆ‡“ı1J$51deb5f3-434d-473d-91cc-b0eaaf0fbd6e
 s
-java:S1948!"0Make "nextMinoImages" transient or serializable.(Ü±”Ú8µæêíü1J$5230d3fd-588a-49bc-9eec-34d4ab63a598
+java:S1948%"0Make "nextMinoImages" transient or serializable.(Ü±”Ú8Óˆ‡“ı1J$35fcbbcb-dc78-444d-82ee-9d2b3cf34646
 u
-java:S1948%"-Make "fieldImages" transient or serializable.(»Š®øÿÿÿÿ8µæêíü1J$69b3b685-4c26-4e4a-9f47-9888862101a0
+java:S1948)"-Make "fieldImages" transient or serializable.(»Š®øÿÿÿÿ8Ôˆ‡“ı1J$884ca077-65d2-464e-9d29-60471a85b1d0
 o
-java:S1948-",Make "graphics2D" transient or serializable.(°öŠˆ8µæêíü1J$3de04d4a-9888-4630-9dae-3523b929f1b7
-~	java:S1256"<This block of commented-out lines of code should be removed.(¾Ë‰í8Àæêíü1J$fedad6e7-d05d-49b4-8c6d-f02a54819dd5
+java:S19482",Make "graphics2D" transient or serializable.(°öŠˆ8Ôˆ‡“ı1J$de526625-5d6e-4824-a224-bd9884a7b03c
 ‘
-java:S3252<"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8Áæêíü1J$0b473a89-5061-49ec-9d1b-e02bbff47315
+java:S3252@"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8ßˆ‡“ı1J$8e287cba-f4d6-48be-92c8-68409599a963
 ¦
-java:S2142X"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8Ñæêíü1J$82a9bd4b-20d9-4c03-92a8-f1fd3badf5dc
+java:S2142\"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8êˆ‡“ı1J$10f889a3-64d4-4cf9-a8cc-7d60e292ea96
+ƒ	java:S125w"<This block of commented-out lines of code should be removed.(§Ÿ±§ıÿÿÿÿ8àüê“ı1J$d907e1f7-4bb1-4829-b3f9-5eefaa141657
 o
-java:S1481˜"&Remove this unused "j" local variable.(‡Ÿ€Şıÿÿÿÿ8üæêíü1J$900c6052-d07f-4b12-b72c-b46917c010f1
+java:S1481¤"&Remove this unused "j" local variable.(‡Ÿ€Şıÿÿÿÿ8÷ˆ‡“ı1J$4d6dcaf4-4ba2-40cb-b452-ddd6e44a2a34
 q
-java:S1068".Remove this unused "boardImage" private field.(‚Ô»ç8ÿæêíü1J$63130395-be45-4980-9fb0-fdb86255d2e3
+java:S1068!".Remove this unused "boardImage" private field.(‚Ô»ç8ùˆ‡“ı1J$a636710e-bd8c-4718-8e3f-6386dda28d23
 o
-java:S1068"-Remove this unused "holdImage" private field.(Š–Ø;8ÿæêíü1J$25080b17-8030-487e-b5a5-9f405280ecb4
+java:S1068""-Remove this unused "holdImage" private field.(Š–Ø;8úˆ‡“ı1J$3f36660b-14e8-4850-8052-17ff4e0b0108
 y
-java:S1068"1Remove this unused "holdMinoImage" private field.(«‰¶ãıÿÿÿÿ8ÿæêíü1J$f6b8eccd-dd42-46b1-8d46-dab8854026fa
+java:S1068#"1Remove this unused "holdMinoImage" private field.(«‰¶ãıÿÿÿÿ8úˆ‡“ı1J$d696b72e-3db3-4435-9637-dbc4ff35acd6
 u
-java:S1068 "-Remove this unused "nextImage" private field.(È¸ã¹ûÿÿÿÿ8€çêíü1J$241d5167-613d-4e0e-b805-a349ea56dc45
+java:S1068$"-Remove this unused "nextImage" private field.(È¸ã¹ûÿÿÿÿ8úˆ‡“ı1J$7949c24e-2cca-4c91-8e40-fd045d352d37
 u
-java:S1068!"2Remove this unused "nextMinoImages" private field.(Ü±”Ú8€çêíü1J$e0a1d1cc-05c8-4fa2-89a6-eb6d7c09b8f2
+java:S1068%"2Remove this unused "nextMinoImages" private field.(Ü±”Ú8úˆ‡“ı1J$ce700cab-2060-41c4-b800-c2e67e84e159
 q
-java:S1068,".Remove this unused "whatScreen" private field.(Õòµ‡8€çêíü1J$22f47a1d-675c-4b5f-83ed-87dcfc3d9bee
+java:S10681".Remove this unused "whatScreen" private field.(Õòµ‡8úˆ‡“ı1J$17ad2137-15ea-4313-a4c9-18ca11054523

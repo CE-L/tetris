@@ -1,0 +1,24 @@
+
+
+java:S1104"VMake cardLayout a static final constant or non-public and provide accessors if needed.(ηόÿÿÿÿ8σΓι“ύ1J$fb134ac4-ec2f-426d-a123-7bf68d4e4fef
+™
+java:S1104"QMake panel a static final constant or non-public and provide accessors if needed.(σ±Φ΄ωÿÿÿÿ8σΓι“ύ1J$fb80ba6a-4bfd-4b02-a330-79964c07f922
+
+java:S1104"VMake introPanel a static final constant or non-public and provide accessors if needed.(πΌϋÿÿÿÿ8σΓι“ύ1J$e694b494-6bdb-46de-bfe9-9920579b6850
+
+java:S1104"WMake singlePanel a static final constant or non-public and provide accessors if needed.(ΰθ‡Πϋÿÿÿÿ8σΓι“ύ1J$82fabf97-02e7-4108-8076-3bbac0ac8453
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(ΕΉΖούÿÿÿÿ8ÿΓι“ύ1J$95376be0-f936-4886-b7d4-54c74b6856c5
+l	java:S106"+Replace this use of System.out by a logger.(¤ίΪ8ÿΓι“ύ1J$4e4584d8-407c-4484-a186-ccd465d3ad47
+r	java:S106"+Replace this use of System.out by a logger.(Φ£αωÿÿÿÿ8ÿΓι“ύ1J$92fde1c6-cebf-4873-94f2-12f04931fd74
+}
+java:S2209"5Change this instance-reference to a static reference.(φΟ―ϊÿÿÿÿ8€Δι“ύ1J$c6065ccb-e635-4ffc-b6e5-b13e56c931fd
+}
+java:S2209"5Change this instance-reference to a static reference.(Ζλύÿÿÿÿ8Δι“ύ1J$1a167116-0197-4252-b578-2062949b5930
+}
+java:S2209""5Change this instance-reference to a static reference.(ΟΥÒ±ύÿÿÿÿ8Δι“ύ1J$34e19176-10ff-4f2c-9f15-015de3df5272
+w
+java:S2209$"5Change this instance-reference to a static reference.(§§δ8Δι“ύ1J$f819890f-aa48-4f30-b7b1-905c445eab88
+
+java:S1128"IRemove this unused import 'com.github.washappy.Ingredient.SCREEN_HEIGHT'.(΅°Ϋ®8‚Δι“ύ1J$da323211-9bd8-438d-bb74-15213fb53b86
+
+java:S1128"HRemove this unused import 'com.github.washappy.Ingredient.SCREEN_WIDTH'.(ο‡όδϋÿÿÿÿ8‚Δι“ύ1J$a9484ea9-d3e2-4f3b-bf0a-0e32dddd1a0f

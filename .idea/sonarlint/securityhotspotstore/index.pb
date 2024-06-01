@@ -38,12 +38,8 @@ b
 2src/main/java/com/github/washappy/tetris/Game.java,5\a\5a9e8cea4d2a5b064712e0d0ed6f0d38422c0972
 g
 7src/main/java/com/github/washappy/screen/Navigator.java,f\0\f02f41358de104a53eed50a087de35189199e4e8
-r
-Bsrc/main/java/com/github/washappy/screen/IntroScreenRecources.java,4\6\46675bc30c10fcedccff26a2f82d304b215ca95e
 f
 6src/main/java/com/github/washappy/screen/Screen22.java,8\c\8c91c5fac5c112453da2a7bc598629fa1d917eb0
-n
->src/main/java/com/github/washappy/screen/panels/HomePanel.java,c\0\c09fc386422628a83a72e32172ac3484835f63ca
 o
 ?src/main/java/com/github/washappy/screen/panels/IntroPanel.java,a\5\a5786bec5f500b0a1248c405fe6d98493554d797
 p
@@ -51,6 +47,8 @@ p
 r
 Bsrc/main/java/com/github/washappy/screen/panels/AbstractPanel.java,b\f\bf9ced92b601d029aa267ad23660d141d6d92fb1
 |
-Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelRecources.java,7\6\76a4ee62fa4629502fb26880d8cdc55cb3b5853a
-|
 Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelResources.java,6\3\63f3e47aa792b40c4b43720fc4e561dd09b3b954
+{
+Ksrc/main/java/com/github/washappy/screen/recources/IntroPanelResources.java,2\3\239b3b818187d214f190f7c059102e96eab73d3e
+t
+Dsrc/main/java/com/github/washappy/screen/panels/CardLayoutPanel.java,8\e\8e6b3f6f78cb8c932cc2bab3070a01311d05396b

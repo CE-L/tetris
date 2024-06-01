@@ -1,4 +1,4 @@
-package tetris;
+package com.github.washappy.tetris;
 
 import java.awt.*;
 

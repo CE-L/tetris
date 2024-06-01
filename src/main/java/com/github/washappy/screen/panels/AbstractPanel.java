@@ -1,31 +1,30 @@
 package com.github.washappy.screen.panels;
 
 import com.github.washappy.Music;
+import com.github.washappy.enums.Screens;
 
 import javax.swing.*;
 
-public interface AbstractPanel {
+public abstract class AbstractPanel {
 
-    JPanel panel = new JPanel();
+   public JPanel panel = new JPanel();
 
-    default JPanel getPanel(){
-        return panel;
-    }
+    public abstract void init();
+    public abstract Screens getScreen();
 
-    public void init();
 
-    default void setPaintSetting(JButton button){
+    protected void setPaintSetting(JButton button){
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
         button.setFocusPainted(false);
     }
 
-    default void playButtonOn(){
+    protected void playButtonOn(){
         Music buttonEnteredMusic = new Music("buttonOn.mp3",false);
         buttonEnteredMusic.start();
     }
 
-    default void playButtonClick(){
+    protected void playButtonClick(){
         Music buttonPressedMusic = new Music("buttonClick.mp3",false);
         buttonPressedMusic.start();
     }

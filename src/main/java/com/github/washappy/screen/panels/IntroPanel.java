@@ -3,6 +3,7 @@ package com.github.washappy.screen.panels;
 import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
+import com.github.washappy.screen.Screen22;
 import com.github.washappy.screen.recources.IntroPanelResources;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ import java.awt.event.MouseEvent;
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
-public class IntroPanel implements AbstractPanel{
+public class IntroPanel extends AbstractPanel{
 
     private final IntroPanelResources recources= new IntroPanelResources();
 
@@ -21,9 +22,7 @@ public class IntroPanel implements AbstractPanel{
     private final JButton multiButton = new JButton(recources.multiButtonBasic);
     private final JButton settingButton = new JButton(recources.settingButtonBasic);
     private final JButton creditButton = new JButton(recources.creditButtonBasic);
-    private final JButton backButton = new JButton(recources.backButtonBasic);
 
-    private final Music introMusic = new Music("introMusic.mp3",true);
 
 
     @Override
@@ -34,7 +33,9 @@ public class IntroPanel implements AbstractPanel{
         panel.setLayout(null);
 
         //기본 배경음악 재생
-        introMusic.start();
+        if(!Screen22.introMusic.isAlive()) {
+            Screen22.introMusic.start();
+        }
 
         //single 버튼 생성
         singleButton.setBounds(1050,300,200,200);
@@ -55,9 +56,11 @@ public class IntroPanel implements AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
+
                 Navigator.INSTANCE.stackScreen(Screens.SINGLE);
-                //whatScreen = Screens.SINGLE;
-                //changeScreen(whatScreen);
+
+                //panel.revalidate();
+             //   panel.repaint();
             }
         });
         panel.add(singleButton);
@@ -135,30 +138,11 @@ public class IntroPanel implements AbstractPanel{
         });
         panel.add(creditButton);
 
-        //뒤로가기 버튼 생성
-        backButton.setVisible(false);
-        backButton.setBounds(0,30,143,144);
-        setPaintSetting(backButton);
-        backButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                backButton.setIcon(recources.backButtonPressed);
-                backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                playButtonOn();
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-                backButton.setIcon(recources.backButtonBasic);
-                backButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                playButtonClick();
-                //whatScreen = Screens.INTRO;
-                //changeScreen(whatScreen);
-            }
-        });
-        panel.add(backButton);
+    }
+
+    @Override
+    public Screens getScreen() {
+        return Screens.INTRO;
     }
 
 }

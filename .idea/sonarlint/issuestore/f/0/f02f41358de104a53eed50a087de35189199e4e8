@@ -1,17 +1,27 @@
 
 ­
-java:S4165!"eRemove this useless assignment; "showing" already holds the assigned value along all execution paths.(Õƒëûÿÿÿÿ8ø¿÷ïü1J$266bebb2-238e-4b87-ae78-aac234d8d972
+java:S4165V"eRemove this useless assignment; "showing" already holds the assigned value along all execution paths.(Õƒëûÿÿÿÿ8ùƒ™ı1J$3f1caf9c-d3cb-4f3d-bacd-2c6882f9d62d
 Ü
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8ú¿÷ïü1J$7507c5a6-4fee-4267-b9a2-e54ab72c4e20
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8úƒ™ı1J$2ec7dc1c-b4e5-456c-b3fe-95dd0d5d15ec
 ˜
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8û¿÷ïü1J$9af6a0a0-e77d-43a6-942a-d8284f995a72
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8üƒ™ı1J$11928e1c-0d8c-4aea-9fa2-7442a878f643
+r	java:S106)"+Replace this use of System.out by a logger.(˜ê·­øÿÿÿÿ8€„™ı1J$c5ccd178-8061-4bc9-97fa-cfeaa1aecf36
+r	java:S106+"+Replace this use of System.out by a logger.(€–©óüÿÿÿÿ8„™ı1J$4be3564e-8fd6-4860-bc8b-d6196f7e35a9
+r	java:S106,"+Replace this use of System.out by a logger.(Ø–ªùÿÿÿÿ8„™ı1J$80235e58-2aa0-416e-b57c-c2be3c79b9f7
+r	java:S106/"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8‚„™ı1J$1cf36d42-2954-4f5b-8191-f7a164bbd4be
+r	java:S1067"+Replace this use of System.out by a logger.(Ö£áùÿÿÿÿ8ƒ„™ı1J$79dc258e-f9a5-40c0-991e-daffe66785fc
+r	java:S106H"+Replace this use of System.out by a logger.(Û®ıúÿÿÿÿ8ƒ„™ı1J$c6cb9920-a7a7-460d-bb88-61da659975d2
+r	java:S106J"+Replace this use of System.out by a logger.(€–©óüÿÿÿÿ8„„™ı1J$6adb9265-8cf7-47e1-bfb7-3b80395a0838
+r	java:S106K"+Replace this use of System.out by a logger.(Ø–ªùÿÿÿÿ8…„™ı1J$b445301b-43d4-4f75-ae43-5e1c8d4d50e0
+r	java:S106N"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ñÚ™ı1J$01f267bf-054e-4886-b1e1-24d5f4987261
 _
-java:S6205 "Remove this redundant block.(ó¹è‘8À÷ïü1J$9c6bbdab-5cf0-424d-a674-bfd5a2368b55
-k	java:S108#")Either remove or fill this block of code.(ÊÊââ8À÷ïü1J$b384afdc-fd40-470f-8c40-c6ac7e4ac85c
-k	java:S108&")Either remove or fill this block of code.(ÀœË¾8À÷ïü1J$20ce3707-e042-41e2-8ce5-081c53903bef
+java:S6205U"Remove this redundant block.(ó¹è‘8…„™ı1J$2bae3085-d41c-4512-b857-35775a18505a
+k	java:S108X")Either remove or fill this block of code.(ÊÊââ8…„™ı1J$c3336387-2eda-49e8-85d8-ed0eecbf1b80
+k	java:S108[")Either remove or fill this block of code.(ÀœË¾8…„™ı1J$89b9dbbe-2b0c-4950-87c9-352c6156d97f
 _
-java:S6205)"Remove this redundant block.(óß½Ä8À÷ïü1J$08369868-28f8-4dc7-a418-93955af64a47
-p	java:S108,")Either remove or fill this block of code.( Ğ ÷ıÿÿÿÿ8‚À÷ïü1J$834ccee5-038e-409e-8910-fedbce7ffd78
-k	java:S108/")Either remove or fill this block of code.(¼İÎ8‚À÷ïü1J$a3956699-1f31-458c-a31d-c5db2cbd9320
-k	java:S1082")Either remove or fill this block of code.(»ŠÒÄ8‚À÷ïü1J$8e44aa8e-d1a9-4fa1-b7b5-c04bdd803e08
-k	java:S1085")Either remove or fill this block of code.(çî¤“8‚À÷ïü1J$c138bf2d-0cef-47de-b069-39bbe83451cc
+java:S6205^"Remove this redundant block.(óß½Ä8Úé‘™ı1J$6e5f5bb7-26c1-4bf0-9a05-495d6b9698a6
+p	java:S108a")Either remove or fill this block of code.( Ğ ÷ıÿÿÿÿ8…„™ı1J$1df95b99-9a77-435a-9e0d-7b415a20b731
+k	java:S108d")Either remove or fill this block of code.(¼İÎ8…„™ı1J$aa736924-e7de-4519-9d68-3580f0acad14
+k	java:S108g")Either remove or fill this block of code.(»ŠÒÄ8…„™ı1J$feca4f8f-dc7b-4736-80e3-642af329f103
+k	java:S108j")Either remove or fill this block of code.(çî¤“8…„™ı1J$e0798c7a-4983-41f9-bead-d2895db77ba5
+ƒ	java:S125{"<This block of commented-out lines of code should be removed.(Ù ê¯şÿÿÿÿ8†„™ı1J$dbbc7368-6cd0-45f7-9c90-c2273ce100bf

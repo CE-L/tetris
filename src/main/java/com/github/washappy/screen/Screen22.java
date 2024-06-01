@@ -2,7 +2,9 @@ package com.github.washappy.screen;
 
 import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.panels.CardLayoutPanel;
 import com.github.washappy.screen.recources.IntroPanelResources;
+import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 
 import javax.swing.*;
@@ -23,6 +25,8 @@ public class Screen22  extends JFrame {
     private Graphics screenGraphic;
     private final IntroPanelResources recources = new IntroPanelResources();
 
+    public static final Music introMusic = new Music("introMusic.mp3",true);
+
     private Image logoImage = recources.logo;
     private final JLabel menuBar = new JLabel(recources.menuBarIcon);
 
@@ -35,6 +39,7 @@ public class Screen22  extends JFrame {
     //버튼에 객체 할당
     private JButton exitButton = new JButton(recources.exitButtonBasic);
     private Image[][] fieldImages = new Image[10][40];
+    public  static CardLayoutPanel cardLayout = new CardLayoutPanel();
 
 
     private int mouseX;
@@ -43,7 +48,7 @@ public class Screen22  extends JFrame {
 
     private static Screens whatScreen = Screens.INTRO;
     private Graphics2D graphics2D;
-    public static tetris.Game game = new tetris.Game();
+    public static Game game = new Game();
     public static Player NOWPLAYER;
 
 
@@ -51,7 +56,6 @@ public class Screen22  extends JFrame {
 
 
         // 메인 프레임 생성
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
         setTitle("Ytri_S");
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -112,6 +116,10 @@ public class Screen22  extends JFrame {
         });
         add(menuBar);
 
+//        cardLayout.panel.setBounds(0, 0, 1280, 720);
+//        add(cardLayout.panel);
+//        cardLayout.init();
+
         revalidate();
         repaint();
     }
@@ -144,7 +152,11 @@ public class Screen22  extends JFrame {
 
     public void screenDraw(Graphics2D g) {
         g.drawImage(recources.introBackground, 0, 0, null);
-        g.drawImage(logoImage, 20, 10, null);
+
+        if(Navigator.INSTANCE.getCurrentScreen()==Screens.INTRO) {
+            g.drawImage(logoImage, 20, 10, null);
+        }
+
 
         int x = 0;
         for (Image[] i : fieldImages) {

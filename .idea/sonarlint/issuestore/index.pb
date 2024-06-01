@@ -34,8 +34,6 @@ d
 4src/main/java/com/github/washappy/enums/Rotates.java,4\e\4e61f743e39df1a071ac1acc332b00a0f2d3ed28
 `
 0src/main/java/com/github/washappy/enums/Row.java,0\3\033f74a8fd26094d3879e697b71fed17a1dd2eb6
-n
->src/main/java/com/github/washappy/screen/panels/HomePanel.java,c\0\c09fc386422628a83a72e32172ac3484835f63ca
 f
 6src/main/java/com/github/washappy/screen/Screen22.java,8\c\8c91c5fac5c112453da2a7bc598629fa1d917eb0
 o
@@ -47,6 +45,8 @@ Bsrc/main/java/com/github/washappy/screen/panels/AbstractPanel.java,b\f\bf9ced9
 d
 4src/main/java/com/github/washappy/screen/Screen.java,1\3\13e7ab7af6393bd222cde58e551c89c0d79c6ec3
 |
-Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelRecources.java,7\6\76a4ee62fa4629502fb26880d8cdc55cb3b5853a
-|
 Lsrc/main/java/com/github/washappy/screen/recources/SinglePanelResources.java,6\3\63f3e47aa792b40c4b43720fc4e561dd09b3b954
+{
+Ksrc/main/java/com/github/washappy/screen/recources/IntroPanelResources.java,2\3\239b3b818187d214f190f7c059102e96eab73d3e
+t
+Dsrc/main/java/com/github/washappy/screen/panels/CardLayoutPanel.java,8\e\8e6b3f6f78cb8c932cc2bab3070a01311d05396b

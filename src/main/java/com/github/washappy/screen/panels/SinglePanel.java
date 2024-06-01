@@ -1,6 +1,7 @@
 package com.github.washappy.screen.panels;
 
 import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.Navigator;
 import com.github.washappy.screen.recources.SinglePanelResources;
 
 import javax.swing.*;
@@ -8,7 +9,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class SinglePanel implements AbstractPanel{
+import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
+import static com.github.washappy.Ingredient.SCREEN_WIDTH;
+
+public class SinglePanel extends AbstractPanel{
 
     private final SinglePanelResources resources = new SinglePanelResources();
 
@@ -20,8 +24,11 @@ public class SinglePanel implements AbstractPanel{
     @Override
     public void init() {
 
+        panel.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
+        panel.setBackground(new Color(0,0,0,0));
+        panel.setLayout(null);
+
         //40라인 버튼 생성
-        fourtyLineButton.setVisible(false);
         fourtyLineButton.setBounds(500,250,200,200);
         setPaintSetting(fourtyLineButton);
         fourtyLineButton.addMouseListener(new MouseAdapter() {
@@ -46,7 +53,6 @@ public class SinglePanel implements AbstractPanel{
         panel.add(fourtyLineButton);
 
         //1분 버튼 생성
-        oneMinuteButton.setVisible(false);
         oneMinuteButton.setBounds(300,450,200,200);
         setPaintSetting(oneMinuteButton);
         oneMinuteButton.addMouseListener(new MouseAdapter() {
@@ -71,7 +77,6 @@ public class SinglePanel implements AbstractPanel{
         panel.add(oneMinuteButton);
 
         //연습 버튼 생성
-        practiceButton.setVisible(false);
         practiceButton.setBounds(700,450,200,200);
         setPaintSetting(practiceButton);
         practiceButton.addMouseListener(new MouseAdapter() {
@@ -96,7 +101,6 @@ public class SinglePanel implements AbstractPanel{
         panel.add(practiceButton);
 
         //뒤로가기 버튼 생성
-        backButton.setVisible(false);
         backButton.setBounds(0,30,143,144);
         setPaintSetting(backButton);
         backButton.addMouseListener(new MouseAdapter() {
@@ -114,10 +118,14 @@ public class SinglePanel implements AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-               // whatScreen = Screens.INTRO;
-               // changeScreen(whatScreen);
+                Navigator.INSTANCE.popScreen();
             }
         });
         panel.add(backButton);
+    }
+
+    @Override
+    public Screens getScreen() {
+        return Screens.SINGLE;
     }
 }

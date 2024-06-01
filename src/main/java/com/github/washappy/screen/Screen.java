@@ -8,9 +8,9 @@ import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.listener.KeyListener;
 import com.github.washappy.screen.recources.IntroPanelResources;
+import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.AbstactMino;
-import tetris.Game;
 
 import javax.swing.*;
 
