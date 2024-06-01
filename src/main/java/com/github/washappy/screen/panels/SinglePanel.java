@@ -9,9 +9,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
-import static com.github.washappy.Ingredient.SCREEN_WIDTH;
-
 public class SinglePanel extends AbstractPanel{
 
     private final SinglePanelResources resources = new SinglePanelResources();
@@ -21,16 +18,8 @@ public class SinglePanel extends AbstractPanel{
     private final JButton practiceButton = new JButton(resources.practiceButtonBasic);
     private final JButton backButton = new JButton(resources.backButtonBasic);
 
-    @Override
-    public void init() {
-
-        panel.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
-        panel.setBackground(new Color(0,0,0,0));
-        panel.setLayout(null);
-
-        //40라인 버튼 생성
-        fourtyLineButton.setBounds(500,250,200,200);
-        setPaintSetting(fourtyLineButton);
+    public SinglePanel(){
+        //리스너는 한번만 추가하자
         fourtyLineButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -46,15 +35,9 @@ public class SinglePanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.FOURTY_LINE;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.FOURTY_LINE);
             }
         });
-        panel.add(fourtyLineButton);
-
-        //1분 버튼 생성
-        oneMinuteButton.setBounds(300,450,200,200);
-        setPaintSetting(oneMinuteButton);
         oneMinuteButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -70,15 +53,10 @@ public class SinglePanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.ONE_MINUTE;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.ONE_MINUTE);
+
             }
         });
-        panel.add(oneMinuteButton);
-
-        //연습 버튼 생성
-        practiceButton.setBounds(700,450,200,200);
-        setPaintSetting(practiceButton);
         practiceButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -94,15 +72,10 @@ public class SinglePanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.PRACTICE;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.PRACTICE);
+
             }
         });
-        panel.add(practiceButton);
-
-        //뒤로가기 버튼 생성
-        backButton.setBounds(0,30,143,144);
-        setPaintSetting(backButton);
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -121,6 +94,34 @@ public class SinglePanel extends AbstractPanel{
                 Navigator.INSTANCE.popScreen();
             }
         });
+    }
+
+    @Override
+    public void init() {
+        super.init();
+
+        //40라인 버튼 생성
+        fourtyLineButton.setBounds(500,250,200,200);
+        setPaintSetting(fourtyLineButton);
+        fourtyLineButton.setIcon(resources.fourtyLineButtonBasic);
+        panel.add(fourtyLineButton);
+
+        //1분 버튼 생성
+        oneMinuteButton.setBounds(300,450,200,200);
+        setPaintSetting(oneMinuteButton);
+        oneMinuteButton.setIcon(resources.oneMinuteButtonBasic);
+        panel.add(oneMinuteButton);
+
+        //연습 버튼 생성
+        practiceButton.setBounds(700,450,200,200);
+        setPaintSetting(practiceButton);
+        practiceButton.setIcon(resources.practiceButtonBasic);
+        panel.add(practiceButton);
+
+        //뒤로가기 버튼 생성
+        backButton.setBounds(0,30,143,144);
+        setPaintSetting(backButton);
+        backButton.setIcon(resources.backButtonBasic);
         panel.add(backButton);
     }
 

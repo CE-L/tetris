@@ -13,7 +13,7 @@ import com.github.washappy.tetris.mino.Move;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import static com.github.washappy.screen.Screen.NOWPLAYER;
+import static com.github.washappy.screen.Screen22.NOWPLAYER;
 
 public class KeyListener extends KeyAdapter {
 

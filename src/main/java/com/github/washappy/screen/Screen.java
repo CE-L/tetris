@@ -354,6 +354,8 @@ public class Screen extends JFrame {
         this.graphics2D = (Graphics2D)screenGraphic;
         screenDraw(graphics2D);
         g.drawImage(screenImage, 0, 0,null);
+
+
     }
 
     public void screenDraw(Graphics2D g) {

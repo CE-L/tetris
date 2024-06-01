@@ -24,23 +24,9 @@ public class IntroPanel extends AbstractPanel{
     private final JButton creditButton = new JButton(recources.creditButtonBasic);
 
 
+    public IntroPanel(){
 
-    @Override
-    public void init(){
-
-        panel.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
-        panel.setBackground(new Color(0,0,0,0));
-        panel.setLayout(null);
-
-        //기본 배경음악 재생
-        if(!Screen22.introMusic.isAlive()) {
-            Screen22.introMusic.start();
-        }
-
-        //single 버튼 생성
-        singleButton.setBounds(1050,300,200,200);
-        setPaintSetting(singleButton);
-        singleButton.setOpaque(false);
+        //리스너는 한번만 추가하자
         singleButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -56,18 +42,9 @@ public class IntroPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-
                 Navigator.INSTANCE.stackScreen(Screens.SINGLE);
-
-                //panel.revalidate();
-             //   panel.repaint();
             }
         });
-        panel.add(singleButton);
-
-        //multi 버튼 생성
-        multiButton.setBounds(825,400,200,200);
-        setPaintSetting(multiButton);
 
         multiButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -84,15 +61,10 @@ public class IntroPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.MULTI;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.MULTI);
             }
         });
-        panel.add(multiButton);
 
-        //setting 버튼 생성
-        settingButton.setBounds(600,500,200,200);
-        setPaintSetting(settingButton);
         settingButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -108,15 +80,10 @@ public class IntroPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.SETTING;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.SETTING);
             }
         });
-        panel.add(settingButton);
 
-        //credit 버튼 생성
-        creditButton.setBounds(1125,575,143,144);
-        setPaintSetting(creditButton);
         creditButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -132,10 +99,45 @@ public class IntroPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                //whatScreen = Screens.CREDIT;
-                //changeScreen(whatScreen);
+                Navigator.INSTANCE.stackScreen(Screens.CREDIT);
             }
         });
+    }
+
+    @Override
+    public void init(){
+        super.init();
+
+        //기본 배경음악 재생
+        if(!Screen22.introMusic.isAlive()) {
+            Screen22.introMusic.start();
+        }
+
+        //single 버튼 생성
+        singleButton.setBounds(1050,300,200,200);
+        setPaintSetting(singleButton);
+        singleButton.setOpaque(false);
+        singleButton.setIcon(recources.singleButtonBasic);
+        panel.add(singleButton);
+
+        //singleButton.removeMouseListener();
+
+        //multi 버튼 생성
+        multiButton.setBounds(825,400,200,200);
+        setPaintSetting(multiButton);
+        multiButton.setIcon(recources.multiButtonBasic);
+        panel.add(multiButton);
+
+        //setting 버튼 생성
+        settingButton.setBounds(600,500,200,200);
+        setPaintSetting(settingButton);
+        settingButton.setIcon(recources.settingButtonBasic);
+        panel.add(settingButton);
+
+        //credit 버튼 생성
+        creditButton.setBounds(1125,575,143,144);
+        setPaintSetting(creditButton);
+        creditButton.setIcon(recources.creditButtonBasic);
         panel.add(creditButton);
 
     }
@@ -143,6 +145,11 @@ public class IntroPanel extends AbstractPanel{
     @Override
     public Screens getScreen() {
         return Screens.INTRO;
+    }
+
+
+    public void dispose(){
+
     }
 
 }

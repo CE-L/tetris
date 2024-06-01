@@ -2,11 +2,12 @@ package com.github.washappy.screen;
 
 import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
-import com.github.washappy.screen.panels.CardLayoutPanel;
+import com.github.washappy.listener.KeyListener;
 import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 
+import javax.print.attribute.standard.MediaSize;
 import javax.swing.*;
 
 import java.awt.*;
@@ -39,21 +40,17 @@ public class Screen22  extends JFrame {
     //버튼에 객체 할당
     private JButton exitButton = new JButton(recources.exitButtonBasic);
     private Image[][] fieldImages = new Image[10][40];
-    public  static CardLayoutPanel cardLayout = new CardLayoutPanel();
-
 
     private int mouseX;
     private int mouseY;
 
 
-    private static Screens whatScreen = Screens.INTRO;
     private Graphics2D graphics2D;
     public static Game game = new Game();
     public static Player NOWPLAYER;
 
 
     public Screen22() {
-
 
         // 메인 프레임 생성
         setUndecorated(true);
@@ -66,6 +63,9 @@ public class Screen22  extends JFrame {
         setBackground(new Color(0, 0, 0, 0));
         setLayout(null);
 
+        addKeyListener(new KeyListener());
+
+
 
         //exit 버튼 생성
         exitButton.setBounds(1245, 0, 30, 30);
@@ -77,13 +77,11 @@ public class Screen22  extends JFrame {
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 playButtonOn();
             }
-
             @Override
             public void mouseExited(MouseEvent e) {
                 exitButton.setIcon(recources.exitButtonBasic);
                 exitButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
-
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
@@ -115,10 +113,6 @@ public class Screen22  extends JFrame {
             }
         });
         add(menuBar);
-
-//        cardLayout.panel.setBounds(0, 0, 1280, 720);
-//        add(cardLayout.panel);
-//        cardLayout.init();
 
         revalidate();
         repaint();
@@ -152,21 +146,10 @@ public class Screen22  extends JFrame {
 
     public void screenDraw(Graphics2D g) {
         g.drawImage(recources.introBackground, 0, 0, null);
-
         if(Navigator.INSTANCE.getCurrentScreen()==Screens.INTRO) {
             g.drawImage(logoImage, 20, 10, null);
         }
-
-
-        int x = 0;
-        for (Image[] i : fieldImages) {
-            int y = 0;
-            for (Image j : i) {
-                g.drawImage(fieldImages[x][y], 400 + 20 * x, 700 - 20 * y, null);
-                y += 1;
-            }
-            x += 1;
-        }
+        g = Navigator.INSTANCE.getCurrentPanel().screenDraw(g);
 
         paintComponents(g);
         this.repaint();

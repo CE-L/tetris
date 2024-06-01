@@ -1,27 +1,9 @@
 
-­
-java:S4165V"eRemove this useless assignment; "showing" already holds the assigned value along all execution paths.(Õƒëûÿÿÿÿ8ùƒ™ı1J$3f1caf9c-d3cb-4f3d-bacd-2c6882f9d62d
+”
+java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8®ƒ«›ı1J$92d01644-01df-4cd7-b231-99b3a9549521
+ˆ
+java:S2259#"EA "NullPointerException" could be thrown; "showing" is nullable here.(§ôúƒ8ÑÍ–›ı1J$50a48fb7-5a35-4952-a2cb-8372bb482e0f
 Ü
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8úƒ™ı1J$2ec7dc1c-b4e5-456c-b3fe-95dd0d5d15ec
+java:S6548	"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8·øˆ›ı1J$a7497012-1784-4778-8f22-abbcb2be8493
 ˜
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8üƒ™ı1J$11928e1c-0d8c-4aea-9fa2-7442a878f643
-r	java:S106)"+Replace this use of System.out by a logger.(˜ê·­øÿÿÿÿ8€„™ı1J$c5ccd178-8061-4bc9-97fa-cfeaa1aecf36
-r	java:S106+"+Replace this use of System.out by a logger.(€–©óüÿÿÿÿ8„™ı1J$4be3564e-8fd6-4860-bc8b-d6196f7e35a9
-r	java:S106,"+Replace this use of System.out by a logger.(Ø–ªùÿÿÿÿ8„™ı1J$80235e58-2aa0-416e-b57c-c2be3c79b9f7
-r	java:S106/"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8‚„™ı1J$1cf36d42-2954-4f5b-8191-f7a164bbd4be
-r	java:S1067"+Replace this use of System.out by a logger.(Ö£áùÿÿÿÿ8ƒ„™ı1J$79dc258e-f9a5-40c0-991e-daffe66785fc
-r	java:S106H"+Replace this use of System.out by a logger.(Û®ıúÿÿÿÿ8ƒ„™ı1J$c6cb9920-a7a7-460d-bb88-61da659975d2
-r	java:S106J"+Replace this use of System.out by a logger.(€–©óüÿÿÿÿ8„„™ı1J$6adb9265-8cf7-47e1-bfb7-3b80395a0838
-r	java:S106K"+Replace this use of System.out by a logger.(Ø–ªùÿÿÿÿ8…„™ı1J$b445301b-43d4-4f75-ae43-5e1c8d4d50e0
-r	java:S106N"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ñÚ™ı1J$01f267bf-054e-4886-b1e1-24d5f4987261
-_
-java:S6205U"Remove this redundant block.(ó¹è‘8…„™ı1J$2bae3085-d41c-4512-b857-35775a18505a
-k	java:S108X")Either remove or fill this block of code.(ÊÊââ8…„™ı1J$c3336387-2eda-49e8-85d8-ed0eecbf1b80
-k	java:S108[")Either remove or fill this block of code.(ÀœË¾8…„™ı1J$89b9dbbe-2b0c-4950-87c9-352c6156d97f
-_
-java:S6205^"Remove this redundant block.(óß½Ä8Úé‘™ı1J$6e5f5bb7-26c1-4bf0-9a05-495d6b9698a6
-p	java:S108a")Either remove or fill this block of code.( Ğ ÷ıÿÿÿÿ8…„™ı1J$1df95b99-9a77-435a-9e0d-7b415a20b731
-k	java:S108d")Either remove or fill this block of code.(¼İÎ8…„™ı1J$aa736924-e7de-4519-9d68-3580f0acad14
-k	java:S108g")Either remove or fill this block of code.(»ŠÒÄ8…„™ı1J$feca4f8f-dc7b-4736-80e3-642af329f103
-k	java:S108j")Either remove or fill this block of code.(çî¤“8…„™ı1J$e0798c7a-4983-41f9-bead-d2895db77ba5
-ƒ	java:S125{"<This block of commented-out lines of code should be removed.(Ù ê¯şÿÿÿÿ8†„™ı1J$dbbc7368-6cd0-45f7-9c90-c2273ce100bf
+java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8¸øˆ›ı1J$22c07a55-5863-4146-b0db-e1872194174a

@@ -1,0 +1,19 @@
+
+“
+java:S1104"PMake game a static final constant or non-public and provide accessors if needed.(û±±ë8ØÃ°›ı1J$f852649f-7bd4-4b83-abcf-ec30347abfa2
+m
+java:S1444"*Make this "public static game" field final(û±±ë8èÃ°›ı1J$2dd8713b-36c2-47de-94d3-eddea9601b87
+S
+java:S2696H"6Make the enclosing method "static" or remove this set.(”Ÿ±©8ò”œı1
+z
+java:S1135M"2Complete the task associated to this TODO comment.(¢½ıĞûÿÿÿÿ8ÛÄ°›ı1J$0ffdf696-1e2f-494b-a3b4-fa967bcc8032
+z
+java:S1135Z"2Complete the task associated to this TODO comment.(¹Âêáúÿÿÿÿ8İÄ°›ı1J$a670894d-8901-4d1d-9014-5dd82756d9ed
+n
+java:S1481c"&Remove this unused "j" local variable.(‡Ÿ€Şıÿÿÿÿ8ŞÄ°›ı1J$0ffe40e4-23cd-4a29-bfa7-2944ce7983e8
+š
+java:S1128"WRemove this unused import 'com.github.washappy.screen.recources.SettingPanelResources'.(Û¹ä”8£Ñ€œı1J$c03a75d5-2982-43b8-894c-44823c9dd470
+Œ
+java:S1128"IRemove this unused import 'com.github.washappy.Ingredient.SCREEN_HEIGHT'.(¡°Û®8£Ñ€œı1J$ab54d59a-8a22-44ad-907a-8d00c5bb4520
+
+java:S1128"HRemove this unused import 'com.github.washappy.Ingredient.SCREEN_WIDTH'.(ï‡üäûÿÿÿÿ8£Ñ€œı1J$2ffebc31-97de-473f-8d87-5aeb75f7c7a7

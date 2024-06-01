@@ -1,35 +1,23 @@
 package com.github.washappy.screen;
 
 import com.github.washappy.enums.Screens;
-import com.github.washappy.screen.panels.AbstractPanel;
-import com.github.washappy.screen.panels.IntroPanel;
-import com.github.washappy.screen.panels.SinglePanel;
+import com.github.washappy.screen.panels.*;
 
 import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Stack;
 
 public class Navigator {
+    public static final Navigator INSTANCE = new Navigator();
 
     private final Stack<AbstractPanel> navigationStack = new Stack<>();
-
-    CardLayout cardLayout = new CardLayout();
-    JPanel cards = new JPanel();
-    private JFrame frame;
-
-    IntroPanel introPanel = new IntroPanel();
-    SinglePanel singlePanel = new SinglePanel();
-
-    public static final Navigator INSTANCE = new Navigator();
+    public JFrame frame;
 
     public void popScreen(){
         assert(!navigationStack.isEmpty());
-
         //remove
         frame.remove(navigationStack.pop().panel);
-        //get panel before shown
 
+        //get panel shown before
         AbstractPanel showing = navigationStack.peek();
         setPanelSize(showing.panel);
         frame.add(showing.panel);
@@ -37,26 +25,10 @@ public class Navigator {
 
         frame.revalidate();
         frame.repaint();
-
-        System.out.println("remove");
-        navigationStack.elements().asIterator().forEachRemaining((AbstractPanel e)->{
-            System.out.print(e.getScreen());
-            System.out.print(", ");
-                }
-        );
-        System.out.println();
-
-
-
     }
 
     public void stackScreen(Screens screen) {
-
-        System.out.println(SwingUtilities.isEventDispatchThread());
-
-        if (!navigationStack.isEmpty()) {
-            frame.remove(navigationStack.peek().panel);
-        }
+        if (!navigationStack.isEmpty()) frame.remove(navigationStack.peek().panel);
 
         //보여줄 패널 선택, 초기화
         AbstractPanel showing = getPanel(screen);
@@ -64,50 +36,22 @@ public class Navigator {
         frame.add(showing.panel);
         showing.init();
 
-
         navigationStack.add(showing);
         frame.revalidate();
         frame.repaint();
-
-        System.out.println("add");
-        navigationStack.elements().asIterator().forEachRemaining((AbstractPanel e)->{
-                    System.out.print(e.getScreen());
-                    System.out.print(", ");
-                }
-        );
-        System.out.println();
     }
 
     private AbstractPanel getPanel(Screens screen) {
-        AbstractPanel showing = introPanel;
-
-        switch (screen) {
-            case INTRO -> {
-                showing = introPanel;
-            }
-            case MULTI -> {
-
-            }
-            case CREDIT -> {
-
-            }
-            case SINGLE -> {
-                showing = singlePanel;
-            }
-            case SETTING -> {
-
-            }
-            case PRACTICE -> {
-
-            }
-            case ONE_MINUTE -> {
-
-            }
-            case FOURTY_LINE -> {
-
-            }
-        }
-        return showing;
+        return switch (screen) {
+            case INTRO ->  new IntroPanel();
+            case MULTI ->  new MultiPanel();
+            case CREDIT -> new CreditPanel();
+            case SINGLE ->  new SinglePanel();
+            case SETTING ->  new SettingPanel();
+            case PRACTICE -> new PracticePanel();
+            case ONE_MINUTE -> new OneMinutePanel();
+            case FOURTY_LINE -> null;
+        };
     }
 
     public Screens getCurrentScreen() {
@@ -118,15 +62,17 @@ public class Navigator {
         }
     }
 
-    public void setFrame(JFrame frame) {
-        INSTANCE.frame = frame;
-     //   INSTANCE.frame.add(cards);
-        stackScreen(Screens.INTRO);
+    public AbstractPanel getCurrentPanel() {
+        if (!navigationStack.isEmpty()) {
+            return navigationStack.peek();
+        } else {
+            return new IntroPanel();
+        }
     }
 
-    public void initPanels(){
-        cards.add(introPanel.panel, introPanel.getScreen().name());
-        cards.add(singlePanel.panel, singlePanel.getScreen().name());
+    public void setFrame(JFrame frame) {
+        INSTANCE.frame = frame;
+        stackScreen(Screens.INTRO);
     }
 
     private void setPanelSize(JPanel panel) {
