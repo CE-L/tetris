@@ -1,9 +1,0 @@
-
-”
-java:S1104"QMake frame a static final constant or non-public and provide accessors if needed.(Ü˜üí8®ƒ«›ý1J$92d01644-01df-4cd7-b231-99b3a9549521
-ˆ
-java:S2259#"EA "NullPointerException" could be thrown; "showing" is nullable here.(§ôúƒ8ÑÍ–›ý1J$50a48fb7-5a35-4952-a2cb-8372bb482e0f
-Ü
-java:S6548	"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ê¶û»8·øˆ›ý1J$a7497012-1784-4778-8f22-abbcb2be8493
-˜
-java:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(ë¤ÿˆùÿÿÿÿ8¸øˆ›ý1J$22c07a55-5863-4146-b0db-e1872194174a

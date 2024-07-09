@@ -7,10 +7,11 @@ import com.github.washappy.Music;
 import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.listener.KeyListener;
-import com.github.washappy.tetris.Board;
+import com.github.washappy.screen.recources.IntroPanelResources;
+import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.AbstactMino;
-import com.github.washappy.tetris.mino.NowMino;
+import com.github.washappy.tetris.mino.Minos;
 
 import javax.swing.*;
 
@@ -19,19 +20,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Queue;
 
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
-import static com.github.washappy.tetris.mino.Minos.*;
 
 public class Screen extends JFrame {
 
     //기본 배경 자료 가져오기
     private Image screenImage;
     private Graphics screenGraphic;
-    private final IntroScreenRecources recources= new IntroScreenRecources();
+    private final IntroPanelResources recources= new IntroPanelResources();
 
     private Image logoImage = recources.logo;
     private final JLabel menuBar = new JLabel(recources.menuBarIcon);
@@ -418,10 +417,10 @@ public class Screen extends JFrame {
 
         holdMinoImage = null;
         for (Image[] i : fieldImages) {
-            Arrays.fill(i,new IntroScreenRecources().noMino);
+            Arrays.fill(i,new IntroPanelResources().noMino);
         }
         nextImage = null;
-        Arrays.fill(nextMinoImages, new IntroScreenRecources().noMino);
+        Arrays.fill(nextMinoImages, new IntroPanelResources().noMino);
     }
 
     public void changeScreen(Screens s){
@@ -479,15 +478,15 @@ public class Screen extends JFrame {
         holdImage = recources.holdImage;
         //nextImage = TODO
         for (Image[] i : fieldImages) {
-            Arrays.fill(i,new IntroScreenRecources().noMino);
+            Arrays.fill(i,new IntroPanelResources().noMino);
         }
-        Arrays.fill(nextMinoImages, new IntroScreenRecources().noMino);
+        Arrays.fill(nextMinoImages, new IntroPanelResources().noMino);
         NOWPLAYER = new Player("user", new ExampleCharacter());
     }
 
     public void updateField() {
 
-        IntroScreenRecources recources = new IntroScreenRecources();
+        IntroPanelResources recources = new IntroPanelResources();
 
         AbstactMino[][] board = NOWPLAYER.getField().getField();
 
@@ -536,7 +535,7 @@ public class Screen extends JFrame {
         }
 
         if (NOWPLAYER.getNext()==null) {
-            Arrays.fill(nextMinoImages,new IntroScreenRecources().noMino);
+            Arrays.fill(nextMinoImages,new IntroPanelResources().noMino);
         } else {
             Queue<Minos> next = NOWPLAYER.getNext();
             for(int i=0; i<5; i++) {
@@ -553,7 +552,7 @@ public class Screen extends JFrame {
             }
         }
 
-        //TODO nextMinoImage
+        //TODO nextImage
 
         /*for (int i = 0; i<temp.length; i++) {
             System.out.println(Arrays.toString(temp[i]));

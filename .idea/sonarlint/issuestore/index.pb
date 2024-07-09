@@ -16,14 +16,10 @@ r
 Bsrc/main/java/com/github/washappy/character/AbstractCharacter.java,6\c\6c4f503ef9ce1cb092decdaa85fe771ea7558a59
 q
 Asrc/main/java/com/github/washappy/character/ExampleCharacter.java,f\7\f7359992983502508eb30277ec26f985e8cdfa3d
-b
-2src/main/java/com/github/washappy/tetris/Game.java,5\a\5a9e8cea4d2a5b064712e0d0ed6f0d38422c0972
 [
 +src/main/java/com/github/washappy/Main.java,f\b\fbf5c9e788385ff2e3cc745174e3de7b0e87e0e9
 q
 Asrc/main/java/com/github/washappy/dataStructure/LimitedQueue.java,7\7\77158f4beb80fa7f9904827c460dca0a6bde7a5f
-g
-7src/main/java/com/github/washappy/screen/Navigator.java,f\0\f02f41358de104a53eed50a087de35189199e4e8
 a
 1src/main/java/com/github/washappy/Ingredient.java,b\c\bc56737bd267d89a26a6d06256b7813b56a17a5f
 d
@@ -34,7 +30,5 @@ d
 4src/main/java/com/github/washappy/enums/Rotates.java,4\e\4e61f743e39df1a071ac1acc332b00a0f2d3ed28
 `
 0src/main/java/com/github/washappy/enums/Row.java,0\3\033f74a8fd26094d3879e697b71fed17a1dd2eb6
-n
->src/main/java/com/github/washappy/screen/panels/HomePanel.java,c\0\c09fc386422628a83a72e32172ac3484835f63ca
 f
 6src/main/java/com/github/washappy/screen/Screen22.java,8\c\8c91c5fac5c112453da2a7bc598629fa1d917eb0
