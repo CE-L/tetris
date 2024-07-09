@@ -6,6 +6,8 @@ import com.github.washappy.enums.Rotates;
 import com.github.washappy.tetris.mino.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Board {
     private AbstactMino[][] field; //10,40
@@ -125,27 +127,70 @@ public class Board {
         for (int[] mino : nowMino.getCoodinates()) {
             for (int j =0; j<10; j++) {
                 if (field[j][mino[1]] == null) {
-                    System.out.println("y");
+                    //System.out.println("y");
                     isFull = false;
                     break;
                 } else {
-                    System.out.println("n");
+                    //System.out.println("n");
                     isFull = true;
                 }
             }
-            System.out.println(">>");
+            //System.out.println(">>");
             if (isFull && !fullLine.contains(mino[1])) {
-                System.out.println("yes");
+                //System.out.println("yes");
                 fullLine.add(mino[1]);
             } else {
-                System.out.println("no");
+                //System.out.println("no");
             }
             isFull = true;
         }
-        System.out.println("------");
 
         if (!fullLine.isEmpty()) {
-            for (int j : fullLine) {
+
+            Collections.sort(fullLine);
+            System.out.println("fulline : "+fullLine.toString());
+            Collections.reverse(fullLine);
+            for (int line : fullLine) {
+
+                for (int j = 0; j < 10; j++) {
+                    field[j][line] = null;
+                }
+                AbstactMino[][] temp_field = new AbstactMino[10][40];
+
+                for (int y=39; y>= line+1; y--) {
+                    for (int x=0; x<10; x++) {
+                        temp_field[x][y] = field[x][y];
+                    }
+                }
+
+                for (int x=0; x<10; x++) field[x][39] = null;
+
+                for (int y=38; y>=line; y--){
+                    for (int x=0; x<10; x++) {
+                        field[x][y] = temp_field[x][y+1];
+                    }
+                }
+
+//                for (int y=39; y>=line; y--) {
+//                    for (int x=0; x<10;x++) {
+//                        field[x][y] = field[x][y+1];
+//                        /*for (int a=0;a<field.length;a++) {
+//                            AbstactMino[] c = field[a];
+//                            for (int b=0; b<c.length;b++) {
+//                                if (c[b]==null) {
+//                                    System.out.print("0 ");
+//                                } else {
+//                                    System.out.print("▢ ");
+//                                }
+//                            }
+//                            System.out.println();
+//                        }
+//                        //System.out.println("-----------");*/
+//                    }
+//                }
+            }
+
+            /*for (int j : fullLine) {
                 for (int x=0; x<10; x++) {
                     field[x][j]=null;
                 }
@@ -156,7 +201,7 @@ public class Board {
                         field[x][y] = field[x][y+1];
                     }
                 }
-            }
+            }*/
         }
     }
 

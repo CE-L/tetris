@@ -119,4 +119,8 @@ public class Player {
         getNextMino();
         isHolded = false;
     }
+
+    public void reset(){
+        field = new Board();
+    }
 }

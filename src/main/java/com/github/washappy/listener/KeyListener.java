@@ -3,6 +3,7 @@ package com.github.washappy.listener;
 
 
 import com.github.washappy.Music;
+import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Rotates;
 import com.github.washappy.screen.Screen;
@@ -49,6 +50,9 @@ public class KeyListener extends KeyAdapter {
             }
             case KeyEvent.VK_A -> {
                 NOWPLAYER.getField().rotate(Rotates.HUNDREDWEIGHT);
+            }
+            case KeyEvent.VK_R -> {
+                NOWPLAYER = new Player("user", new ExampleCharacter());
             }
         }
     }
