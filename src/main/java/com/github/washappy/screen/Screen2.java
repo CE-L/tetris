@@ -7,7 +7,6 @@ import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 
-import javax.print.attribute.standard.MediaSize;
 import javax.swing.*;
 
 import java.awt.*;
@@ -18,7 +17,7 @@ import java.awt.event.MouseMotionAdapter;
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
-public class Screen22  extends JFrame {
+public class Screen2 extends JFrame {
 
 
     //기본 배경 자료 가져오기
@@ -50,7 +49,7 @@ public class Screen22  extends JFrame {
     public static Player NOWPLAYER;
 
 
-    public Screen22() {
+    public Screen2() {
 
         // 메인 프레임 생성
         setUndecorated(true);

@@ -4,6 +4,10 @@ package com.github.washappy.tetris;
 import com.github.washappy.character.AbstractCharacter;
 import com.github.washappy.damage.Damage;
 import com.github.washappy.dataStructure.LimitedQueue;
+import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.Navigator;
+import com.github.washappy.screen.panels.FourtyLinePanel;
+import com.github.washappy.tetris.mino.AbstactMino;
 import com.github.washappy.tetris.mino.Minos;
 import com.github.washappy.tetris.mino.NowMino;
 
@@ -26,6 +30,9 @@ public class Player {
     private Damage recievedDamage;
     private Damage sendDamage;
     private Damage dangerDamge;
+
+    public NowMino ghost;
+    public AbstactMino[] ghostMinos=new AbstactMino[4];
 
     public Player(String n, AbstractCharacter c) {
         this.name = n;
@@ -115,7 +122,14 @@ public class Player {
     }
 
     public void drop() {
-        field.drop();
+        int clearedLine = field.drop();
+        if (Navigator.INSTANCE.getCurrentScreen()== Screens.FOURTY_LINE) {
+            ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).clearedLine += clearedLine;
+            if (((FourtyLinePanel) Navigator.INSTANCE.getCurrentPanel()).clearedLine >=40) {
+                ((FourtyLinePanel) Navigator.INSTANCE.getCurrentPanel()).totalTime = System.currentTimeMillis() - ((FourtyLinePanel) Navigator.INSTANCE.getCurrentPanel()).startTime;
+                ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).success();
+            }
+        }
         getNextMino();
         isHolded = false;
     }

@@ -1,23 +1,29 @@
 package com.github.washappy.screen.panels;
 
 import com.github.washappy.character.ExampleCharacter;
+import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
-import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.screen.recources.InGamePanelResources;
+import com.github.washappy.screen.recources.IntroPanelResources;
+import com.github.washappy.tetris.Board;
 import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.AbstactMino;
+import com.github.washappy.tetris.mino.Minos;
+import com.github.washappy.tetris.mino.Move;
+import com.github.washappy.tetris.mino.NowMino;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.Queue;
 
 import static com.github.washappy.screen.Screen2.NOWPLAYER;
 
-public class PracticePanel extends AbstractPanel{
+public class FourtyLinePanel extends AbstractPanel{
 
     private final InGamePanelResources resources = new InGamePanelResources();
     private final JButton backButton = new JButton(resources.backButtonBasic);
@@ -25,12 +31,27 @@ public class PracticePanel extends AbstractPanel{
     public static Game game = new Game();
 
     private Image[][] fieldImages = new Image[10][40];
+    private Image[] nextMinoImages = new Image[5];
 
     private Image boardImage = null;
     private Image holdImage = null;
     private Image holdMinoImage = null;
 
-    public PracticePanel(){
+    public int clearedLine = 0;
+    public long startTime = 0;
+    public long totalTime = 0;
+
+    public static long FINAL_TIME = 0;
+
+    public String time;
+    public int gravity = 1;
+
+    public FourtyLinePanel(){
+
+        clearedLine = 0;
+        startTime = System.currentTimeMillis();
+        totalTime = 0;
+
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -68,6 +89,8 @@ public class PracticePanel extends AbstractPanel{
 
         NOWPLAYER = new Player("user", new ExampleCharacter());
 
+        //game.screenDraw();
+
         Navigator.INSTANCE.frame.setFocusable(true);
         boardImage = resources.boardImage;
         holdImage = resources.holdImage;
@@ -75,30 +98,73 @@ public class PracticePanel extends AbstractPanel{
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroPanelResources().noMino);
         }
+        Arrays.fill(nextMinoImages, new IntroPanelResources().noMino);
     }
 
     @Override
     public Graphics2D screenDraw(Graphics2D g) {
         game.screenDraw(g);
 
-        g.drawImage(boardImage,400,320,null);
-        g.drawImage(holdImage, AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y,null);
-        g.drawImage(holdMinoImage,AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y+40,null);
+        g.drawImage(boardImage, Board.SOLO_BOARD_PLACE[0], Board.SOLO_BOARD_PLACE[1], null);   //400,320 -> 550 220
+        g.drawImage(holdImage, Board.SOLO_HOLD_PLACE[0], Board.SOLO_HOLD_PLACE[1], null); // 280,350  -> 430,250
+        g.drawImage(holdMinoImage,Board.SOLO_HOLD_MINO_PLACE[0], Board.SOLO_HOLD_MINO_PLACE[1], null); //280,390 -> 430,290
         //TODO next
 
         if (NOWPLAYER!=null) {
             updateField();
         }
 
+        if (NOWPLAYER!=null) {
+            NowMino temp = NOWPLAYER.getField().getBottom();
+            int[][] coor = temp.getCoordinates();
+            int r = 0;
+            for (int[] one : coor) {
+                NOWPLAYER.ghostMinos[r] = new NowMino(temp.getMino(), one[0], one[1]);
+                r += 1;
+            }
+            for (AbstactMino i : NOWPLAYER.ghostMinos) {
+                Image mino = resources.gMino;
+                        /*switch (i.getMino()) {
+                            case T -> resources.tMino;
+                            case I -> resources.iMino;
+                            case O -> resources.oMino;
+                            case J -> resources.jMino;
+                            case L -> resources.lMino;
+                            case S -> resources.sMino;
+                            case Z -> resources.zMino;
+                            default -> resources.noMino;
+                        };*/
+                g.drawImage(mino, Board.SOLO_FIELD_MINO_PLACE[0] + 20 * i.getX(), Board.SOLO_FIELD_MINO_PLACE[1] - 20 * i.getY(), null);
+            }
+        }
+
         int x = 0;
         for (Image[] i : fieldImages) {
             int y = 0;
             for (Image j : i) {
-                g.drawImage(fieldImages[x][y],AbstactMino.SOLO_X+20*x,AbstactMino.SOLO_Y+350-20*y,null);
+                g.drawImage(fieldImages[x][y],Board.SOLO_FIELD_MINO_PLACE[0]+20*x,Board.SOLO_FIELD_MINO_PLACE[1] -20*y,null); //400,700 -> 550,600
                 y+=1;
             }
             x+=1;
         }
+
+        int b = 0;
+        for (Image i : nextMinoImages) {
+            g.drawImage(i,Board.SOLO_NEXT_MINO_PLACE[0], Board.SOLO_NEXT_MINO_PLACE[1]+ 70*b,null); // 600,300 -> 750,200
+            b+=1;
+        }
+
+        g.setColor(Color.white);
+        //g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g.setFont(new Font("Ariel",Font.BOLD,50));
+        g.drawString(Integer.toString(clearedLine),290,570);
+        long finalTime = System.currentTimeMillis()- startTime;
+        if (finalTime/60000>0) {
+            time = finalTime / 60000 + " : " + (finalTime - (finalTime / 60000) * 60000) / 1000 + "." + finalTime % 1000;
+        } else {
+            time = (finalTime - (finalTime / 60000) * 60000) / 1000 + "." + finalTime % 1000;
+        }
+        g.drawString(time,290,630);
 
         return g;
     }
@@ -109,6 +175,12 @@ public class PracticePanel extends AbstractPanel{
         int[][] temp = new int[10][40];
 
         int x = 0;
+
+        if ((System.currentTimeMillis()-startTime)%(100)==0) {
+            if (!(NOWPLAYER.getField().move(new Move(Direction.DOWN,-1)))) {
+                NOWPLAYER.drop();
+            }
+        }
 
         for (AbstactMino[] i : board) {
             int y = 0;
@@ -148,10 +220,35 @@ public class PracticePanel extends AbstractPanel{
                 default -> resources.no;
             };
         }
+
+        if (NOWPLAYER.getNext()==null) {
+            Arrays.fill(nextMinoImages,new IntroPanelResources().noMino);
+        } else {
+            Queue<Minos> next = NOWPLAYER.getNext();
+            for(int i=0; i<5; i++) {
+                nextMinoImages[i] = switch ((Minos)next.toArray()[i]) {
+                    case I -> resources.i;
+                    case T -> resources.t;
+                    case O -> resources.o;
+                    case L -> resources.l;
+                    case J -> resources.j;
+                    case S -> resources.s;
+                    case Z -> resources.z;
+                    default -> resources.no;
+                };
+            }
+        }
+    }
+
+    public void success() {
+        FINAL_TIME = totalTime;
+        Navigator.INSTANCE.stackScreen(Screens.SUCCESS);
+        System.out.println("success");
+        System.out.println(time);
     }
 
     @Override
     public Screens getScreen() {
-        return Screens.PRACTICE;
+        return Screens.FOURTY_LINE;
     }
 }

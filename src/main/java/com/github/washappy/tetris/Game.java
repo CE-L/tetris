@@ -10,6 +10,6 @@ public class Game extends Thread{
 
     @Override
     public void run() {
-        //TODO
+        //TODO(굳이?)
     }
 }

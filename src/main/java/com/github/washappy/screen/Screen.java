@@ -25,6 +25,7 @@ import java.util.Queue;
 import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
 import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
+@Deprecated
 public class Screen extends JFrame {
 
     //기본 배경 자료 가져오기

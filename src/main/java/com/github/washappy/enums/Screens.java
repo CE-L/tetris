@@ -10,7 +10,11 @@ public enum Screens {
 
     FOURTY_LINE(1),
     ONE_MINUTE(1),
-    PRACTICE(1);
+    PRACTICE(1),
+
+
+    SUCCESS(0),
+    GAMEOVER(0);
 
     public int inGame;
 

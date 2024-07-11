@@ -6,35 +6,41 @@ import com.github.washappy.Music;
 import com.github.washappy.character.ExampleCharacter;
 import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Rotates;
-import com.github.washappy.screen.Screen;
-import com.github.washappy.tetris.Board;
+import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.Navigator;
+import com.github.washappy.screen.panels.FourtyLinePanel;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.Move;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import static com.github.washappy.screen.Screen22.NOWPLAYER;
+import static com.github.washappy.screen.Screen2.NOWPLAYER;
 
 public class KeyListener extends KeyAdapter {
 
     private Player player;
-    private Board board;
 
     @Override
     public void keyPressed(KeyEvent event){
-        if (Screen.game == null || Screen.getWhatScreen().inGame==0) {
+        if (Navigator.INSTANCE.getCurrentScreen() == null || Navigator.INSTANCE.getCurrentScreen().inGame==0) {
             return;
         }
         switch (event.getKeyCode()) {
             case KeyEvent.VK_LEFT -> {
-                NOWPLAYER.getField().move(new Move(Direction.LEFT));
+                if (NOWPLAYER.getField().move(new Move(Direction.LEFT))) {
+                    new Music("rotate.mp3",false).start();
+                }
             }
             case KeyEvent.VK_RIGHT -> {
-                NOWPLAYER.getField().move(new Move(Direction.RIGHT));
+                if (NOWPLAYER.getField().move(new Move(Direction.RIGHT))){
+                    new Music("rotate.mp3",false).start();
+                }
             }
             case KeyEvent.VK_UP -> {
-                NOWPLAYER.getField().rotate(Rotates.CLOCKWISE);
+                if (NOWPLAYER.getField().rotate(Rotates.CLOCKWISE)) {
+                    new Music("rotate.mp3",false).start();
+                }
             }
             case KeyEvent.VK_DOWN -> {
                 NOWPLAYER.getField().move(new Move(Direction.DOWN,-1));
@@ -53,13 +59,21 @@ public class KeyListener extends KeyAdapter {
             }
             case KeyEvent.VK_R -> {
                 NOWPLAYER = new Player("user", new ExampleCharacter());
+                if (Navigator.INSTANCE.getCurrentScreen() == Screens.FOURTY_LINE) {
+                    ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).clearedLine =0;
+                    ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).startTime = System.currentTimeMillis();
+                    ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).totalTime = 0;
+                }
+            }
+            default -> {
+                //nothing
             }
         }
     }
 
     @Override
     public void keyReleased(KeyEvent event){
-        if (Screen.game == null) {
+        if (Navigator.INSTANCE.getCurrentScreen().inGame==0) {
             return;
         }
         switch (event.getKeyCode()) {
@@ -70,7 +84,6 @@ public class KeyListener extends KeyAdapter {
                 new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_UP -> {
-                new Music("rotate.mp3",false).start();
             }
             case KeyEvent.VK_DOWN -> {
                 new Music("rotate.mp3",false).start();
@@ -90,8 +103,5 @@ public class KeyListener extends KeyAdapter {
     }
     public KeyListener(){
         this.player = NOWPLAYER;
-        if (NOWPLAYER!=null) {
-            this.board = player.getField();
-        }
     }
 }

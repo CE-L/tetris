@@ -50,7 +50,10 @@ public class Navigator {
             case SETTING ->  new SettingPanel();
             case PRACTICE -> new PracticePanel();
             case ONE_MINUTE -> new OneMinutePanel();
-            case FOURTY_LINE -> null;
+            case FOURTY_LINE -> new FourtyLinePanel();
+            case GAMEOVER -> new GameOverPanel();
+            case SUCCESS -> new SuccessPanel();
+            default -> null;
         };
     }
 

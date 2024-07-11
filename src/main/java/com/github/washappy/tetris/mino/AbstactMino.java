@@ -2,7 +2,6 @@ package com.github.washappy.tetris.mino;
 
 public abstract class AbstactMino {
     protected Minos mino;
-    protected int rotated;
     protected int x;
     protected int y;
 
@@ -15,10 +14,6 @@ public abstract class AbstactMino {
 
     public Minos getMino() {
         return mino;
-    }
-
-    public int getRotated() {
-        return rotated;
     }
 
     public int getX() {

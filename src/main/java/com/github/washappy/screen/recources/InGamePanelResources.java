@@ -3,7 +3,7 @@ package com.github.washappy.screen.recources;
 import javax.swing.*;
 import java.awt.*;
 
-public class PracticePanelResources {
+public class InGamePanelResources {
 
 
     public final Image introBackground = new ImageIcon(getClass().getResource("/images/introBackground.jpg")).getImage();
@@ -45,6 +45,7 @@ public class PracticePanelResources {
     public final Image zMino = new ImageIcon(getClass().getResource("/images/zMino.png")).getImage();
     public final Image jMino = new ImageIcon(getClass().getResource("/images/jMino.png")).getImage();
     public final Image lMino = new ImageIcon(getClass().getResource("/images/lMino.png")).getImage();
+    public final Image gMino = new ImageIcon(getClass().getResource("/images/gMino.png")).getImage();
 
     public final Image noMino = new ImageIcon(getClass().getResource("/images/noMino.png")).getImage();
 

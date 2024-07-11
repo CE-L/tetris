@@ -1,17 +1,31 @@
 package com.github.washappy.tetris;
 
 
+import com.github.washappy.enums.DeathMessage;
 import com.github.washappy.enums.Direction;
 import com.github.washappy.enums.Rotates;
+import com.github.washappy.enums.Screens;
+import com.github.washappy.screen.Navigator;
 import com.github.washappy.tetris.mino.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
+import static com.github.washappy.screen.panels.GameOverPanel.GAME_OVER_MESSAGE;
+
 public class Board {
+
+    public static int[] SOLO_BOARD_PLACE = new int[] {550,220};
+    public static int[] SOLO_HOLD_PLACE = new int[] {430,250};
+    public static int[] SOLO_HOLD_MINO_PLACE = new int[] {430,290};
+    public static int[] SOLO_NEXT_PLACE = new int[] {0,0};
+    public static int[] SOLO_NEXT_MINO_PLACE = new int[] {750,200};
+
+    public static int[] SOLO_FIELD_MINO_PLACE = new int[] {550,600};
+
     private AbstactMino[][] field; //10,40
     private NowMino nowMino;
+
 
     public Board() {
         this.field = new AbstactMino[10][40];
@@ -22,33 +36,39 @@ public class Board {
     }
 
     public boolean isRotatePossible(Rotates rotates) {
-        for (int[] i: nowMino.getRotated(rotates).getCoodinates()) {
+        for (int[] i: nowMino.getRotated(rotates).getCoordinates()) {
             int x = i[0];
             int y = i[1];
-            if ((x<=0 || y<0) || (x>=9 || y>=39)) {
+            //System.out.println("x : "+x+" ,y : "+y);
+            if ((x<0 || y<0) || (x>9 || y>39)) {
                 return false;
             }
             if (field[x][y]!=null && !(field[x][y] instanceof NowMino)) {
                 return false;
             }
         }
+        //System.out.println("true");
         return true;
     }
 
-    public void rotate(Rotates rotates) {
+    public boolean rotate(Rotates rotates) {
         if (isRotatePossible(rotates)) {
             try {
                 nowDelete();
                 nowMino.rotate(rotates);
                 nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
+                //System.out.println(Arrays.deepToString(nowMino.getCoodinates()));
             } catch (ArrayIndexOutOfBoundsException exception) {
                 System.out.println(exception.getMessage());
             }
+
+            return true;
         }
+        return false;
     }
 
     public void nowDelete() {
-        for (int[] i : nowMino.getCoodinates()) {
+        for (int[] i : nowMino.getCoordinates()) {
             int x = i[0];
             int y = i[1];
             field[x][y] = null;
@@ -64,18 +84,33 @@ public class Board {
     }
 
     public void nowMinoSummon(Minos minos, int roation, int[] coodinate) {
+        int k =0;
+        for (int[] i :new NowMino(minos,AbstactMino.START_X,AbstactMino.START_Y).getCoordinates()) {
+            int x = i[0];
+            int y = i[1];
+
+            if (field[x][y]!=null && !(field[x][y] instanceof NowMino)) {
+                k = 1;
+            }
+        }
         NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
-        for (int[] i : now.getCoodinates()) {
+
+        for (int[] i : now.getCoordinates()) {
             //System.out.println(Arrays.toString(i));
             int x = i[0];
             int y = i[1];
             field[x][y] = new NowMino(minos,x,y);
         }
+
+        if (k==1) {
+            gameOver();
+        }
     }
 
     public void placedMinoSummon(Minos minos, int roation, int[] coodinate) {
+
         NowMino now = new NowMino(minos,coodinate[0],coodinate[1],roation);
-        for (int[] i : now.getCoodinates()) {
+        for (int[] i : now.getCoordinates()) {
             //System.out.println(Arrays.toString(i));
             int x = i[0];
             int y = i[1];
@@ -85,8 +120,7 @@ public class Board {
 
     public boolean isMovePossible(Move move) {
 
-        for (int[] i: nowMino.getMoved(move).getCoodinates()) {
-            //System.out.println(Arrays.toString(i));
+        for (int[] i: nowMino.getMoved(move).getCoordinates()) {
             int x = i[0];
             int y = i[1];
             if ((x<0 || y<0) || (x>9 || y>=39)) {
@@ -99,18 +133,20 @@ public class Board {
         return true;
     }
 
-    public void move(Move move) {
+    public boolean move(Move move) {
         if (isMovePossible(move)) {
             //System.out.println("yes");
             nowDelete();
             nowMino.move(move);
             nowMinoSummon(nowMino.getMino(),nowMino.getRoation(),new int[]{nowMino.getX(), nowMino.getY()});
-        } else {
-            //System.out.println("no");
+            //System.out.println(getFieldString());
+            return true;
         }
+        //System.out.println("no");
+        return false;
     }
 
-    public void drop() {
+    public int drop() {
         //System.out.println("drop");
         int i = 0;
         while (isMovePossible(new Move(Direction.DOWN,i))) {
@@ -124,7 +160,7 @@ public class Board {
 
         boolean isFull = true;
         ArrayList<Integer> fullLine = new ArrayList<>();
-        for (int[] mino : nowMino.getCoodinates()) {
+        for (int[] mino : nowMino.getCoordinates()) {
             for (int j =0; j<10; j++) {
                 if (field[j][mino[1]] == null) {
                     //System.out.println("y");
@@ -148,7 +184,7 @@ public class Board {
         if (!fullLine.isEmpty()) {
 
             Collections.sort(fullLine);
-            System.out.println("fulline : "+fullLine.toString());
+            //System.out.println("fulline : "+fullLine.toString());
             Collections.reverse(fullLine);
             for (int line : fullLine) {
 
@@ -202,7 +238,15 @@ public class Board {
                     }
                 }
             }*/
+
+            //System.out.println(getFieldString());
+
+            return fullLine.size();
         }
+
+        //System.out.println(getFieldString());
+
+        return 0;
     }
 
     public NowMino getNowMino() {
@@ -214,6 +258,63 @@ public class Board {
     }
 
     public void goNextMino() {
-        //TODO
+        //TODO(굳이?)
+    }
+
+    public String getFieldString() {
+        StringBuilder result = new StringBuilder();
+        for (AbstactMino[] a : field) {
+            for (AbstactMino b: a) {
+                if (b==null) {
+                    result.append(0);
+                } else if (b instanceof NowMino) {
+                    result.append(2);
+                } else if (b instanceof PlacedMino) {
+                    result.append(1);
+                } else {
+                    result.append("ASdfasdfas6513fe6485w132dsf");
+                }
+                result.append(" ");
+            }
+            result.append("\n");
+        }
+
+        return result.toString();
+    }
+
+    public NowMino getBottom() {
+        NowMino temp = new NowMino(nowMino.getMino(),nowMino.getX(),nowMino.getY(),nowMino.getRoation());
+
+        Move down = new Move(Direction.DOWN,-1);
+
+        boolean isPossible = true;
+
+        while (isPossible) {
+            for (int[] i : temp.getMoved(down).getCoordinates()) {
+                int x = i[0];
+                int y = i[1];
+                if ((x < 0 || y < 0) || (x > 9 || y >= 39)) {
+                    isPossible = false;
+                    break;
+                }
+                if (field[x][y] != null && !(field[x][y] instanceof NowMino)) {
+                    isPossible = false;
+                    break;
+                }
+            }
+            temp.move(down);
+        }
+        temp.move(new Move(Direction.DOWN,1));
+        return temp;
+    }
+
+    public void gameOver() {
+        System.out.println("died");
+        //Navigator.INSTANCE.stackScreen();
+        GAME_OVER_MESSAGE = DeathMessage.A.getRandom().getMessage();
+        Navigator.INSTANCE.stackScreen(Screens.GAMEOVER);
     }
 }
+
+
+//TODO(감도, 중력해결, 넥스트 사진, pps보여주기, SRS+, 키 입력이슈,사망멘트 추가)

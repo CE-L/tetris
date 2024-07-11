@@ -2,7 +2,6 @@ package com.github.washappy.tetris.mino;
 
 import com.github.washappy.enums.Rotates;
 
-import java.util.Arrays;
 
 public class NowMino extends AbstactMino{
 
@@ -15,17 +14,17 @@ public class NowMino extends AbstactMino{
     public int rotate(Rotates roationType) {
         switch (roationType) {
             case CLOCKWISE -> {
-                if (roation>0) {
-                    roation-=1;
-                } else {
-                    roation = 3;
-                }
-            }
-            case COUNTERCLOCKWISE -> {
                 if (roation<3) {
                     roation+=1;
                 } else {
                     roation = 0;
+                }
+            }
+            case COUNTERCLOCKWISE -> {
+                if (roation>0) {
+                    roation-=1;
+                } else {
+                    roation = 3;
                 }
             }
             case HUNDREDWEIGHT -> {
@@ -71,18 +70,43 @@ public class NowMino extends AbstactMino{
     }
 
     public NowMino getRotated(Rotates r) {
-        NowMino n = new NowMino(mino,x,y);
-        n.roation = n.rotate(r);
-        return n;
+
+        int a = this.roation;
+
+        switch (r) {
+            case CLOCKWISE -> {
+                if (a < 3) {
+                    a += 1;
+                } else {
+                    a = 0;
+                }
+            }
+            case COUNTERCLOCKWISE -> {
+                if (a > 0) {
+                    a -= 1;
+                } else {
+                    a = 3;
+                }
+            }
+            case HUNDREDWEIGHT -> {
+                if (a < 2) {
+                    a += 2;
+                } else {
+                    a -= 2;
+                }
+            }
+        }
+
+        return new NowMino(this.mino, this.x, this.y,a);
     }
 
-    public int[][] getCoodinates() {
+    public int[][] getCoordinates() {
 
         int[][] ret = new int[4][2];
         int k = 0;
 
         int p = 0;
-        for (int[] i: mino.getRotation()[roation]) {
+        for (int[] i: mino.getRotation()[roation]) { // i -> 이차원 배열
             int q = 0;
             for (int j : i) {
                 if (j==1) {

@@ -1,18 +1,14 @@
 package com.github.washappy.screen.panels;
 
-import com.github.washappy.Music;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
-import com.github.washappy.screen.Screen22;
+import com.github.washappy.screen.Screen2;
 import com.github.washappy.screen.recources.IntroPanelResources;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import static com.github.washappy.Ingredient.SCREEN_HEIGHT;
-import static com.github.washappy.Ingredient.SCREEN_WIDTH;
 
 public class IntroPanel extends AbstractPanel{
 
@@ -109,8 +105,8 @@ public class IntroPanel extends AbstractPanel{
         super.init();
 
         //기본 배경음악 재생
-        if(!Screen22.introMusic.isAlive()) {
-            Screen22.introMusic.start();
+        if(!Screen2.introMusic.isAlive()) {
+            Screen2.introMusic.start();
         }
 
         //single 버튼 생성
