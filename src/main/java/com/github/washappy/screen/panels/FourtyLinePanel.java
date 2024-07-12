@@ -269,11 +269,11 @@ public class FourtyLinePanel extends AbstractPanel{
         }
     }
 
-    public long getStartTime() {
-        return startTime;
-    }
-
     public void setStartTime(long startTime) {
         this.startTime = startTime;
+    }
+
+    public void setClearedLine(int clearedLine) {
+        this.clearedLine = clearedLine;
     }
 }

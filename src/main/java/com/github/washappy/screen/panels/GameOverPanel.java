@@ -40,6 +40,7 @@ public class GameOverPanel extends AbstractPanel{
                 playButtonClick();
                 Navigator.INSTANCE.popScreen();
                 ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).setStartTime(System.currentTimeMillis());
+                ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).setClearedLine(0);
             }
         });
     }
