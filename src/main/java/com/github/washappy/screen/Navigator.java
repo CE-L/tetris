@@ -48,11 +48,17 @@ public class Navigator {
             case CREDIT -> new CreditPanel();
             case SINGLE ->  new SinglePanel();
             case SETTING ->  new SettingPanel();
+
             case PRACTICE -> new PracticePanel();
             case ONE_MINUTE -> new OneMinutePanel();
             case FOURTY_LINE -> new FourtyLinePanel();
+
             case GAMEOVER -> new GameOverPanel();
             case SUCCESS -> new SuccessPanel();
+
+            case BOOK -> new BookPanel();
+            case RANK -> new RankPanel();
+
             default -> null;
         };
     }

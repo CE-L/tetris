@@ -477,7 +477,6 @@ public class Screen extends JFrame {
         setFocusable(true);
         boardImage = recources.boardImage;
         holdImage = recources.holdImage;
-        //nextImage = TODO
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroPanelResources().noMino);
         }
@@ -552,8 +551,6 @@ public class Screen extends JFrame {
                 };
             }
         }
-
-        //TODO nextImage
 
         /*for (int i = 0; i<temp.length; i++) {
             System.out.println(Arrays.toString(temp[i]));

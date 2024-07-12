@@ -1,11 +1,8 @@
 package com.github.washappy.screen.panels;
 
-import com.github.washappy.enums.DeathMessage;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
-import com.github.washappy.screen.Screen2;
-import com.github.washappy.screen.recources.IntroPanelResources;
-import com.github.washappy.screen.recources.MultiPanelResources;
+import com.github.washappy.screen.recources.CreditPanelResources;
 import com.github.washappy.tetris.Game;
 
 import javax.swing.*;
@@ -13,16 +10,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class GameOverPanel extends AbstractPanel{
 
-    public static String GAME_OVER_MESSAGE = "";
-
-    private final MultiPanelResources resources = new MultiPanelResources();
+public class BookPanel extends AbstractPanel{
+    private final CreditPanelResources resources = new CreditPanelResources();
     private final JButton backButton = new JButton(resources.backButtonBasic);
-
     public static Game game = new Game();
 
-    public GameOverPanel(){
+    private Image keyBoardImage = resources.keyBoard;
+
+    public BookPanel(){
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -39,7 +35,6 @@ public class GameOverPanel extends AbstractPanel{
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
                 Navigator.INSTANCE.popScreen();
-                ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).setStartTime(System.currentTimeMillis());
             }
         });
     }
@@ -60,16 +55,15 @@ public class GameOverPanel extends AbstractPanel{
         game.screenDraw(g);
 
         g.setColor(Color.white);
-        g.setFont(new Font("Ariel",Font.BOLD,100));
-        g.drawString("Game Over",150,600);
         g.setFont(new Font("Ariel",Font.BOLD,30));
-        g.drawString(GAME_OVER_MESSAGE,400,450);
+
+        g.drawImage(keyBoardImage, 200, 150,null);
+
         return g;
     }
 
-
     @Override
     public Screens getScreen() {
-        return Screens.GAMEOVER;
+        return Screens.BOOK;
     }
 }

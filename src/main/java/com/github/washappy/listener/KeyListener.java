@@ -65,6 +65,11 @@ public class KeyListener extends KeyAdapter {
                     ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).totalTime = 0;
                 }
             }
+            case KeyEvent.VK_ESCAPE -> {
+                if (Navigator.INSTANCE.getCurrentScreen()!=Screens.INTRO) {
+                    Navigator.INSTANCE.popScreen();
+                }
+            }
             default -> {
                 //nothing
             }

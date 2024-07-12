@@ -32,7 +32,10 @@ public class Player {
     private Damage dangerDamge;
 
     public NowMino ghost;
+    public int placedMinoCount = 0;
     public AbstactMino[] ghostMinos=new AbstactMino[4];
+
+    public int loopCount = 0;
 
     public Player(String n, AbstractCharacter c) {
         this.name = n;
@@ -122,6 +125,7 @@ public class Player {
     }
 
     public void drop() {
+        placedMinoCount+=1;
         int clearedLine = field.drop();
         if (Navigator.INSTANCE.getCurrentScreen()== Screens.FOURTY_LINE) {
             ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).clearedLine += clearedLine;

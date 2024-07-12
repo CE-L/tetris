@@ -1,11 +1,8 @@
 package com.github.washappy.screen.panels;
 
-import com.github.washappy.enums.DeathMessage;
 import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
-import com.github.washappy.screen.Screen2;
-import com.github.washappy.screen.recources.IntroPanelResources;
-import com.github.washappy.screen.recources.MultiPanelResources;
+import com.github.washappy.screen.recources.CreditPanelResources;
 import com.github.washappy.tetris.Game;
 
 import javax.swing.*;
@@ -13,16 +10,13 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class GameOverPanel extends AbstractPanel{
-
-    public static String GAME_OVER_MESSAGE = "";
-
-    private final MultiPanelResources resources = new MultiPanelResources();
+public class RankPanel extends AbstractPanel{
+    private final CreditPanelResources resources = new CreditPanelResources();
     private final JButton backButton = new JButton(resources.backButtonBasic);
 
     public static Game game = new Game();
 
-    public GameOverPanel(){
+    public RankPanel(){
         backButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -39,7 +33,6 @@ public class GameOverPanel extends AbstractPanel{
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
                 Navigator.INSTANCE.popScreen();
-                ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).setStartTime(System.currentTimeMillis());
             }
         });
     }
@@ -60,16 +53,20 @@ public class GameOverPanel extends AbstractPanel{
         game.screenDraw(g);
 
         g.setColor(Color.white);
-        g.setFont(new Font("Ariel",Font.BOLD,100));
-        g.drawString("Game Over",150,600);
         g.setFont(new Font("Ariel",Font.BOLD,30));
-        g.drawString(GAME_OVER_MESSAGE,400,450);
+        g.drawString("만약 칠판에 있는 등수보다 더 빠르다면 ",100,200);
+        g.drawString("부원을 불러 신기록을 경신해주세요! ",100,240);
+
+        g.drawString("2분 이내의 기록만 등록이 가능합니다",100,320);
+        g.drawString("1둥에게는 스피커 상품이 있어요!",100,360);
+
+        g.drawString("3분 이내라면 도장!",100,440);
+
         return g;
     }
 
-
     @Override
     public Screens getScreen() {
-        return Screens.GAMEOVER;
+        return Screens.RANK;
     }
 }

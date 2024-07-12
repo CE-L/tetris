@@ -4,6 +4,8 @@ public enum Screens {
     INTRO(0),
     SINGLE(0),
     MULTI(0),
+    BOOK(0),
+    RANK(0),
     SETTING(0),
     CREDIT(0),
 

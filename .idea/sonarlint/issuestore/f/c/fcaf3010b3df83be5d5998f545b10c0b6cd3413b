@@ -1,0 +1,25 @@
+
+i
+java:S1104"SMake START_X a static final constant or non-public and provide accessors if needed.(İ˜î
+n
+java:S1104	"SMake START_Y a static final constant or non-public and provide accessors if needed.(ã³²§ıÿÿÿÿ
+h
+java:S1104"RMake SOLO_X a static final constant or non-public and provide accessors if needed.(˜íéŸ
+m
+java:S1104"RMake SOLO_Y a static final constant or non-public and provide accessors if needed.(ã½İÍşÿÿÿÿ
+C
+java:S1444"-Make this "public static START_X" field final(İ˜î
+H
+java:S1444	"-Make this "public static START_Y" field final(ã³²§ıÿÿÿÿ
+B
+java:S1444",Make this "public static SOLO_X" field final(˜íéŸ
+G
+java:S1444",Make this "public static SOLO_Y" field final(ã½İÍşÿÿÿÿ
+h
+java:S3008"RRename this field "START_X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ˜î
+m
+java:S3008	"RRename this field "START_Y" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã³²§ıÿÿÿÿ
+g
+java:S3008"QRename this field "SOLO_X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜íéŸ
+l
+java:S3008"QRename this field "SOLO_Y" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã½İÍşÿÿÿÿ

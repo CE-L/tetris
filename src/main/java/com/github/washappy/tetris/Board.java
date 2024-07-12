@@ -18,8 +18,9 @@ public class Board {
     public static int[] SOLO_BOARD_PLACE = new int[] {550,220};
     public static int[] SOLO_HOLD_PLACE = new int[] {430,250};
     public static int[] SOLO_HOLD_MINO_PLACE = new int[] {430,290};
-    public static int[] SOLO_NEXT_PLACE = new int[] {0,0};
-    public static int[] SOLO_NEXT_MINO_PLACE = new int[] {750,200};
+
+    public static int[] SOLO_NEXT_PLACE = new int[] {750,220};
+    public static int[] SOLO_NEXT_MINO_PLACE = new int[] {750,240};
 
     public static int[] SOLO_FIELD_MINO_PLACE = new int[] {550,600};
 
@@ -258,7 +259,7 @@ public class Board {
     }
 
     public void goNextMino() {
-        //TODO(굳이?)
+        //T굳이?
     }
 
     public String getFieldString() {
@@ -309,7 +310,7 @@ public class Board {
     }
 
     public void gameOver() {
-        System.out.println("died");
+        //System.out.println("died");
         //Navigator.INSTANCE.stackScreen();
         GAME_OVER_MESSAGE = DeathMessage.A.getRandom().getMessage();
         Navigator.INSTANCE.stackScreen(Screens.GAMEOVER);
@@ -317,4 +318,5 @@ public class Board {
 }
 
 
-//TODO(감도, 중력해결, 넥스트 사진, pps보여주기, SRS+, 키 입력이슈,사망멘트 추가)
+//TODO(감도, 중력해결,키 입력이슈)
+//TODO(먼 미래에 - srs+, 멀티)

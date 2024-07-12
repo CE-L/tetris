@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import static com.github.washappy.screen.panels.FourtyLinePanel.FINAL_TIME;
+import static com.github.washappy.screen.panels.FourtyLinePanel.msToString;
 
 public class SuccessPanel extends AbstractPanel{
     public static String GAME_OVER_MESSAGE = "";
@@ -36,7 +37,8 @@ public class SuccessPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                Navigator.INSTANCE.stackScreen(Screens.INTRO);
+                Navigator.INSTANCE.popScreen();
+                ((FourtyLinePanel)Navigator.INSTANCE.getCurrentPanel()).setStartTime(System.currentTimeMillis());
             }
         });
     }
@@ -61,13 +63,8 @@ public class SuccessPanel extends AbstractPanel{
         g.drawString("Success",150,600);
         g.setFont(new Font("Ariel",Font.BOLD,30));
 
-        String time;
-        if (FINAL_TIME/60000>0) {
-            time = FINAL_TIME / 60000 + " : " + (FINAL_TIME - (FINAL_TIME / 60000) * 60000) / 1000 + "." + FINAL_TIME % 1000;
-        } else {
-            time = (FINAL_TIME - (FINAL_TIME / 60000) * 60000) / 1000 + "." + FINAL_TIME % 1000;
-        }
-        g.drawString(time,400,450);
+
+        g.drawString(msToString(FINAL_TIME),400,450);
         return g;
     }
 

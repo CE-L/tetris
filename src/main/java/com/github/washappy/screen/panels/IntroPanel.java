@@ -16,6 +16,8 @@ public class IntroPanel extends AbstractPanel{
 
     private final JButton singleButton = new JButton(recources.singleButtonBasic);
     private final JButton multiButton = new JButton(recources.multiButtonBasic);
+    private final JButton bookButton = new JButton(recources.bookButtonBasic);
+    private final JButton rankButton = new JButton(recources.bookButtonBasic);
     private final JButton settingButton = new JButton(recources.settingButtonBasic);
     private final JButton creditButton = new JButton(recources.creditButtonBasic);
 
@@ -38,7 +40,7 @@ public class IntroPanel extends AbstractPanel{
             @Override
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
-                Navigator.INSTANCE.stackScreen(Screens.SINGLE);
+                Navigator.INSTANCE.stackScreen(Screens.FOURTY_LINE);
             }
         });
 
@@ -58,6 +60,44 @@ public class IntroPanel extends AbstractPanel{
             public void mousePressed(MouseEvent e) {
                 playButtonClick();
                 Navigator.INSTANCE.stackScreen(Screens.MULTI);
+            }
+        });
+
+        bookButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                bookButton.setIcon(recources.bookButtonPressed);
+                bookButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                playButtonOn();
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                bookButton.setIcon(recources.bookButtonBasic);
+                bookButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playButtonClick();
+                Navigator.INSTANCE.stackScreen(Screens.BOOK);
+            }
+        });
+
+        rankButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                rankButton.setIcon(recources.rankButtonPressed);
+                rankButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                playButtonOn();
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                rankButton.setIcon(recources.rankButtonBasic);
+                rankButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
+            @Override
+            public void mousePressed(MouseEvent e) {
+                playButtonClick();
+                Navigator.INSTANCE.stackScreen(Screens.RANK);
             }
         });
 
@@ -119,10 +159,23 @@ public class IntroPanel extends AbstractPanel{
         //singleButton.removeMouseListener();
 
         //multi 버튼 생성
-        multiButton.setBounds(825,400,200,200);
+        multiButton.setBounds(3000,400,200,200);
         setPaintSetting(multiButton);
         multiButton.setIcon(recources.multiButtonBasic);
         panel.add(multiButton);
+
+        //book 버튼 생성
+        bookButton.setBounds(830,400,200,200);
+        setPaintSetting(bookButton);
+        bookButton.setIcon(recources.bookButtonBasic);
+        panel.add(bookButton);
+
+        //rank 버튼 생성
+        rankButton.setBounds(600,500,200,200);
+        setPaintSetting(rankButton);
+        rankButton.setIcon(recources.rankButtonBasic);
+        panel.add(rankButton);
+
 
         //setting 버튼 생성
         settingButton.setBounds(600,500,200,200);

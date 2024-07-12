@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ytri_s:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ytri_s_jar</output-path>
+    <root id="archive" name="ytri_s.jar">
+      <element id="module-output" name="ytri_s" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javazoom/jlayer/1.0.1/jlayer-1.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

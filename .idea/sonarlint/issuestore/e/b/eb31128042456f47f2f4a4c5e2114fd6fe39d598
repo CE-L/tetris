@@ -1,0 +1,57 @@
+
+m
+java:S11040"PMake game a static final constant or non-public and provide accessors if needed.(û±±ë8±Ç›ı1
+r
+java:S11041"UMake NOWPLAYER a static final constant or non-public and provide accessors if needed.(¬®Ç¼8±Ç›ı1
+G
+java:S14440"*Make this "public static game" field final(û±±ë8±Ç›ı1
+L
+java:S14441"/Make this "public static NOWPLAYER" field final(¬®Ç¼8±Ç›ı1
+q
+java:S30081"TRename this field "NOWPLAYER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬®Ç¼8à÷¾»‰2
+N
+java:S2387","menuBar" is the name of a field in "Frame".(‰şÆÑùÿÿÿÿ8°±Ç›ı1
+v
+java:S1450/"YRemove the "graphics2D" field and declare it as a local variable in the relevant methods.(°öŠˆ8±±Ç›ı1
+y
+java:S1450"\Remove the "screenGraphic" field and declare it as a local variable in the relevant methods.(å‚Œ¾8±±Ç›ı1
+w
+java:S1450"ZRemove the "screenImage" field and declare it as a local variable in the relevant methods.(Ü •ğ8±±Ç›ı1
+J
+java:S1948"-Make "screenImage" transient or serializable.(Ü •ğ8²±Ç›ı1
+L
+java:S1948"/Make "screenGraphic" transient or serializable.(å‚Œ¾8²±Ç›ı1
+M
+java:S1948"+Make "recources" transient or serializable.(Õ¦±Åıÿÿÿÿ8²±Ç›ı1
+M
+java:S1948"+Make "logoImage" transient or serializable.(¦¾Çÿÿÿÿÿ8²±Ç›ı1
+I
+java:S1948!",Make "boardImage" transient or serializable.(‚Ô»ç8²±Ç›ı1
+G
+java:S1948""+Make "holdImage" transient or serializable.(Š–Ø;8³±Ç›ı1
+Q
+java:S1948#"/Make "holdMinoImage" transient or serializable.(«‰¶ãıÿÿÿÿ8³±Ç›ı1
+M
+java:S1948$"+Make "nextImage" transient or serializable.(È¸ã¹ûÿÿÿÿ8³±Ç›ı1
+M
+java:S1948%"0Make "nextMinoImages" transient or serializable.(Ü±”Ú8³±Ç›ı1
+O
+java:S1948)"-Make "fieldImages" transient or serializable.(»Š®øÿÿÿÿ8³±Ç›ı1
+I
+java:S1948/",Make "graphics2D" transient or serializable.(°öŠˆ8³±Ç›ı1
+k
+java:S3252<"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8·±Ç›ı1
+€
+java:S2142Y"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8»±Ç›ı1
+K
+java:S1068!".Remove this unused "boardImage" private field.(‚Ô»ç8Á±Ç›ı1
+I
+java:S1068""-Remove this unused "holdImage" private field.(Š–Ø;8Á±Ç›ı1
+S
+java:S1068#"1Remove this unused "holdMinoImage" private field.(«‰¶ãıÿÿÿÿ8Á±Ç›ı1
+O
+java:S1068$"-Remove this unused "nextImage" private field.(È¸ã¹ûÿÿÿÿ8Á±Ç›ı1
+O
+java:S1068%"2Remove this unused "nextMinoImages" private field.(Ü±”Ú8Á±Ç›ı1
+Q
+java:S1068)"/Remove this unused "fieldImages" private field.(»Š®øÿÿÿÿ8™¾Ò›ı1

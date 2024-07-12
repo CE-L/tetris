@@ -5,6 +5,7 @@ import com.github.washappy.enums.Screens;
 import com.github.washappy.screen.Navigator;
 import com.github.washappy.screen.recources.IntroPanelResources;
 import com.github.washappy.screen.recources.InGamePanelResources;
+import com.github.washappy.tetris.Board;
 import com.github.washappy.tetris.Game;
 import com.github.washappy.tetris.Player;
 import com.github.washappy.tetris.mino.AbstactMino;
@@ -29,6 +30,7 @@ public class PracticePanel extends AbstractPanel{
     private Image boardImage = null;
     private Image holdImage = null;
     private Image holdMinoImage = null;
+    private Image nextImage = null;
 
     public PracticePanel(){
         backButton.addMouseListener(new MouseAdapter() {
@@ -71,7 +73,7 @@ public class PracticePanel extends AbstractPanel{
         Navigator.INSTANCE.frame.setFocusable(true);
         boardImage = resources.boardImage;
         holdImage = resources.holdImage;
-        //nextImage = TODO
+        nextImage = resources.nextImage;
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroPanelResources().noMino);
         }
@@ -84,7 +86,7 @@ public class PracticePanel extends AbstractPanel{
         g.drawImage(boardImage,400,320,null);
         g.drawImage(holdImage, AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y,null);
         g.drawImage(holdMinoImage,AbstactMino.SOLO_X-120,AbstactMino.SOLO_Y+40,null);
-        //TODO next
+        g.drawImage(nextImage, Board.SOLO_NEXT_PLACE[0], Board.SOLO_NEXT_PLACE[1], null);
 
         if (NOWPLAYER!=null) {
             updateField();

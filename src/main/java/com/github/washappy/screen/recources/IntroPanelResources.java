@@ -20,6 +20,12 @@ public class IntroPanelResources {
     public final ImageIcon multiButtonBasic = new ImageIcon(getClass().getResource("/images/multiButton.png"));
     public final ImageIcon multiButtonPressed = new ImageIcon(getClass().getResource("/images/multiButtonPressed.png"));
 
+    public final ImageIcon bookButtonBasic = new ImageIcon(getClass().getResource("/images/bookButton.png"));
+    public final ImageIcon bookButtonPressed = new ImageIcon(getClass().getResource("/images/bookButtonPressed.png"));
+
+    public final ImageIcon rankButtonBasic = new ImageIcon(getClass().getResource("/images/rankButton.png"));
+    public final ImageIcon rankButtonPressed = new ImageIcon(getClass().getResource("/images/rankButtonPressed.png"));
+
     public final ImageIcon settingButtonBasic = new ImageIcon(getClass().getResource("/images/settingButton.png"));
     public final ImageIcon settingButtonPressed = new ImageIcon(getClass().getResource("/images/settingButtonPressed.png"));
 

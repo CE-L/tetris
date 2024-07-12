@@ -51,6 +51,7 @@ public class InGamePanelResources {
 
     public final Image boardImage = new ImageIcon(getClass().getResource("/images/board.png")).getImage();
     public final Image holdImage = new ImageIcon(getClass().getResource("/images/hold.png")).getImage();
+    public final Image nextImage = new ImageIcon(getClass().getResource("/images/next.png")).getImage();
 
     public final Image t = new ImageIcon(getClass().getResource("/images/t.png")).getImage();
     public final Image i = new ImageIcon(getClass().getResource("/images/i.png")).getImage();

@@ -36,6 +36,7 @@ public class FourtyLinePanel extends AbstractPanel{
     private Image boardImage = null;
     private Image holdImage = null;
     private Image holdMinoImage = null;
+    private Image nextImage = null;
 
     public int clearedLine = 0;
     public long startTime = 0;
@@ -94,7 +95,7 @@ public class FourtyLinePanel extends AbstractPanel{
         Navigator.INSTANCE.frame.setFocusable(true);
         boardImage = resources.boardImage;
         holdImage = resources.holdImage;
-        //nextImage = TODO
+        nextImage = resources.nextImage;
         for (Image[] i : fieldImages) {
             Arrays.fill(i,new IntroPanelResources().noMino);
         }
@@ -108,7 +109,7 @@ public class FourtyLinePanel extends AbstractPanel{
         g.drawImage(boardImage, Board.SOLO_BOARD_PLACE[0], Board.SOLO_BOARD_PLACE[1], null);   //400,320 -> 550 220
         g.drawImage(holdImage, Board.SOLO_HOLD_PLACE[0], Board.SOLO_HOLD_PLACE[1], null); // 280,350  -> 430,250
         g.drawImage(holdMinoImage,Board.SOLO_HOLD_MINO_PLACE[0], Board.SOLO_HOLD_MINO_PLACE[1], null); //280,390 -> 430,290
-        //TODO next
+        g.drawImage(nextImage,Board.SOLO_NEXT_PLACE[0], Board.SOLO_NEXT_PLACE[1], null);
 
         if (NOWPLAYER!=null) {
             updateField();
@@ -154,17 +155,31 @@ public class FourtyLinePanel extends AbstractPanel{
             b+=1;
         }
 
+
+        int stringX = 200;
+        int stringY = 350;
+
         g.setColor(Color.white);
         //g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        g.setFont(new Font("Ariel",Font.BOLD,50));
-        g.drawString(Integer.toString(clearedLine),290,570);
+        g.setFont(new Font("Ariel",Font.BOLD,30));
+        g.drawString("지운 줄 수 : "+Integer.toString(clearedLine),stringX,stringY);
         long finalTime = System.currentTimeMillis()- startTime;
-        if (finalTime/60000>0) {
-            time = finalTime / 60000 + " : " + (finalTime - (finalTime / 60000) * 60000) / 1000 + "." + finalTime % 1000;
+
+        g.drawString("시간 : "+msToString(finalTime),stringX,stringY+60);
+        double pps = (double)NOWPLAYER.placedMinoCount/(finalTime/1000);
+        if (Math.round(pps * 100) / 100.0 >100) {
+            g.drawString("1초당 블럭수 : ??", stringX, stringY + 120);
         } else {
-            time = (finalTime - (finalTime / 60000) * 60000) / 1000 + "." + finalTime % 1000;
+            g.drawString("1초당 블럭수 : "+Double.toString(Math.round(pps * 100) / 100.0), stringX, stringY + 120);
         }
-        g.drawString(time,290,630);
+
+        if (NOWPLAYER.loopCount%120==0) {
+            if (!(NOWPLAYER.getField().move(new Move(Direction.DOWN, -1)))) {
+                NOWPLAYER.drop();
+            }
+        }
+
+        NOWPLAYER.loopCount+=1;
 
         return g;
     }
@@ -175,12 +190,6 @@ public class FourtyLinePanel extends AbstractPanel{
         int[][] temp = new int[10][40];
 
         int x = 0;
-
-        if ((System.currentTimeMillis()-startTime)%(100)==0) {
-            if (!(NOWPLAYER.getField().move(new Move(Direction.DOWN,-1)))) {
-                NOWPLAYER.drop();
-            }
-        }
 
         for (AbstactMino[] i : board) {
             int y = 0;
@@ -243,12 +252,28 @@ public class FourtyLinePanel extends AbstractPanel{
     public void success() {
         FINAL_TIME = totalTime;
         Navigator.INSTANCE.stackScreen(Screens.SUCCESS);
-        System.out.println("success");
-        System.out.println(time);
+        //System.out.println("success");
+        //System.out.println(FINAL_TIME);
     }
 
     @Override
     public Screens getScreen() {
         return Screens.FOURTY_LINE;
+    }
+
+    public static String msToString(long t) {
+        if (t/60000>0) {
+            return t / 60000 + ":" + (t - (t / 60000) * 60000) / 1000 + "." + t % 1000;
+        } else {
+            return  (t - (t / 60000) * 60000) / 1000 + "." + t % 1000;
+        }
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
     }
 }
