@@ -1,0 +1,80 @@
+
+o	java:S135¦"YReduce the total number of break and continue statements in this loop to use at most one.(¿ôĞš
+l	java:S117Ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èõ£»ıÿÿÿÿ
+r
+java:S1104"\Make SOLO_BOARD_PLACE a static final constant or non-public and provide accessors if needed.(Ğ–¦„
+v
+java:S1104"[Make SOLO_HOLD_PLACE a static final constant or non-public and provide accessors if needed.(øŞ­êşÿÿÿÿ
+v
+java:S1104"`Make SOLO_HOLD_MINO_PLACE a static final constant or non-public and provide accessors if needed.(¾“†–
+v
+java:S1104"[Make SOLO_NEXT_PLACE a static final constant or non-public and provide accessors if needed.(¦ù”ûÿÿÿÿ
+v
+java:S1104"`Make SOLO_NEXT_MINO_PLACE a static final constant or non-public and provide accessors if needed.(Ñ§ÛÆ
+w
+java:S1104"aMake SOLO_FIELD_MINO_PLACE a static final constant or non-public and provide accessors if needed.(Ï‹ï¸
+L
+java:S1444"6Make this "public static SOLO_BOARD_PLACE" field final(Ğ–¦„
+P
+java:S1444"5Make this "public static SOLO_HOLD_PLACE" field final(øŞ­êşÿÿÿÿ
+P
+java:S1444":Make this "public static SOLO_HOLD_MINO_PLACE" field final(¾“†–
+P
+java:S1444"5Make this "public static SOLO_NEXT_PLACE" field final(¦ù”ûÿÿÿÿ
+P
+java:S1444":Make this "public static SOLO_NEXT_MINO_PLACE" field final(Ñ§ÛÆ
+Q
+java:S1444";Make this "public static SOLO_FIELD_MINO_PLACE" field final(Ï‹ï¸
+q
+java:S3008"[Rename this field "SOLO_BOARD_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ–¦„
+u
+java:S3008"ZRename this field "SOLO_HOLD_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øŞ­êşÿÿÿÿ
+u
+java:S3008"_Rename this field "SOLO_HOLD_MINO_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾“†–
+u
+java:S3008"ZRename this field "SOLO_NEXT_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ù”ûÿÿÿÿ
+u
+java:S3008"_Rename this field "SOLO_NEXT_MINO_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ§ÛÆ
+v
+java:S3008"`Rename this field "SOLO_FIELD_MINO_PLACE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï‹ï¸
+3
+java:S2386"Make this member "protected".(Ğ–¦„
+8
+java:S2386"Make this member "protected".(øŞ­êşÿÿÿÿ
+3
+java:S2386"Make this member "protected".(¾“†–
+8
+java:S2386"Make this member "protected".(¦ù”ûÿÿÿÿ
+3
+java:S2386"Make this member "protected".(Ñ§ÛÆ
+3
+java:S2386"Make this member "protected".(Ï‹ï¸
+Q	java:S125+"<This block of commented-out lines of code should be removed.(È©½
+V	java:S1253"<This block of commented-out lines of code should be removed.(©ÍÌëüÿÿÿÿ
+V	java:S125="<This block of commented-out lines of code should be removed.(µššÊùÿÿÿÿ
+N	java:S106?"9Replace this use of System.out or System.err by a logger.(ñ·¤¬
+P	java:S125d"<This block of commented-out lines of code should be removed.(ëåï{
+P	java:S125s"<This block of commented-out lines of code should be removed.(ëåï{
+R	java:S125‹"<This block of commented-out lines of code should be removed.(¹êŞê
+W	java:S125"<This block of commented-out lines of code should be removed.(ƒë¬üÿÿÿÿ
+W	java:S125’"<This block of commented-out lines of code should be removed.(‚Ş›ªûÿÿÿÿ
+i
+java:S3776–"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(ÔåĞä
+R	java:S125—"<This block of commented-out lines of code should be removed.(‹ª¦ 
+R	java:S125§"<This block of commented-out lines of code should be removed.(Ä“ş
+W	java:S125«"<This block of commented-out lines of code should be removed.(»©ıñıÿÿÿÿ
+W	java:S125¯"<This block of commented-out lines of code should be removed.(ƒ÷Öñıÿÿÿÿ
+R	java:S125±"<This block of commented-out lines of code should be removed.(¹êŞê
+W	java:S125´"<This block of commented-out lines of code should be removed.(‚Ş›ªûÿÿÿÿ
+R	java:S125¼"<This block of commented-out lines of code should be removed.(…Âà™
+W	java:S125Ó"<This block of commented-out lines of code should be removed.(Òâ°®ûÿÿÿÿ
+W	java:S125æ"<This block of commented-out lines of code should be removed.(àİíäÿÿÿÿÿ
+W	java:S125ó"<This block of commented-out lines of code should be removed.(ƒë¬üÿÿÿÿ
+W	java:S125ø"<This block of commented-out lines of code should be removed.(ƒë¬üÿÿÿÿ
+Y
+java:S2696»"6Make the enclosing method "static" or remove this set.(›µ¨úÿÿÿÿ8ÿ©ï¬2
+Q	java:S125¹"<This block of commented-out lines of code should be removed.(úÛúz
+N
+java:S1135Á"2Complete the task associated to this TODO comment.(ˆÉŒÎûÿÿÿÿ
+I
+java:S1135Â"2Complete the task associated to this TODO comment.(„äˆ

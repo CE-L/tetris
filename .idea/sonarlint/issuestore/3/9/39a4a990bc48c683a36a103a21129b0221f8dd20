@@ -1,0 +1,40 @@
+
+a
+java:S1192 "KDefine a constant instead of duplicating this literal "rotate.mp3" 9 times.(Ç†ß‡
+7
+java:S6205"Remove this redundant block.(´ƒåÊşÿÿÿÿ
+2
+java:S6205#"Remove this redundant block.(Œì“è
+7
+java:S6205("Remove this redundant block.(å°¯ÿûÿÿÿÿ
+2
+java:S6205-"Remove this redundant block.(òĞ»¿
+7
+java:S62050"Remove this redundant block.(„öìïûÿÿÿÿ
+2
+java:S62053"Remove this redundant block.(¹‘¥×
+7
+java:S62056"Remove this redundant block.(ÖĞÛŠøÿÿÿÿ
+1
+java:S62059"Remove this redundant block.(¯©¼6
+L
+java:S2696="6Make the enclosing method "static" or remove this set.(”Ÿ±©
+2
+java:S6205D"Remove this redundant block.(–êèá
+<	java:S131T""Add a default case to this switch.(“¶“âûÿÿÿÿ
+7
+java:S6205U"Remove this redundant block.(´ƒåÊşÿÿÿÿ
+2
+java:S6205X"Remove this redundant block.(Œì“è
+C	java:S108[")Either remove or fill this block of code.(å°¯ÿûÿÿÿÿ
+2
+java:S6205]"Remove this redundant block.(òĞ»¿
+C	java:S108`")Either remove or fill this block of code.(„öìïûÿÿÿÿ
+2
+java:S6205b"Remove this redundant block.(¹‘¥×
+7
+java:S6205e"Remove this redundant block.(ÖĞÛŠøÿÿÿÿ
+1
+java:S6205h"Remove this redundant block.(¯©¼6
+E
+java:S1068"*Remove this unused "player" private field.(Ç¹Ù±úÿÿÿÿ
